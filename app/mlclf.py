@@ -89,7 +89,7 @@ def main():
 	lsvm_pipe = Pipeline(steps=[("vect", vectorizer),
 								("clf", LinearSVC())])
 
-	lsvm_parameters = {"clf__penalty": ["l1", "l2"],
+	lsvm_parameters = {"clf__penalty": ["l2"],
 					   "clf__loss": ["squared_hinge"],
 					   "clf__tol": [1e-6, 1e-5, 1e-4, 1e-3],
 					   "clf__C": list(range(1, 11)),
@@ -108,6 +108,7 @@ def main():
 	lsvm_grid = GridSearchCV(lsvm_pipe, 
 							 lsvm_parameters,
 							 cv=cv, 
+							 error_score=0.0,
 							 n_jobs=args.n_jobs,
 							 scoring="f1_macro")
 
