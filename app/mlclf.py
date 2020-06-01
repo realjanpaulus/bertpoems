@@ -105,11 +105,14 @@ def main():
 					   "clf__C": list(range(1, 11)),
 					   "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
 	#TODO
+	"""
 	lsvm_parameters = {"clf__penalty": ["l2"],
 					   "clf__loss": ["squared_hinge"],
 					   "clf__tol": [1e-3],
 					   "clf__C": [1.0],
 					   "clf__max_iter": [100]}
+	"""
+
 
 
 	lsvm_grid = GridSearchCV(lsvm_pipe, 
@@ -160,13 +163,6 @@ def main():
 	class2_counts = dict(Counter(class2))
 
 
-	#TODO
-	"""
-	encoder = LabelEncoder()
-	encoder.fit(class1)
-	label_mapping = dict(zip(encoder.classes_, encoder.transform(encoder.classes_)))
-	print(label_mapping)
-	"""
 
 	class1_weights = {"Expressionismus": class1_counts["Expressionismus"],
 					 "Jahrhundertwende": class1_counts["Jahrhundertwende"],
@@ -183,9 +179,11 @@ def main():
 					 "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
 
 	#TODO
+	"""
 	lr_parameters = {"clf__penalty": ["l1"],
 					 "clf__solver": ["liblinear"],
 					 "clf__max_iter": [1000]}
+	"""
 	
 
 	lr_parameters.update({"clf__class_weight": [class1_weights]})
