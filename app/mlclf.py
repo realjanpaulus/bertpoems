@@ -1,6 +1,5 @@
 ## TODO:
 # - alles überprüfen
-# - unnötiges rauscutten
 # - njobs bei grid search mal testen
 # - LR: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
 # 	- für imbalanced dataset
@@ -16,10 +15,11 @@ import logging
 import numpy as np
 import pandas as pd
 
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score 
-from sklearn.model_selection import cross_val_score, train_test_split, GridSearchCV
+from sklearn.model_selection import cross_val_score, cross_validate, GridSearchCV, train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
@@ -45,7 +45,6 @@ def main():
 	n_jobs = args.n_jobs
 	cv = 10
 	cv_dict = {}
-	# TODO überprüfen
 	vectorizer = TfidfVectorizer(lowercase=args.lowercase,
 								 max_features=args.max_features,
 								 ngram_range=(1,1),
@@ -100,36 +99,48 @@ def main():
 	lsvm_pipe = Pipeline(steps=[("vect", vectorizer),
 						   		("clf", LinearSVC())])
 
+	lsvm_parameters = {"clf__penalty": ["l1", "l2"],
+					   "clf__loss": ["squared_hinge"],
+					   "clf__tol": [1e-6, 1e-5, 1e-4, 1e-3],
+					   "clf__C": list(range(1, 11)),
+					   "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
+
 	lsvm_parameters = {"clf__penalty": ["l2"],
 					   "clf__loss": ["squared_hinge"],
-					   "clf__C": [1.0],
-					   "clf__max_iter": [1000]}
+					   "clf__tol": [1e-3],
+					   "clf__C": [1.0, 2.0],
+					   "clf__max_iter": [200, 300]}
 
 	lsvm_grid = GridSearchCV(lsvm_pipe, 
 							 lsvm_parameters,
 							 cv=cv, 
 							 scoring="f1_macro")
 
-	lsvm_cross_val1 = np.mean(cross_val_score(lsvm_grid, 
-											  features, 
-											  class1, 
-											  cv=cv, 
-											  scoring="f1_macro"))
 
-	lsvm_cross_val2 = np.mean(cross_val_score(lsvm_grid, 
-											  features, 
-											  class2, 
-											  cv=cv, 
-											  scoring="f1_macro"))
+	lsvm_cv_scores1 = cross_validate(lsvm_grid,
+									 features, 
+									 class1, 
+									 cv=cv, 
+									 return_estimator=False,
+									 scoring="f1_macro")
 
 
-	cv_dict["LSVM"] = {"year": lsvm_cross_val1,
-					   "poet": lsvm_cross_val2}
+	lsvm_cv_scores2 = cross_validate(lsvm_grid, 
+									  features, 
+									  class2, 
+									  cv=cv, 
+									  return_estimator=False,
+									  scoring="f1_macro")
+
+	
+	cv_dict["LSVM"] = {"year": np.mean(lsvm_cv_scores1["test_score"]),
+					   "poet": np.mean(lsvm_cv_scores2["test_score"])}
 
 
 	lsvm_duration = float(time.time() - lsvm_st)
 	clf_durations["LSVM"].append(lsvm_duration)
 	logging.info(f"Run-time LSVM: {lsvm_duration} seconds")
+
 
 	# =====================
 	# Logistic Regression #
@@ -145,29 +156,38 @@ def main():
 	lr_parameters = {"clf__penalty": ["l2"],
 				     "clf__max_iter": [1000]}
 
-	lr_grid = GridSearchCV(lr_pipe, 
-						   lr_parameters,
-						   cv=cv, 
-						   scoring="f1_macro")
+    #TODO
 
-	lr_cross_val1 = np.mean(cross_val_score(lr_grid, 
-										 	features, 
-										 	class1, 
-										 	cv=cv, 
-										 	scoring="f1_macro"))
+    lr_grid = GridSearchCV(lr_pipe, 
+    					   lr_parameters,
+    					   cv=cv, 
+    					   scoring="f1_macro")
 
-	lr_cross_val2 = np.mean(cross_val_score(lr_grid, 
-											features, 
-											class2, 
-											cv=cv, 
-											scoring="f1_macro"))
 
-	cv_dict["LR"] = {"year": lr_cross_val1,
-					 "poet": lr_cross_val2}
+	lr_cv_scores1 = cross_validate(lr_grid,
+								   features, 
+								   class1, 
+								   cv=cv, 
+								   return_estimator=False,
+								   scoring="f1_macro")
+
+
+	lr_cv_scores2 = cross_validate(lr_grid, 
+								   features, 
+								   class2, 
+								   cv=cv, 
+								   return_estimator=False,
+								   scoring="f1_macro")
+
+	
+	cv_dict["LR"] = {"year": np.mean(lr_cv_scores1["test_score"]),
+					 "poet": np.mean(lr_cv_scores2["test_score"])}
+
 
 	lr_duration = float(time.time() - lr_st)
 	clf_durations["LR"].append(lr_duration)
 	logging.info(f"Run-time LR: {lr_duration} seconds")
+
 
 
 	#TODO Visualisieren
