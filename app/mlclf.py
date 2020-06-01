@@ -1,11 +1,3 @@
-## TODO:
-# - alles überprüfen
-# - LR: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
-#   - für imbalanced dataset
-#   - vllt als Lösung für weitere Verbesserungen?
-# - DL Modelle hinzufügen! oder doch nciht?
-# - mehr hyperparameters zum tunen eingeben
-
 #!/usr/bin/env python
 import argparse
 from collections import Counter, defaultdict
@@ -25,8 +17,6 @@ from sklearn.svm import LinearSVC
 
 import sys
 import time
-# TODO
-#from visualization import visualize
 
 
 def main():
@@ -104,7 +94,7 @@ def main():
 					   "clf__tol": [1e-6, 1e-5, 1e-4, 1e-3],
 					   "clf__C": list(range(1, 11)),
 					   "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
-	#TODO
+	#ALTERNATIVE
 	"""
 	lsvm_parameters = {"clf__penalty": ["l2"],
 					   "clf__loss": ["squared_hinge"],
@@ -178,7 +168,7 @@ def main():
 					 "clf__solver": ["liblinear"],
 					 "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
 
-	#TODO
+	#ALTERNATIVE
 	"""
 	lr_parameters = {"clf__penalty": ["l1"],
 					 "clf__solver": ["liblinear"],
@@ -187,10 +177,10 @@ def main():
 	
 
 	lr_parameters.update({"clf__class_weight": [class1_weights]})
-	print(lr_parameters)
 	lr_grid1 = GridSearchCV(lr_pipe, 
 							lr_parameters,
 							cv=cv, 
+							error_score=0.0,
 							n_jobs=args.n_jobs,
 							scoring="f1_macro")
 
@@ -198,6 +188,7 @@ def main():
 	lr_grid2 = GridSearchCV(lr_pipe, 
 							lr_parameters,
 							cv=cv, 
+							error_score=0.0,
 							n_jobs=args.n_jobs,
 							scoring="f1_macro")
 
@@ -225,10 +216,6 @@ def main():
 	lr_duration = float(time.time() - lr_st)
 	clf_durations["LR"].append(lr_duration)
 	logging.info(f"Run-time LR: {lr_duration} seconds")
-
-
-
-	#TODO Visualisieren. oder doch nicht?
 
 
 	# ===========================================
@@ -260,8 +247,6 @@ if __name__ == "__main__":
 	parser.add_argument("--max_features", "-mf", type=int, default=60000, help="Indicates the number of most frequent words.")
 	parser.add_argument("--n_jobs", "-nj", type=int, default=1, help="Indicates the number of processors used for computation.")
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
-	#TODO weg?
-	parser.add_argument("--visualization", "-v", action="store_true", help="Indicates if results should be visualized.")
 	
 	args = parser.parse_args()
 
