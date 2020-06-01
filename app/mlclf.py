@@ -1,15 +1,14 @@
 ## TODO:
 # - alles überprüfen
-# - njobs bei grid search mal testen
 # - LR: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
-# 	- für imbalanced dataset
-#	- vllt als Lösung für weitere Verbesserungen?
+#   - für imbalanced dataset
+#   - vllt als Lösung für weitere Verbesserungen?
 # - DL Modelle hinzufügen! oder doch nciht?
 # - mehr hyperparameters zum tunen eingeben
 
 #!/usr/bin/env python
 import argparse
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime
 import logging
 import numpy as np
@@ -21,6 +20,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score 
 from sklearn.model_selection import cross_val_score, cross_validate, GridSearchCV, train_test_split
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import LabelEncoder
 from sklearn.svm import LinearSVC
 
 import sys
@@ -91,29 +91,31 @@ def main():
 	class1 = corpus[class_name1]
 	class2 = corpus[class_name2]
 
-    # ============
+	# ============
 	# Linear SVM #
 	# ============
 
 	lsvm_st = time.time()
 	lsvm_pipe = Pipeline(steps=[("vect", vectorizer),
-						   		("clf", LinearSVC())])
+								("clf", LinearSVC())])
 
 	lsvm_parameters = {"clf__penalty": ["l1", "l2"],
 					   "clf__loss": ["squared_hinge"],
 					   "clf__tol": [1e-6, 1e-5, 1e-4, 1e-3],
 					   "clf__C": list(range(1, 11)),
 					   "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
-
+	#TODO
 	lsvm_parameters = {"clf__penalty": ["l2"],
 					   "clf__loss": ["squared_hinge"],
 					   "clf__tol": [1e-3],
-					   "clf__C": [1.0, 2.0],
-					   "clf__max_iter": [200, 300]}
+					   "clf__C": [1.0],
+					   "clf__max_iter": [100]}
+
 
 	lsvm_grid = GridSearchCV(lsvm_pipe, 
 							 lsvm_parameters,
 							 cv=cv, 
+							 n_jobs=args.n_jobs,
 							 scoring="f1_macro")
 
 
@@ -150,21 +152,59 @@ def main():
 	lr_st = time.time()
 
 	lr_pipe = Pipeline(steps=[("vect", vectorizer),
-						   	  ("clf", LogisticRegression())])
+							  ("clf", LogisticRegression())])
 
 
-	lr_parameters = {"clf__penalty": ["l2"],
-				     "clf__max_iter": [1000]}
-
-    #TODO
-
-    lr_grid = GridSearchCV(lr_pipe, 
-    					   lr_parameters,
-    					   cv=cv, 
-    					   scoring="f1_macro")
+	# extracting class weights#
+	class1_counts = dict(Counter(class1))
+	class2_counts = dict(Counter(class2))
 
 
-	lr_cv_scores1 = cross_validate(lr_grid,
+	#TODO
+	"""
+	encoder = LabelEncoder()
+	encoder.fit(class1)
+	label_mapping = dict(zip(encoder.classes_, encoder.transform(encoder.classes_)))
+	print(label_mapping)
+	"""
+
+	class1_weights = {"Expressionismus": class1_counts["Expressionismus"],
+					 "Jahrhundertwende": class1_counts["Jahrhundertwende"],
+					 "Naturalismus": class1_counts["Naturalismus"]}
+
+	class2_weights = {"Expressionismus": class2_counts["Expressionismus"],
+					 "Jahrhundertwende": class2_counts["Jahrhundertwende"],
+					 "Naturalismus": class2_counts["Naturalismus"]}
+
+	lr_parameters = {"clf__penalty": ["l1", "l2"],
+					 "clf__tol": [1e-6, 1e-5, 1e-4, 1e-3],
+					 "clf__C": list(range(1, 11)),
+					 "clf__solver": ["liblinear"],
+					 "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
+
+	#TODO
+	lr_parameters = {"clf__penalty": ["l1"],
+					 "clf__solver": ["liblinear"],
+					 "clf__max_iter": [1000]}
+	
+
+	lr_parameters.update({"clf__class_weight": [class1_weights]})
+	print(lr_parameters)
+	lr_grid1 = GridSearchCV(lr_pipe, 
+							lr_parameters,
+							cv=cv, 
+							n_jobs=args.n_jobs,
+							scoring="f1_macro")
+
+	lr_parameters.update({"clf__class_weight": [class2_weights]})
+	lr_grid2 = GridSearchCV(lr_pipe, 
+							lr_parameters,
+							cv=cv, 
+							n_jobs=args.n_jobs,
+							scoring="f1_macro")
+
+
+	lr_cv_scores1 = cross_validate(lr_grid1,
 								   features, 
 								   class1, 
 								   cv=cv, 
@@ -172,7 +212,7 @@ def main():
 								   scoring="f1_macro")
 
 
-	lr_cv_scores2 = cross_validate(lr_grid, 
+	lr_cv_scores2 = cross_validate(lr_grid2, 
 								   features, 
 								   class2, 
 								   cv=cv, 
@@ -190,7 +230,7 @@ def main():
 
 
 
-	#TODO Visualisieren
+	#TODO Visualisieren. oder doch nicht?
 
 
 	# ===========================================
@@ -222,6 +262,7 @@ if __name__ == "__main__":
 	parser.add_argument("--max_features", "-mf", type=int, default=60000, help="Indicates the number of most frequent words.")
 	parser.add_argument("--n_jobs", "-nj", type=int, default=1, help="Indicates the number of processors used for computation.")
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
+	#TODO weg?
 	parser.add_argument("--visualization", "-v", action="store_true", help="Indicates if results should be visualized.")
 	
 	args = parser.parse_args()
