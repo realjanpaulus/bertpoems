@@ -9,14 +9,17 @@ import pandas as pd
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import f1_score 
-from sklearn.model_selection import cross_val_score, cross_validate, GridSearchCV, train_test_split
+#TODO from sklearn.metrics import f1_score 
+from sklearn.model_selection import cross_val_score, cross_validate, GridSearchCV, StratifiedKFold, train_test_split
+from sklearn.multiclass import OneVsRestClassifier
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, MultiLabelBinarizer
 from sklearn.svm import LinearSVC
 
 import sys
 import time
+
+from utils import multilabel_col, reverse_diag
 
 
 def main():
@@ -71,6 +74,12 @@ def main():
 	class_name2 = "epoch_poet"
 	text_name = "poem"
 
+	if args.multilabel:
+		cols = ["epoch_year", "epoch_poet"]
+		corpus["epochs"] = corpus[cols].apply(lambda row: multilabel_col(list(row.values)), axis=1) 
+		class3 = [set(row['epochs'].split(',')) for index, row in corpus[["epochs"]].iterrows()]
+		class3 = MultiLabelBinarizer().fit_transform(class3)
+
 	logging.info(f"Read {args.corpus_name} corpus ({int((time.time() - program_st)/60)} minute(s)).")
 	
 	# ================
@@ -80,6 +89,8 @@ def main():
 	features = corpus[text_name]
 	class1 = corpus[class_name1]
 	class2 = corpus[class_name2]
+
+	
 
 	# ============
 	# Linear SVM #
@@ -102,8 +113,6 @@ def main():
 					   "clf__C": [1.0],
 					   "clf__max_iter": [100]}
 	"""
-
-
 
 	lsvm_grid = GridSearchCV(lsvm_pipe, 
 							 lsvm_parameters,
@@ -129,8 +138,36 @@ def main():
 									  scoring="f1_macro")
 
 	
+	if args.multilabel:
+		lsvm_pipe = Pipeline(steps=[("vect", vectorizer),
+									("clf", OneVsRestClassifier(LinearSVC()))])
+
+		lsvm_parameters = {"clf__estimator__penalty": ["l2"],
+						   "clf__estimator__loss": ["squared_hinge"],
+						   "clf__estimator__tol": [1e-6, 1e-5, 1e-4, 1e-3],
+						   "clf__estimator__C": list(range(1, 11)),
+						   "clf__estimator__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
+
+		lsvm_grid = GridSearchCV(lsvm_pipe, 
+								 lsvm_parameters,
+								 cv=cv, 
+								 error_score=0.0,
+								 n_jobs=args.n_jobs,
+								 scoring="f1_macro")
+
+
+		lsvm_cv_scores3 = cross_validate(lsvm_grid, 
+										 features, 
+										 class3, 
+										 cv=cv,
+										 return_estimator=False,
+										 scoring="f1_macro")
+		
+
+	
 	cv_dict["LSVM"] = {"year": np.mean(lsvm_cv_scores1["test_score"]),
-					   "poet": np.mean(lsvm_cv_scores2["test_score"])}
+					   "poet": np.mean(lsvm_cv_scores2["test_score"]),
+					   "multilabel": np.mean(lsvm_cv_scores3["test_score"])}
 
 
 	lsvm_duration = float(time.time() - lsvm_st)
@@ -149,7 +186,7 @@ def main():
 							  ("clf", LogisticRegression())])
 
 
-	# extracting class weights#
+	# extracting class weights #
 	class1_counts = dict(Counter(class1))
 	class2_counts = dict(Counter(class2))
 
@@ -164,10 +201,10 @@ def main():
 					 "Naturalismus": class2_counts["Naturalismus"]}
 
 	lr_parameters = {"clf__penalty": ["l1", "l2"],
-					 "clf__tol": [1e-6, 1e-5, 1e-4, 1e-3],
+					 "clf__tol": [1e-5, 1e-3],
 					 "clf__C": list(range(1, 11)),
 					 "clf__solver": ["liblinear"],
-					 "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
+					 "clf__max_iter": [1000, 3000, 5000]}
 
 	#ALTERNATIVE
 	"""
@@ -175,7 +212,6 @@ def main():
 					 "clf__solver": ["liblinear"],
 					 "clf__max_iter": [1000]}
 	"""
-	
 
 	lr_parameters.update({"clf__class_weight": [class1_weights]})
 	lr_grid1 = GridSearchCV(lr_pipe, 
@@ -209,15 +245,42 @@ def main():
 								   return_estimator=False,
 								   scoring="f1_macro")
 
+
+	if args.multilabel:
+		# class weights won't be used here
+		lr_pipe = Pipeline(steps=[("vect", vectorizer),
+							  ("clf", OneVsRestClassifier(LogisticRegression()))])
+
+		lr_parameters = {"clf__estimator__penalty": ["l1", "l2"],
+						 "clf__estimator__tol": [1e-5, 1e-3],
+						 "clf__estimator__C": list(range(1, 11)),
+						 "clf__estimator__solver": ["liblinear"],
+						 "clf__estimator__max_iter": [1000, 3000, 5000]}
+
+		lr_grid = GridSearchCV(lr_pipe, 
+							  lr_parameters,
+							  cv=cv, 
+							  error_score=0.0,
+							  n_jobs=args.n_jobs,
+							  scoring="f1_macro")
+
+
+		lr_cv_scores3 = cross_validate(lr_grid,
+									   features, 
+									   class3, 
+									   cv=cv, 
+									   return_estimator=False,
+									   scoring="f1_macro")
+
 	
 	cv_dict["LR"] = {"year": np.mean(lr_cv_scores1["test_score"]),
-					 "poet": np.mean(lr_cv_scores2["test_score"])}
+					 "poet": np.mean(lr_cv_scores2["test_score"]),
+					 "multilabel": np.mean(lr_cv_scores3["test_score"])}
 
 
 	lr_duration = float(time.time() - lr_st)
 	clf_durations["LR"].append(lr_duration)
 	logging.info(f"Run-time LR: {lr_duration} seconds")
-
 
 	# ===========================================
 	# Saving classification results & durations #
@@ -246,6 +309,7 @@ if __name__ == "__main__":
 	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
 	parser.add_argument("--lowercase", "-l", type=bool, default=False, help="Indicates if words should be lowercased.")
 	parser.add_argument("--max_features", "-mf", type=int, default=60000, help="Indicates the number of most frequent words.")
+	parser.add_argument("--multilabel", "-ml", action="store_true", help="Indicates if multilabel classification should be used.")
 	parser.add_argument("--n_jobs", "-nj", type=int, default=1, help="Indicates the number of processors used for computation.")
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
 	

@@ -13,6 +13,16 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from typing import Dict, List, Optional, Tuple, Union
 
+def multilabel_col(cols):
+    if cols[0] != cols[1]:
+        return cols[0] + "," + cols[1]
+    else:
+        return cols[0]
+
+def reverse_diag(arr):
+    narr = arr.copy()
+    np.fill_diagonal(narr, list(narr.diagonal())[::-1])
+    return narr
 
 def df_to_latex(df, alignment="c"):
     """ Convert a pandas dataframe to a LaTeX tabular.

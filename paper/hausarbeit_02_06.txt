@@ -1,0 +1,549 @@
+\documentclass[12pt,oneside]{scrartcl}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   Zusaetzliche Pakete  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{acronym}
+\usepackage{enumerate}  
+\usepackage{a4wide}
+\usepackage[a4paper,bindingoffset=0.2in,%
+            left=0.7in,right=0.7in,top=1.0in,bottom=1.0in,%
+            footskip=0.25in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{palatino}
+\usepackage{blindtext}
+\usepackage{multirow}
+\usepackage[ruled,longend]{algorithm2e}
+
+
+%folgende Zeile auskommentieren für englische Arbeiten
+\usepackage[ngerman]{babel}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bookmarks]{hyperref}
+\usepackage[font=small,labelfont=bf,justification=justified, format=plain]{caption}
+\captionsetup[table]{singlelinecheck = off, justification=justified}
+\captionsetup[figure]{justification=justified, singlelinecheck=off} 
+\usepackage[style=authoryear-comp,natbib=true,backend=biber]{biblatex}
+\usepackage{csquotes}
+\addbibresource{literatur.bib}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% meine hinzugefügten Pakete %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{float}
+
+%% Caption für Bilder, Tabellen u.ä.
+\usepackage{subcaption}
+\usepackage{caption}
+
+\usepackage[none]{hyphenat}
+\sloppy
+\usepackage{scrextend}
+
+\deffootnote[1em]{1em}{1em}{\textsuperscript{\makebox[1em][l]{\thefootnotemark}}}
+
+\usepackage{mathtools}
+\usepackage[toc, page]{appendix}
+\renewcommand\appendixtocname{Appendix}
+\renewcommand\appendixpagename{Appendix}
+\usepackage{mwe}
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.25} % Zeilenabstand
+\usepackage{tabularx}
+\usepackage{multirow} % für Tabellen mit Multi-Spalten
+
+
+% eingerückter Fußnotentext
+\usepackage[hang, bottom]{footmisc} % Fußnoten am Ende der Seite und hängend
+\setlength\footnotemargin{10pt}
+
+%% Definition einer dickeren hline %%
+\makeatletter
+\def\thickhline{%
+  \noalign{\ifnum0=`}\fi\hrule \@height \thickarrayrulewidth \futurelet
+   \reserved@a\@xthickhline}
+    \def\@xthickhline{\ifx\reserved@a\thickhline
+                   \vskip\doublerulesep
+                   \vskip-\thickarrayrulewidth
+                 \fi
+      \ifnum0=`{\fi}}
+\makeatother
+
+\newlength{\thickarrayrulewidth}
+\setlength{\thickarrayrulewidth}{3\arrayrulewidth}
+
+\usepackage{xurl} % Schönere Anzeige der URLs
+
+\usepackage[export]{adjustbox} % für left aligned Bilder
+
+\usepackage{makecell} % für Zellen in Tabellen, um so was wie Linebreaks zu ermöglichen
+
+\usepackage{enumitem} %für bessere Kontrolle über Aufzählungsitems
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definition der Kopfzeile %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\setlength{\headheight}{16pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Definition des Deckblattes und der Titelseite  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\JMUTitle}[9]{
+
+  \thispagestyle{empty}
+  \vspace*{\stretch{1}}
+  {\parindent0cm
+  \rule{\linewidth}{.7ex}}
+  \begin{center} %%Rechts: flushright
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\Huge
+    #1\\
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\large
+    #2
+    \vspace*{\stretch{1}}
+  \end{center} %%Rechts: flushright
+  \rule{\linewidth}{.7ex}
+
+  \vspace*{\stretch{1}}
+  \begin{center}
+    \includegraphics[width=2in]{siegel} \\
+    \vspace*{\stretch{1}}
+    \Large Seminararbeit  \\
+
+    \vspace*{\stretch{2}}
+   \large Institut für deutsche Philologie \\
+          Lehrstuhl für Computerphilologie\\ und Neuere Deutsche Literaturgeschichte\\
+    \vspace*{\stretch{1}}
+    \large Dozent:  #7 \\[1mm]
+    \large Seminar: Textklassifikation \\[1mm]
+    
+    \vspace*{\stretch{1}}
+    \large W\"urzburg, den #6
+  \end{center}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Beginn des Dokuments  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+  \JMUTitle
+    %TODO
+      {Epocheneinteilung der Lyrik in der Frühen Moderne mit BERT} % Titel der Arbeit
+      {Jan Paulus} % Vor- und Nachname des Autors
+      
+      {Institut für deutsche Philologie
+Lehrstuhl für Computerphilologie und Neuere Deutsche Literaturgeschichte}  % Name der Fakultaet
+      {W"urzburg 2020} % Ort und Jahr der Erstellung
+      {13.02.2020} % Tag der Abgabe
+      {Prof. Dr. Fotis Jannidis} % Name des Erstgutachters
+      {Zweitgutachter} % Name des Zweitgutachters
+      {Pr"ufungsdatum} % Datum der muendlichen Pruefung
+
+  \clearpage
+\sloppy
+\lhead{}
+\pagenumbering{Roman} 
+    \setcounter{page}{1}
+
+\tableofcontents
+\clearpage
+
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Einstellungen  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\pagenumbering{arabic}  
+    \setcounter{page}{1}
+\lhead{\nouppercase{\leftmark}}
+\setkomafont{sectioning}{\bfseries\scshape} %different section styling
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Hauptteil  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{TODO, IDEEN}
+
+\begin{itemize}
+    \item TODO: Korpus erklären
+    \item TODO: stilometrie forschung mit einbeziehen
+    \item TODO: BERT erklären
+    \item TODO: Domänenadaption erklären
+    \item TODO: Erklären, wieso LR, SVM, CNN
+    \item TODO: Evaluation erklären: CV, McNemar Test
+    \item TODO?: historische deutsche word embeddings verwenden \href{https://nlp.stanford.edu/projects/histwords/}{LINK}
+    \item TODO: (indirekt) erklären, dass XLNet nicht ging, da nur BERT deutsche Modelle
+    \item Literatur Zitierung überprüfen
+    \item in Einleitung erwähnen, dass Begriff der Subepoche und literarischen Strömung gleich verwendet wird
+    \item wichtige Verfahren mit \textsc{Kapitälchen} highlighten
+    \item Ngramme bei Ml-clf verwenden
+\end{itemize}
+
+PROBLEME?
+\begin{itemize}
+    \item Epocheneinteilung des Naturalismus und der Jahrhundertwende. TODO: verschiedene Grenzen ausprobieren und auch problematische Autoren durch Confusion Matrix ermitteln. Diese eventuell dann anderer Epoche zuordnen.
+\end{itemize}
+
+LITERATUR
+\begin{itemize}
+    \item WIELAND 2019: Einteilung von Epochen
+    \item HAIDER 2019: DLK-Korpus, macht ansonsten aber eher Topic Modelling
+    \item DHD2019, S. 66, HAIDER Vortrag: Klassifizierung in Zeitfenster und Autorschaft zwar vielversprechend, für bessere Themenmodelle im Sinne klarer Trend- und Top-Themen wäre jedoch eine bessere Grundlage für die Modellierung diachroner Transformationen in der Poesie notwendig.
+    \item DHD2020, S. 127, KRAUTTER paper: TODO
+\end{itemize}
+
+NOTIZEN
+
+TODO: signal muss nicht unbedingt epoche sein?
+TODO: autoren wurde nach neue deutsche biographie händisch in epochen extra unterteilt. ICH: gucken, wie sich das unterscheidet von epocheneinteilung nach jahreszahlen
+TODO/IDEE: bei klassifizierungsexperiment nach einteilung von wieland auch experiment mit einteilung nach epochenzugehörigkeit nach dichter (auch wenn das auch wieder nicht ganz unproblematisch ist, da dichter nicht immer gleichen stil haben müssen, z.b. morgenstern). diese experimente auch miteinander vergleichen um gucken, ob denn das gleiche signal gefunden wurde. dies wird verglichen, indem man die falsch klassifizierten autoren miteinander vergleicht. wenn jetzt die klassifizierung mit einteilung B besser war, müssten die fehlerhaften klassifizierungen von einteilung A betrachtet werden. sind z.B. gedichte von nietzsche fälschlicherweise durch zeiteinteilung von A zu naturalismus zugeordnet (obwohl laut B eigentlich zu jahrhundertwende), müsste klassifizierung von B angeschaut werden: ist das 
+
+
+ÜBERBLEIBSEL
+TODO: dhd paper 2019
+TODO zu Epocheneinteilung: \url{https://nlp.stanford.edu/courses/cs224n/2010/reports/sheldonc-yiam-colgrove.pdf}
+
+\pagebreak
+
+\section{Einleitung} 
+\label{einleitung}
+
+Eine der Hauptaufgaben der Literaturgeschichte ist die Rekonstruktion derselben, welche mithilfe von repräsentativen Textkorpora sowie einer Periodisierung in \textit{Epochen} erfolgt \citep[405]{titzmann1991}. Titzmann definiert den Begriff der Epoche wie folgt:
+
+\begin{quote}
+Eine Epoche ist ein zeitlich begrenztes System, das wir von einer Menge von Texten abstrahieren und von dem wir behaupten, daß seine fundamentalen Merkmale bzw. Strukturen in diesem Zeitraum konstant bleiben \citep[405]{titzmann1991}. 
+\end{quote}
+
+Einer Epoche sind demnach einer Menge von Texten zugeordnet und ein Text kann einer Epoche angehören.\footnote{In dieser Arbeit wird angenommen, dass ein Text nur genau einer literarischen Epoche zugeordnet ist.} Eine Aufgabe der Literaturgeschichte ist es, Texten einer Epoche aus einer Menge von Epochen zuzuordnen. Während diese Einteilung von Literaturhistorikern händisch (AW) durchgeführt werden kann, ist es auch möglich, die Einteilung maschinell durchzuführen. Dafür bietet sich das Verfahren der \textit{maschinellen Textklassifikation} an, bei dem ein maschinelles Lernverfahren anhand von bereits zugeordneten Klassen lernt, welche Texte einer Klasse zugeordnet werden. Das Verfahren der computergestützten Textklassifikation gehört zu den sogenannten \textit{überwachten Lernverfahren}, was bedeutet, dass den Daten bereits Klassen zugeordnet sein müssen, damit das Klassifizierungsverfahren diese zum Lernen verwenden kann \citep{russell2016}. TODO: BERT
+
+Das grundlegende Ziel dieser Arbeit ist es, die Periodisierung von Subepochen\footnote{In dieser Arbeit wird der Begriff der \glqq Subepoche\grqq{} deckungsgleich mit dem Begriff \glqq literarische Strömung\grqq{} verwendet. Gemeint ist damit eine literarische Epoche oder Strömung, der eine literarische Epoche übergeordnet ist. So werden in dieser Arbeit die literarischen Strömungen \glqq Naturalismus\grqq{}, \glqq Jahrhundertwende\grqq{} und \glqq Expressionismus\grqq{} als Subepochen bezeichnet, da sie der Epoche \glqq Frühe Moderne\grqq{} untergeordnet sind (siehe auch Kapitel 2.2 (TODO)).} der \textit{Frühen Moderne} für ein Lyrik-Korpus mithilfe von maschinellen Klassifikationsverfahren durchzuführen. Das verwendete Lyrik-Korpus besitzt keine Epochenannotationen, weshalb für die Verwendung der Klassifizierungsverfahren manuell Epochenannotation hinzugefügt wurden (Abschnitt 2.2 (TODO)). Dabei wurde sich an den Epocheneinteilungen von Klaus Wieland für die Frühe Moderne orientiert \citep{wieland2019}. Die manuelle Einteilung war jedoch nicht ganz unproblematisch
+
+
+Der Annotierungsvorgang war nicht ganz unproblematisch
+
+
+
+
+
+
+welchen Klassen angehören, wobei die Klassen in diesem Fall durch Epochen dargestellt werden. Das Verfahren der computergestützten Textklassifikation gehört zu den sogenannten \textit{überwachten Lernverfahren}, was bedeutet, dass den Daten Klassen zugeordnet sein müssen \citep{russell2016}.
+
+
+
+Dies bedeutet jedoch, dass Klassenzuordnungen zu Texten bereits vorhanden sein müssen (TODO: WEG?)
+
+
+Diese Einteilung ist nicht endgültig und deshalb oft Gegenstand von Diskussionen (AF, TODO LIT). 
+
+Die konstanten Merkmale und Strukturen sind sowohl auf der formalen als auch auf der inhaltlich-thematischen Ebene der Texte zu suchen.
+
+
+
+Die Zuordnung von Epochen
+
+TODO:\bigskip
+Die Zuordnung von 
+Neben der Aufteilung von Zeitabschnitten in Epochen benötigt die Li...
+
+Eine Epoche muss also einem literarischen Text zugeordnet werden. Diese Aufgabe kann entweder per Hand (?) durchgeführt werden, was jedoch einiges an Ressourcen kostet (AF) oder aber maschinell durchgeführt werden. Dafür bietet sich das Verfahren der \textit{maschinellen Textklassifikation} an, bei dem ein Machine Learning Verfahren anhand von bereits zugeordneten Klassen lernt, welche Texte welchen Klassen angehören, wobei die Klassen in diesem Fall durch Epochen dargestellt werden. 
+
+
+
+
+
+\bigskip
+TODO
+
+\begin{itemize}
+    \item Ein weiteres Problem für die Periodisierung von literarischen Epochen oder Strömungen ist das zugrunde liegende Korpus, da nach Titzmann Litera
+    \item Im Bereich des Natural Language Processing gehört die computergestützte Textklassifikation zu einem festen Bestandteil der gängigen Verfahren \citep[1]{kowsari2019}. Die Digital Humanities greifen oft auf Verfahren des Natural Language Processing zurück und so findet auch die Textklassifikation in Forschungsgebieten der Digital Humanities Anwendungsgebiete \citep{dhd2019} (TODO: lieber was anderes nehmen!). Dazu werden Klassifizierungsverfahren aus dem Bereich des Machine Learning verwendet (3.1 TODO). Sehr verbreite Machine Learning Klassifizierungsverfahren sind Logistic Regression und Support Vector Machines \citep[20f.]{kowsari2019}, was nicht zuletzt an der Einbindung in das beliebte Machine Learning Framework Scikit-Learn\footnote{Siehe \url{https://scikit-learn.org/stable/} (abgerufen am 19.05.2020).} liegt. In den letzten Jahren gewannen Neuronale Netze durch den Aufstieg von Deep Learning immer mehr an Bedeutung, da mit neuen Verfahren State-of-the-Art Ergebnisse in vielen Bereichen des Natural Language Processing, unter anderem auch der Textklassifikation, erreicht werden konnten \citep[3, 54]{kowsari2019}. Dies lag vor allem auch an dem Durchbruch der Word Embeddings \citep{mikolov2013}, die durch eine Projektion in einen semantischen Raum neue Repräsentationsmöglichkeiten von Worten und ihren Beziehungen zueinander ermöglichten. Ein weiterer Grund für den Erfolg der neuronalen Netze in den letzten Jahren war die Entwicklung von Sprachmodellen, bei dem sich vor allem das Sprachmodell BERT (TODO Devlin) durch eine Reihe von Rekorden in verschiedenen Natural Language Processing Problemen hervortat (AF!!) (3.2 TODO). Einige dieser Rekorde wurde kaum ein Jahr später von XLNet gebrochen \footnote{Siehe  \url{https://nlpprogress.com/english/text_classification.html} (abgerufen am 07.05.2020).}, welches einige Verbesserungen an BERT durchführte, viele Konzepte von BERT jedoch übernahm (TODO LIT) (3.2 TODO).
+    \item WIELAND 2019, S. 6: titzman definiton von epoche übernehmen
+\end{itemize}
+
+\section{Das Korpus}
+\label{korpus}
+
+\subsection{Das ursprüngliche Korpus}
+\label{ursprüngliche_korpus}
+
+Für die Experimente in dieser Arbeit wurde eine verkürzte Version des Deutschen Lyrik Korpus (DLK) von Thomas Haider und Steffen Eger verwendet \citep{haider2019}.\footnote{Es wurde hier die vierte Version des Korpus aus dem Github-Repository verwendet (siehe \url{https://github.com/tnhaider/DLK}. Alle Aussagen über das Korpus in dieser Arbeit gelten nur für diese Version.} Das ursprüngliche Korpus umfasst eine Zeitspanne von 1575 bis 1936 und somit mehrere literarische Epochen. Da in dieser Arbeit nur die Frühe Moderne und ihre literarischen Strömungen behandelt werden sollten, wurde das Korpus auf einen Zeitraum von 1880 bis 1933 gekürzt. Diese Epocheneinteilung richtet sich nach Klaus Wielands zeitlichen Einordnung der Frühen Moderne \citep{wieland2019}. Das Korpus enthält für jedes Gedicht eine Gedichts-ID (\glqq PID\grqq{}), den Namen des Dichters (\glqq poet\grqq{}), den Titel des Gedichts (\glqq title\grqq{}), das Erscheinungsjahr (\glqq year\grqq{}), das Gedicht (\glqq poem\grqq{}) und die Länge des Gedichts (\glqq poemlength\grqq{}). Die Länge jedes Gedichts orientiert sich an den Anzahl der Tokens. Eine Epochenannotation ist nur für einige Gedichte verfügbar,\footnote{Das Korpus wurde aus verschiedenen Quellen zusammengesetzt und für das Teilkorpus ANTI-K sind Epochenannotationen verfügbar \citep[218]{haider2019}.} diese sind jedoch in dem zur Verfügung gestellten Korpus nicht vorhanden. Die Gedichte im ursprünglichen Korpus lagen in Stanzas vor und wurden für die Benutzung in dieser Arbeit in der richtigen Reihenfolge zusammengefügt. 1104 der 59424 zusammengesetzten Gedichte sind nicht vollständig. Gedichte, die aus weniger als 15 Tokens bestanden, wurden aus dem Korpus entfernt. Gedichte ohne Angaben zum Dichter und Gedichte ohne Inhalt wurden entfernt.
+
+\subsection{Epocheneinteilung}
+\label{epocheneinteilung}
+
+Das DLK-Lyrik Korpus enthält keine Annotationen zu den Epochen oder literarischen Strömungen, die literarischen Strömungen für die Frühe Moderne wurden nachträglich hinzugefügt. Eine literaturwissenschaftliche Einteilung von Werken in eine Epoche oder Subepoche richtet nach einer Menge von Kriterien wie z.B. dem Inhalt eines Werkes, dem Verfasser, der Zeit, in der es entstanden ist, der Struktur des Textes oder anderen Werken des Verfassers (TODO LIT). Diese Art der Einteilung erfordert jedoch eine Menge an Domänenwissen und zeitlichem Aufwand, was im Rahmen der Untersuchungen in dieser Arbeit nicht möglich war. Stattdessen wurden zwei verschiedene Herangehensweisen zur Unterteilung der Gedichte der Frühen Moderne in verschiedene literarische Strömungen verwendet, die im Folgenden näher erläutert werden.
+
+\subsubsection{Einteilung nach Zeiträumen}
+\label{einteilung_nach_zeiträumen}
+
+Eine gängige Einteilungsmöglichkeit von Texten nach literarischen Strömungen erfolgt anhand der Erscheinungsjahre. Dabei wird angenommen, dass alle Werke, die innerhalb des Zeitraums einer literarischen Strömung oder Epoche entstanden sind, auch dieser literarischen Strömung oder Epoche angehören. Diese Zeiträume werden von Literaturwissenschaftlern festgelegt und können sich voneinander unterscheiden. In dieser Arbeit wird die Aufteilung von Klaus Wieland verwendet \citep{wieland2019}. Seine Aufteilung der Frühen Moderne in die verschiedenen literarischen Strömungen wird in der linken Spalte von Tabelle 1 (TODO) dargestellt. Diese Einteilung kann jedoch für die Klassifizierungsexperimente in dieser Arbeit nicht unverändert übernommen werden, da sich der Naturalismus und die Jahrhundertwende überschneiden und keine Multi-Label Klassifizierung durchgeführt werden soll. In der rechten Spalte von Tabelle 1 (TODO) wird daher eine leicht veränderte Einteilung dargestellt. Die Grenzen der literarischen Strömung \glqq Expressionismus und Dadaismus\grqq{} wurden von Wieland übernommen.\footnote{Für die Klassenbezeichnung wurde in dieser Arbeit \glqq Expressionismus und Dadaismus\grqq{} zu \glqq Expressionismus\grqq{} zusammengefasst.} Die literarische Strömung \glqq Neue Sachlichkeit\grqq{} ist im Korpus von Haider und Eger mit nur einem Werk vertreten und wurde deshalb für diese Arbeit entfernt. Aufgrund der Überschneidung wurde der Beginn der \glqq Jahrhundertwende\grqq{} um zwei Jahre nach hinten und das Ende des \glqq Naturalimus\grqq{} um neun Jahre nach vorne verschoben. Der Grund für die Grenzsetzung im Jahr 1892 waren die Dichter Max Dauthendey und Christian Morgenstern. Bei einer Betrachtung der Verteilung der Erscheinungsjahre der Gedichte im Korpus ist das Jahr 1892 das Jahr mit den am meisten veröffentlichten Gedichten (Abbildung 1 (TODO)). Mehr als 87\% der veröffentlichten Gedichte in diesem Jahr stammen von Max Dauthendey und Christian Morgenstern, deren Werke eher dem Stilpluralismus der Jahrhundertwende als dem Naturalismus zugeordnet werden \citep{dauthendey, morgenstern}. 
+
+\bigskip
+\small
+\def\arraystretch{1.2}
+\noindent
+\begin{tabular}{|c|c|c|}
+\hline
+& \textbf{Einteilung nach Wieland} & \textbf{veränderte Einteilung} \\\hline
+\textbf{Naturalismus} & 1880-1900 & 1880-1891 \\\hline
+\textbf{Jahrhundertwende} & 1890-1910 & 1892-1910  \\\hline
+\makecell{\textbf{Expressionismus} \\ \textbf{und Dadaismus}} & 1910-1925 & 1910-1925 \\\hline
+\textbf{Neue Sachlichkeit} & 1925-1933 & - \\\hline 
+\end{tabular}
+\begingroup
+\captionof{table}[Einteilung der literarischen Strömungen der Frühen Moderne]{Einteilung der literarischen Strömungen der Frühen Moderne nach Klaus Wieland \citep{wieland2019}. Die linke Seite stellt die vorgeschlagene Einteilung nach Wieland vor und die rechte Seite die für diese Arbeit veränderte Unterteilung.}
+\endgroup
+\bigskip
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\linewidth]{figures/publication_1982.png}
+\end{figure}
+\begingroup
+\captionof{figure}[Verteilung der Gedichte nach Erscheinungsjahr]{Die Grafik links zeigt die Verteilung der Gedichte nach Erscheinungsjahr. Das Jahr mit den meisten Gedichten (1892) wurde hervorgehoben. Rechts befindet sich eine absteigend nach der Anzahl der in diesem Jahr veröffentlichten Gedichte sortierte Liste von Dichtern für das Jahr 1892.}
+\endgroup
+\bigskip
+
+Die Unterteilungsmethode nach Zeiträumen ist nicht unproblematisch. Einige Probleme werden im Folgenden aufgelistet:
+
+\begin{enumerate}
+    \item \textbf{Wechsel von literarischen Strömungen}. Literarische Strömungen sind wie ihre übergeordneten Epochen zwar an bestimmte Zeiträume gebunden, jedoch lässt sich der Wechsel von Epochen nicht eindeutig an bestimmten Jahreszahlen oder Tagen festmachen. Der Übergang von einer (Sub-)Epoche zur anderen (Sub-)Epoche ist ein genetischer Prozess und kein einschneidendes Ereignis \citep[41f.]{titzmann2012}.
+    \item \textbf{Koexistenz von literarischen Strömungen}. Literarische Strömungen können parallel zueinander existieren. Ein Beispiel dafür ist der Naturalismus und die Jahrhundertwende, die nach Wielands Einteilung zehn Jahre lang parallel verlaufen sind \citep{wieland2019}.
+    \item \textbf{Zugehörigkeit von Werken zu einer literarischen Strömungen}. Werke, die während dem Zeitraum einer literarischen Strömung entstanden sind, müssen nicht unbedingt dieser literarischen Strömung angehören. 
+\end{enumerate}
+
+Um zu verhindern, dass diese Probleme die Klassifizierungsergebnisse der Experimente verfälschen würden, wurde zusätzlich eine alternative Einteilungsmethode gewählt, die im Folgenden beschrieben wird.
+
+\subsubsection{Einteilung nach Dichtern}
+\label{einteilung_nach_dichtern}
+
+Neben der Einteilung nach Zeiträumen ist es auch möglich, eine Einteilung anhand von Dichtern vorzunehmen. Dabei wird bestimmt, welcher Epoche die Werke des Dichters vorwiegend zugeordnet werden. Diese wurde mithilfe von Wielands Zuordnung \citep{wieland2019} und der Deutschen Biographie händisch zugeordnet.\footnote{\url{https://www.deutsche-biographie.de/} (abgerufen am 13.05.2020).} Wenn aus den Informationsquellen keine Zugehörigkeit zu einer literarischen Strömung ermittelt werden konnte, wurde die Einteilung der literarischen Strömungen nach Zeitraum verwendet. Bei mehreren möglichen Strömungen wurde die literarische Strömung ausgewählt, der die meisten Werke des jeweiligen Dichters zugeordnet wurden. Einige Dichter wurden bei dieser Zuordnung Epochen oder literarischen Strömungen zugeordnet, die nach Wieland nicht mehr der Frühen Moderne zugeteilt werden. Diese Dichter und ihre Werke wurden aus dem Korpus entfernt. Wie auch bei der Unterteilung nach Zeiträumen ist diese Unterteilung nicht unproblematisch. So ist es möglich, dass der Autor Werke innerhalb verschiedener (Sub-)Epochen verfasst hat und diese prägend für die jeweiligen (Sub-)Epochen waren.
+
+\subsection{Downsampling}
+\label{downsampling}
+
+Bei der Einteilung nach Dichtern wurden etwa 50\% der literarischen Strömungen anders zugeteilt als bei der Einteilung nach Zeiträumen. Zudem enthielt diese Einteilung die literarische Strömung \glqq Neue Sachlichkeit\grqq{}. Da sich diese Subepoche aber so beinahe nur aus Werken von Kurt Tucholsky zusammensetzte, wurden alle Werke, die dieser Epoche zugeordnet wurden, aus dem Korpus entfernt. Weiterhin wurden Werke, die bei der Einteilung nach Dichtern literarischen Strömungen zugeteilt wurden, die nicht zur Auswahl von Wieland gehören, entfernt. (TODO: den abschnitt vielleicht in 3.2.2?) Die erste Reihe von Abbildung 2 (TODO) zeigt die Verteilungen der Epochen für beide Einteilungsverfahren. Bei beiden Verfahren kommt es zu einer Unausgeglichenheit der literarischen Strömungen. Für eine unkompliziertere (AW) Klassifizierung wurden deshalb die stark vertretenen Klassen mithilfe von zufälligem Downsampling an die kleinste Klasse angepasst. Das Downsampling wurde einmal für die Einteilung nach Zeiträumen und die Einteilung nach Dichtern durchgeführt. Das Ergebnis waren zwei Korpora, die im Verlauf dieser Arbeit \glqq EY-Korpus\grqq{} (= epoch\_year-Korpus) und \glqq EP-Korpus\grqq{} (= epoch\_poet-Korpus) betitelt wurden. Jede literarische Strömung des EY-Korpus bestand nach dem Downsampling aus nur noch 282 Instanzen, während jede literarische Strömung des EP-Korpus nach dem Downsampling durch 1000 Instanzen vertreten war. Das kleinere EY-Korpus ist hinsichtlich der Aufteilung der Strömungen nach Zeiträumen und Dichtern für beide Einteilungsverfahren ausgewogen (siehe die zweite Zeile in Abbildung 2 (TODO)), während das EP-Korpus hinsichtlich der Einteilung nach Zeiträumen stark unausgeglichen ist. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\linewidth]{figures/poem_distribution.png}
+\end{figure}
+\begingroup
+\captionof{figure}[Verteilung der Gedichte pro Epoche]{Die Abbildung stellt die Verteilung der Gedichte pro Epoche dar. Die erste Reihe zeigt links die Verteilung der Epochen, eingeteilt nach Zeiträumen (= epoch\_year) und rechts die Verteilung der Epochen, welche nach Dichtern eingeteilt ist (= epoch\_poet). Die anderen vier Grafiken zeigen die Verteilungen der Gedichte nach der Aufteilung in die zwei unterschiedlich verteilten Korpora \glqq EY-Korpus\grqq{} (= epoch\_year-Korpus) und \glqq EP-Korpus\grqq{} (= epoch\_poet-Korpus), die jeweils in einer eigenen Reihe dargestellt werden. Zu jedem Korpus wird die Verteilung nach epoch\_year (links) und nach epoch\_poet (rechts) angezeigt.}
+\endgroup
+\bigskip
+
+
+\section{BERT}
+\label{bert}
+
+\subsection{Überblick}
+\label{theorie}
+
+\textsc{BERT} steht für \glqq Bidirectional Encoder Representations from Transformers\grqq{} und brach bei seiner Veröffentlichung 2018 eine ganze Reihe von Rekorden für Aufgaben innerhalb des Natural Language Processing \citep{devlin2018}. (TODO MEHR?) BERT kann auf zwei Arten verwendet werden: \textit{feature-based}, bei welchem feste Features aus einem vortrainierten Modell extrahiert werden, und \textit{fine-tuned}, bei welchem dem vortrainierten Modell ein simpler Klassifizierungslayer hinzugefügt wird und alle Parameter gemeinsam für eine bestimmte Aufgabe wie der Textklassifikation \textit{fine-tuned} werden \citep[9]{devlin2018}. Die vortrainierten Modelle wurden durch ein Training auf einer umfangreichen Sammlung von unstrukturierten Textdaten erstellt. Beim Training verwendete \textsc{BERT} den sogenannten Attention-Mechanismus, der es erlaubt, relevanten Worten in einer Sequenz mehr Bedeutung als anderen Worten zuzuschreiben \citep{vaswani2017}. Anders als vorhergehende Implementierungen des Attention-Mechanismus verwendete BERT anstatt eines unidirektionalen einen bidirektionalen Ansatz, bei dem nicht nur nachfolgende, sondern auch vorhergehende Wörter betrachtet wurden. Der bidirektionale Ansatz ist jedoch problematisch:
+
+\begin{quote}
+[...] bidirectional conditioning would allow each word to indirectly
+\glqq see itself\grqq{}, and the model could trivially predict the target word in a multi-layered context. \citep[4]{devlin2018}
+\end{quote}
+
+Zur Lösung dieses Problems benutzt \textsc{BERT} die Konzepte Next Sentence Prediction und Masked Language Modeling. Bei der Next Sentence Prediction (NSP) prüft \textsc{BERT}, ob ein nachfolgender Satz kontextuell zum vorherigen Satz passt. Beim Masked Language Modeling (MLM) werden zufällig 15\% der Wörter in jedem Satz der Trainingsdaten ausgewählt, von denen wiederum 80\% durch ein spezielles Maskierungstoken ausgetauscht, 10\% durch ein zufälliges Wort aus dem Vokabular des Korpus ersetzt und 10\% der Wörter nicht verändert wurden \citep[4]{devlin2018}. \textsc{BERT} versuchte dann im Training, die ausgewählten Tokens vorauszusagen, wozu es die umliegenden, nicht maskierten Wörter verwendete. Dadurch berücksichtigen die gelernten Gewichte anders als vorherige Wortrepräsentationen wie Bag-of-Words oder klassische Word Embeddings wie Word2Vec \citep{mikolov2013} den Kontext eines Wortes, was es \textsc{BERT} erlaubt, zwischen mehrdeutigen Wörtern zu unterscheiden. 
+
+Die Auswirkung des Attention-Mechanismus soll an einem Beispiel verdeutlicht werden. In den folgenden vier Sätzen, von denen die ersten drei Sätze aus dem Lyrik-Korpus entnommen wurden, hat das Wort \glqq Bank\grqq{} zwei verschiedene Bedeutungen. In den ersten beiden Sätzen bezeichnet es ein Möbelstück und in den letzten beiden Sätzen ein Kreditinstitut.
+
+\begin{enumerate}[label=\alph*.,leftmargin=3\parindent]
+    \item Und hat sich auf die \textbf{Bank} gesetzt \\ (aus: \glqq Ohne Titel\grqq{} von Max Dauthendey (PID: 29870))
+    \item Er begann auf eine \textbf{Bank} zu klettern. \\ (aus: \glqq Ohne Titel\grqq{} von Ludwig Thoma (PID: 8519))
+    \item Millionen waren in der \textbf{Bank} geblieben \\ (aus: \glqq Bakkarat\grqq{} von Klabund (PID: 26394))
+    \item Ich bringe mein Geld auf die \textbf{Bank}.
+\end{enumerate}
+
+Die Sätze wurden mithilfe von Bert und Word2Vec Embeddings in einem Vektorraum eingebettet (AF?), der mithilfe des Dimensionsreduktionsverfahrens t-SNE \citep{vandermaaten2008} auf zwei Dimensionen reduziert wurde (Abbildung 3 (TODO)). Es ist sehr gut zu erkennen, wie \textsc{BERT} die Mehrdeutigkeit von \glqq Bank\grqq{} abbildet (Abbildung 3, linke Seite (TODO)), die beiden verschiedenen Bedeutungen lassen sich deutlich voneinander unterscheiden. Anders sieht es hingegen bei den Word2Vec Embeddings aus (Abbildung 3, rechte Seite (TODO)), bei welchen das hervorgehobene Wort \glqq Bank\grqq{} und jedes andere Wort des Vokabulars nur einer Position zugeordnet wurden und keine Mehrdeutigkeit abgebildet wird.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\linewidth]{figures/embeddings_comp.png}
+\end{figure}
+\begingroup
+\captionof{figure}[Embedding des Wortes \glqq Bank\grqq{}]{Beide Abbildungen stellen den Vektorraum der Embeddings der Beispielsätze dar, der mithilfe des Verfahrens t-SNE auf zwei Dimensionen reduziert wurde. Die linke Abbildung zeigt nur die Positionen der 768-dimensionalen \textsc{BERT} Embeddings für das Wort \glqq Bank\grqq{}, wobei die unterschiedlichen Bedeutungen farblich hervorgehoben wurden. Die rechte Abbildung stellt die Positionen der 300-dimensionalen Word2Vec Embeddings von allen Wörtern der Beispielsätze dar. Die Position des Wortes \glqq Bank\grqq{} wurde hervorgehoben.}
+\endgroup
+\bigskip
+
+TODO: attention nochmal überprüfen, stimmt das wirklich so?
+
+\bigskip
+
+TODO:
+\begin{itemize}
+    \item DistillBert erklären
+    \item verschiedene Bert Modelle (als kapitel: pretrained models?)
+    \item \url{https://huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased}
+\end{itemize}
+
+\bigskip
+
+TODO
+
+
+
+TODO: wie benutzen? \bigskip
+In dieser Arbeit sollen zwei Sprachmodelle zur Epochenklassifikation verwendet werden: \textsc{BERT} (4.1.1 (TODO)) und \textsc{XLNet} (4.1.2 (TODO)). Beide Verfahren haben bei der Textklassifikation für verschiedene Datensätze State-of-the-art Ergebnisse erzielen können.\footnote{Siehe die Zusammenstellung von Sebastian Ruder \url{https://nlpprogress.com/english/text_classification.html} (abgerufen am 26.05.2020).}
+
+\subsection{Domänenadaption}
+\label{domänenadapation}
+
+TODO: hier fine tuning und domänenadaption
+
+Vorteile von Fine-Tuning: \url{http://mccormickml.com/2019/07/22/BERT-fine-tuning/}
+TODO
+
+\section{Maschinelle Lernverfahren}
+\label{maschinelle_lernverfahren}
+
+Für die Experimente in dieser Arbeit wurden neben den Sprachmodellen \textsc{BERT} und \textsc{XLNet} die Machine Learning Verfahren Logistic Regression und Support Vector Machines zur Epochenklassifikation verwendet. Sie sind etablierte Verfahren, die schon seit Jahren für Textklassifikationsaufgaben verwendet werden \citep[3, 20f.]{kowsari2019}. Anders als bei den in dieser Arbeit verwendeten Sprachmodelle werden diese Verfahren nicht auf bereits trainierte Gewichte \textit{fine-tuned}, sondern 
+\textit{\glqq from scratch\grqq{}} trainiert, d.h. alle Informationen, die zur Klassifizierung verwendet werden, werden lediglich aus dem Trainingsdatensatz gewonnen. Diese Art des Lernens ist auch mit Sprachmodellen möglich, jedoch erfordert dies eine Menge an Rechenressourcen, die für diese Arbeit nicht zur Verfügung stehen. 
+
+Wie auch bei den Sprachmodellen werden bei den Machine Learning die einzelnen Wörter der Texte vektorisiert. Ein typisches Vektorisierungsverfahren ist das Bag-of-Words Modell, bei dem Wörter durch ihre absoluten Häufigkeiten repräsentiert werden. Diese Häufigkeiten werden in hochdimensionale, dünnbesetzte Vektoren umgewandelt. Inhaltlich wird ein Wort dadurch nur durch seine Häufigkeit in den Texten dargestellt, weitere Eigenschaften des Wortes wie seine Mehrdeutigkeit oder kontextabhängige Semantik entfallen.
+
+Die Experimente mit den Machine Learning Verfahren sollten ein Gegenentwurf zum Ansatz der Klassifizierung mit den fine-tuned Sprachmodellen darstellen, da sie auf Informationen aus vortrainierten Modellen verzichten und stattdessen nur die Informationen aus dem Lyrik-Korpus zur Klassifizierung der Epochen verwenden. Weiterhin sollte überprüft werden, wie hoch die Auswirkung der simpleren Darstellung der Wörter durch hochdimensionale, dünnbesetzte Vektoren im Vergleich zu den weniger hochdimensionalen, dichtbesetzten Vektoren der Sprachmodelle hinsichtlich der Klassifizierungsgenauigkeit ausfiel.\footnote{Es ist auch möglich, dichtbesetzte Word Embeddings in Kombination mit Machine Learning Verfahren zu verwenden, wie z.B. in diesem Blogpost gezeigt wird: \url{http://nadbordrozd.github.io/blog/2016/05/20/text-classification-with-word2vec/} (abgerufen 19.05.2020). Diese Vorgehensweise wird in dieser Arbeit jedoch nicht verwendet.} Anstelle des klassischen Bag-of-Words Ansatzes, der nur die einfachen Termhäufigkeiten berücksichtigt, wurde eine Gewichtung der Häufigkeiten mit TF-IDF angewandt, bei dem die Häufigkeit eines Wortes im Verhältnis zur Häufigkeit im gesamten Korpus berücksichtigt und gegebenenfalls niedriger gewichtet wird.
+
+\bigskip TODO
+
+
+
+\section{Problemstellung TODO: AW?}
+\label{problemstellung}
+
+TODO: nach korpus!?
+
+TODO: epochenbegriff definieren (TITZMANN in WIELAND2019, S. 6)
+
+VORTEILE für clf mit bert, xlnet
+\begin{itemize}
+    \item benutzt nur max 512 tokens. das ist bei anderen verfahren von nachtteil, hier aber nicht unbedingt, da gedichte sehr kurz
+    \item kontext wird mit einbezogen, d.h. ambiguitäten können dargestellt werden
+    \item nutzt informationen aus pretrained models
+    \item informationen sind mehr als bei from scratch
+\end{itemize}
+
+ 
+\subsection{TODO? Der Wandel des Vokabulars}
+\label{wandel_vokabular}
+
+TODO
+
+\begin{itemize}
+    \item LIT: Aurélie Herbelot. 2014. The semantics of poetry: a distributional reading. (aus: HAIDER2019)
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+
+PROBLEM \url{https://www.quora.com/What-are-the-main-differences-between-the-word-embeddings-of-ELMo-BERT-Word2vec-and-GloVe}: A practical implication of this difference is that we can use word2vec and Glove vectors trained on a large corpus directly for downstream tasks. All we need is the vectors for the words. There is no need for the model itself that was used to train these vectors.
+
+However, in the case of ELMo and BERT, since they are context dependent, we need the model that was used to train the vectors even after training, since the models generate the vectors for a word based on context. We can just use the context independent vectors for a word if we choose too (just get the raw trained vector from trained model) , but would defeat the very purpose/advantage of these models. Figure below captures this latest trend of using word embeddings along with the models they were trained on for downstream tasks
+
+
+
+
+\section{Experimente}
+\label{experimente}
+
+HILFE: Notebook mit text classifications beispiel zu bert (\url{https://github.com/jalammar/jalammar.github.io/blob/master/notebooks/bert/A_Visual_Notebook_to_Using_BERT_for_the_First_Time.ipynb})
+
+\subsection{Aufbau}
+\label{aufbau}
+
+TODO
+
+\begin{itemize}
+    \item Um Data Leakage zu verhindern, wurde eine verschachtelte Kreuzvalidierung durchgeführt. außerdem pipeline
+\end{itemize}
+
+\subsection{Evaluation}
+\label{evaluation}
+
+Als Evaluationsverfahren wurde in dieser Arbeit die stratifizierte, $k$-fache Kreuzvalidierung verwendet. Bei diesem Verfahren wird der Datensatz in $k$ gleich große Datensätze aufgeteilt, von denen $k\!-\!1$ als  Trainingsdatensätze und ein Datensatz als Testdatensatz angesehen (AW) werden. Durch eine Stratifizierung wird sicher gestellt, dass jeder dieser Teildatensätzen eine annähernd gleiche Verteilung aller Klassen besitzt. Ein Modell wird dann auf den zusammengeführten Trainingsdatensätzen trainiert und auf dem, während des Trainings zurückgehaltenen Testdatensatz evaluiert (AW?). Die Aufteilung in $k$ Datensätze wird auch $k$-mal durchgeführt, sodass jeder Teildatensatz einmal die Rolle des Testdatensatzes innehat. Durch eine $k$-fache Kreuzvalidierung wird gewährleistet, dass ein Modell unter fairen Bedingungen auf dem gesamten Datensatz evaluiert wird, da der Testdatensatz bei jedem Durchgang wechselt und sogenanntes \glqq Peeking\grqq{} (deutsch: Spähen)\footnote{TODO} wird dadurch verhindert \citep[708f.]{russell2016}. Zudem wird der Testdatensatz weder zum Vor- noch zum Nachteil einer Evaluierung ausgewählt und der Einfluss eines einzelnen Testdatensatzes auf die Klassifizierungsgenauigkeit wird gedämpft. TODO: absatz überprüfen
+
+
+In dieser Arbeit wurde für jeden der $k$ Durchgänge ein gewichteter $F_1$-Wert ermittelt. Das $F_1$-Maß ist ein Maß zur Bestimmung der Klassifizierungsgenauigkeit, welches die Evaluationsmetriken \textit{Precision} und \textit{Recall} mittels des harmonischen Mittels kombiniert \citep[869]{russell2016}. Als Gewichtung wurde die \textit{Macro}-Gewichtung verwendet, bei welcher \textit{Precision} und \textit{Recall} für jede Klasse separat berechnet und anschließend gemittelt werden. Dadurch bleibt eine ungleiche Verteilung der Klassen unberücksichtigt \citep[430]{sokolova2009}, was für eine Ermittlung der Klassifizierungsgenauigkeit der Epocheneinteilung nach Jahren für das EP-Korpus, welche stark unausgeglichen ist, wichtig(AW) war (siehe Abbildung 2 (TODO: blau lila)). Von den $k$ $F_1$-Werten aller Durchgänge wurde der Mittelwert gebildet. Dieser Mittelwert wurde in dieser Arbeit \glqq \textit{cv}-Wert\grqq{} genannt und zur Beurteilung der Klassifizierungsgenauigkeit der verschiedenen Verfahren verwendet.
+
+
+\bigskip
+TODO
+
+\begin{itemize}
+    \item Um Data Leakage zu verhindern, wurde eine verschachtelte Kreuzvalidierungs durchgeführt
+    \item McNemar für BERT anstelle oder zusätzlich zu cv?
+\end{itemize}
+
+\subsection{Hyperparameteroptimierung}
+\label{hyperparameteroptimierung}
+
+TODO
+
+\begin{itemize}
+    \item LR: solver ist liblinear, weshalb kein njobs, kein multinomial und weiteres möglich. Es wird nur der Solver Liblinear verwendet, durch welchen manche Parameter wegfallen (FN: Die Implementierung von LR in Scikitlearn bietet eine Vielzahl von Solvern an, die jedoch nicht mit jeder Kombination an Hyperparametern verwendet werden kann, siehe \url{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html}.
+\end{itemize}
+
+
+
+\section{Schlussbetrachtung}
+\label{schlussbetrachtung}
+
+TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Literaturverzeichnis wird 
+%% automatisch eingefügt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\lhead{}
+\printbibliography
+\addcontentsline{toc}{section}{\bibname}
+
+\pagebreak
+\begin{appendices}
+\section{Daten und Code}
+\label{appendix_a}
+
+TODO
+
+
+
+TODO
+
+\end{appendices}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Eidesstattliche Erklärung
+%% muss angepasst werden 
+%% in Erklaerung.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Erklaerung.tex}
+
+\end{document}
