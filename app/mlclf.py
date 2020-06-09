@@ -74,6 +74,20 @@ def main():
 	class_name2 = "epoch_poet"
 	text_name = "poem"
 
+	# extracting class weights #
+	class1_counts = dict(Counter(class1))
+	class2_counts = dict(Counter(class2))
+
+
+
+	class1_weights = {"Expressionismus": class1_counts["Expressionismus"],
+					 "Jahrhundertwende": class1_counts["Jahrhundertwende"],
+					 "Naturalismus": class1_counts["Naturalismus"]}
+
+	class2_weights = {"Expressionismus": class2_counts["Expressionismus"],
+					 "Jahrhundertwende": class2_counts["Jahrhundertwende"],
+					 "Naturalismus": class2_counts["Naturalismus"]}
+
 	if args.multilabel:
 		cols = ["epoch_year", "epoch_poet"]
 		corpus["epochs"] = corpus[cols].apply(lambda row: multilabel_col(list(row.values)), axis=1) 
@@ -114,7 +128,16 @@ def main():
 					   "clf__max_iter": [100]}
 	"""
 
-	lsvm_grid = GridSearchCV(lsvm_pipe, 
+	lsvm_parameters.update({"clf__class_weight": [class1_weights]})
+	lsvm_grid1 = GridSearchCV(lsvm_pipe, 
+							 lsvm_parameters,
+							 cv=cv, 
+							 error_score=0.0,
+							 n_jobs=args.n_jobs,
+							 scoring="f1_macro")
+
+	lsvm_parameters.update({"clf__class_weight": [class2_weights]})
+	lsvm_grid2 = GridSearchCV(lsvm_pipe, 
 							 lsvm_parameters,
 							 cv=cv, 
 							 error_score=0.0,
@@ -122,7 +145,7 @@ def main():
 							 scoring="f1_macro")
 
 
-	lsvm_cv_scores1 = cross_validate(lsvm_grid,
+	lsvm_cv_scores1 = cross_validate(lsvm_grid1,
 									 features, 
 									 class1, 
 									 cv=cv, 
@@ -130,7 +153,7 @@ def main():
 									 scoring="f1_macro")
 
 
-	lsvm_cv_scores2 = cross_validate(lsvm_grid, 
+	lsvm_cv_scores2 = cross_validate(lsvm_grid2, 
 									  features, 
 									  class2, 
 									  cv=cv, 
@@ -148,7 +171,7 @@ def main():
 						   "clf__estimator__C": list(range(1, 11)),
 						   "clf__estimator__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
 
-		lsvm_grid = GridSearchCV(lsvm_pipe, 
+		lsvm_grid3 = GridSearchCV(lsvm_pipe, 
 								 lsvm_parameters,
 								 cv=cv, 
 								 error_score=0.0,
@@ -156,7 +179,7 @@ def main():
 								 scoring="f1_macro")
 
 
-		lsvm_cv_scores3 = cross_validate(lsvm_grid, 
+		lsvm_cv_scores3 = cross_validate(lsvm_grid3, 
 										 features, 
 										 class3, 
 										 cv=cv,
@@ -186,19 +209,8 @@ def main():
 							  ("clf", LogisticRegression())])
 
 
-	# extracting class weights #
-	class1_counts = dict(Counter(class1))
-	class2_counts = dict(Counter(class2))
+	
 
-
-
-	class1_weights = {"Expressionismus": class1_counts["Expressionismus"],
-					 "Jahrhundertwende": class1_counts["Jahrhundertwende"],
-					 "Naturalismus": class1_counts["Naturalismus"]}
-
-	class2_weights = {"Expressionismus": class2_counts["Expressionismus"],
-					 "Jahrhundertwende": class2_counts["Jahrhundertwende"],
-					 "Naturalismus": class2_counts["Naturalismus"]}
 
 	lr_parameters = {"clf__penalty": ["l1", "l2"],
 					 "clf__tol": [1e-5, 1e-3],
@@ -249,7 +261,7 @@ def main():
 	if args.multilabel:
 		# class weights won't be used here
 		lr_pipe = Pipeline(steps=[("vect", vectorizer),
-							  ("clf", OneVsRestClassifier(LogisticRegression()))])
+							  	  ("clf", OneVsRestClassifier(LogisticRegression()))])
 
 		lr_parameters = {"clf__estimator__penalty": ["l1", "l2"],
 						 "clf__estimator__tol": [1e-5, 1e-3],
@@ -257,15 +269,15 @@ def main():
 						 "clf__estimator__solver": ["liblinear"],
 						 "clf__estimator__max_iter": [1000, 3000, 5000]}
 
-		lr_grid = GridSearchCV(lr_pipe, 
-							  lr_parameters,
-							  cv=cv, 
-							  error_score=0.0,
-							  n_jobs=args.n_jobs,
-							  scoring="f1_macro")
+		lr_grid3 = GridSearchCV(lr_pipe, 
+							   lr_parameters,
+							   cv=cv, 
+							   error_score=0.0,
+							   n_jobs=args.n_jobs,
+							   scoring="f1_macro")
 
 
-		lr_cv_scores3 = cross_validate(lr_grid,
+		lr_cv_scores3 = cross_validate(lr_grid3,
 									   features, 
 									   class3, 
 									   cv=cv, 
