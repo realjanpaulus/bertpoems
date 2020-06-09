@@ -74,10 +74,15 @@ def main():
 	class_name2 = "epoch_poet"
 	text_name = "poem"
 
+	features = corpus[text_name]
+	class1 = corpus[class_name1]
+	class2 = corpus[class_name2]
+
 
 	# TODO: vllt weg?
 
 	# extracting class weights #
+	"""
 	class1_counts = dict(Counter(class1))
 	class2_counts = dict(Counter(class2))
 
@@ -90,6 +95,9 @@ def main():
 	class2_weights = {"Expressionismus": class2_counts["Expressionismus"],
 					 "Jahrhundertwende": class2_counts["Jahrhundertwende"],
 					 "Naturalismus": class2_counts["Naturalismus"]}
+	"""
+
+
 
 	if args.multilabel:
 		cols = ["epoch_year", "epoch_poet"]
@@ -103,11 +111,6 @@ def main():
 	# classification # 
 	# ================
 
-	features = corpus[text_name]
-	class1 = corpus[class_name1]
-	class2 = corpus[class_name2]
-
-	
 
 	# ============
 	# Linear SVM #
@@ -211,9 +214,6 @@ def main():
 
 	lr_pipe = Pipeline(steps=[("vect", vectorizer),
 							  ("clf", LogisticRegression())])
-
-
-	
 
 
 	lr_parameters = {"clf__penalty": ["l1", "l2"],
