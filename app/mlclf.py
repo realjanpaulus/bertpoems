@@ -74,6 +74,9 @@ def main():
 	class_name2 = "epoch_poet"
 	text_name = "poem"
 
+
+	# TODO: vllt weg?
+
 	# extracting class weights #
 	class1_counts = dict(Counter(class1))
 	class2_counts = dict(Counter(class2))
@@ -118,7 +121,8 @@ def main():
 					   "clf__loss": ["squared_hinge"],
 					   "clf__tol": [1e-6, 1e-5, 1e-4, 1e-3],
 					   "clf__C": list(range(1, 11)),
-					   "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000]}
+					   "clf__max_iter": [100, 500, 1000, 2000, 3000, 5000],
+					   "clf__class_weight": [None, "balanced"]}
 	#ALTERNATIVE
 	"""
 	lsvm_parameters = {"clf__penalty": ["l2"],
@@ -128,7 +132,7 @@ def main():
 					   "clf__max_iter": [100]}
 	"""
 
-	lsvm_parameters.update({"clf__class_weight": [class1_weights]})
+	#TODO: lsvm_parameters.update({"clf__class_weight": [class1_weights]})
 	lsvm_grid1 = GridSearchCV(lsvm_pipe, 
 							 lsvm_parameters,
 							 cv=cv, 
@@ -136,7 +140,7 @@ def main():
 							 n_jobs=args.n_jobs,
 							 scoring="f1_macro")
 
-	lsvm_parameters.update({"clf__class_weight": [class2_weights]})
+	#TODO: lsvm_parameters.update({"clf__class_weight": [class2_weights]})
 	lsvm_grid2 = GridSearchCV(lsvm_pipe, 
 							 lsvm_parameters,
 							 cv=cv, 
@@ -216,7 +220,8 @@ def main():
 					 "clf__tol": [1e-5, 1e-3],
 					 "clf__C": list(range(1, 11)),
 					 "clf__solver": ["liblinear"],
-					 "clf__max_iter": [1000, 3000, 5000]}
+					 "clf__max_iter": [1000, 3000, 5000],
+					 "clf__class_weight": [None, "balanced"]}
 
 	#ALTERNATIVE
 	"""
@@ -225,7 +230,7 @@ def main():
 					 "clf__max_iter": [1000]}
 	"""
 
-	lr_parameters.update({"clf__class_weight": [class1_weights]})
+	#TODO: lr_parameters.update({"clf__class_weight": [class1_weights]})
 	lr_grid1 = GridSearchCV(lr_pipe, 
 							lr_parameters,
 							cv=cv, 
@@ -233,7 +238,7 @@ def main():
 							n_jobs=args.n_jobs,
 							scoring="f1_macro")
 
-	lr_parameters.update({"clf__class_weight": [class2_weights]})
+	#TODO: lr_parameters.update({"clf__class_weight": [class2_weights]})
 	lr_grid2 = GridSearchCV(lr_pipe, 
 							lr_parameters,
 							cv=cv, 
