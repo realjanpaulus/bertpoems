@@ -118,7 +118,7 @@ def main():
 			device = torch.device("cpu")
 
 
-		for class_name in [class_name1, class_name2]:
+		for class_name in [class_name1]:#, class_name2]:
 
 
 			X_train = train[text_name].values
