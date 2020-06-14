@@ -90,6 +90,7 @@ def main():
 	# ================
 
 	for i in range(1, cv+1):
+
 		if args.corpus_name == "poet":
 			train = utils.load_train("../corpora/train_epochpoet", cv, i, "epochpoet")
 			val = pd.read_csv(f"../corpora/train_epochpoet/epochpoet{i}.csv")
@@ -120,7 +121,6 @@ def main():
 		for class_name in [class_name1, class_name2]:
 
 
-
 			X_train = train[text_name].values
 			X_val = val[text_name].values
 
@@ -128,7 +128,6 @@ def main():
 			y_val = LabelEncoder().fit_transform(val[class_name].values)
 
 
-	
 			# ==============
 			# tokenization #
 			# ==============
