@@ -4,7 +4,7 @@
 """
 
 from collections import defaultdict
-from datetime import datetime
+import datetime
 import glob
 import io
 import numpy as np
