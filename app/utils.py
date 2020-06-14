@@ -1,5 +1,6 @@
 """TODO
 - alles überprüfen
+- multilabel und so weg
 """
 
 from collections import defaultdict
@@ -11,7 +12,43 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+import time
 from typing import Dict, List, Optional, Tuple, Union
+
+
+def flat_f1(preds, labels):
+    pred_flat = np.argmax(preds, axis=1).flatten()
+    labels_flat = labels.flatten()
+    return f1_score(pred_flat, labels_flat, average="macro")
+
+
+def format_time(elapsed):
+    """ Takes a time in seconds and returns a string hh:mm:ss
+    """
+    elapsed_rounded = int(round((elapsed)))
+    return str(datetime.timedelta(seconds=elapsed_rounded))
+
+def get_mean_acc(df):
+    """ Returns mean validation accuracy for non-overfitted training.
+    """
+    prev_loss = 1000
+    val_acc = []
+    for idx, row in df.iterrows():
+        val_acc.append(row["val_acc"])
+        if row["val_loss"] > prev_loss:
+            break
+        else:
+            prev_loss = row["val_loss"]
+    return np.mean(val_acc)
+
+
+def load_train(path, cv, i, string):
+    dfs = list()
+    for f in range(1, cv+1):
+        if f != i:
+            df = pd.read_csv(f"{path}/{string}{f}.csv")   
+            dfs.append(df)
+    return pd.concat(dfs, axis=0, ignore_index=True)
 
 def multilabel_col(cols):
     if cols[0] != cols[1]:
