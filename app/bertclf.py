@@ -114,6 +114,9 @@ def main():
 			device = torch.device("cpu")
 
 
+		X_train = train[text_name].values
+		X_val = val[text_name].values
+
 		for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
@@ -122,9 +125,6 @@ def main():
 			val_input_ids = []
 			val_attention_masks = []
 
-
-			X_train = train[text_name].values
-			X_val = val[text_name].values
 
 			y_train = LabelEncoder().fit_transform(train[class_name].values)
 			y_val = LabelEncoder().fit_transform(val[class_name].values)
