@@ -1,8 +1,3 @@
-"""TODO
-- alles überprüfen
-- multilabel und so weg
-"""
-
 from collections import defaultdict
 import datetime
 import glob
@@ -17,6 +12,9 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 import time
 from typing import Dict, List, Optional, Tuple, Union
 
+# ===========
+# clf utils #
+# ===========
 
 def flat_f1(preds, labels):
     """ Flattens predictions and labels and omputes macro f1-score.
@@ -61,16 +59,9 @@ def load_train(path, cv, i, string):
                 dfs.append(df)
         return pd.concat(dfs, axis=0, ignore_index=True)
 
-def multilabel_col(cols):
-    if cols[0] != cols[1]:
-        return cols[0] + "," + cols[1]
-    else:
-        return cols[0]
-
-def reverse_diag(arr):
-    narr = arr.copy()
-    np.fill_diagonal(narr, list(narr.diagonal())[::-1])
-    return narr
+# ========
+# others #
+# ========
 
 def df_to_latex(df, alignment="c"):
     """ Convert a pandas dataframe to a LaTeX tabular.

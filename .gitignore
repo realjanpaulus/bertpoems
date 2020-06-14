@@ -130,9 +130,10 @@ dmypy.json
 
 # my stuff
 TODOS.md
+app/old/
 corpora/old/
 corpora/domain-adaption/
+results/old/
 utils/
-app/old/
 utils/old/
 
