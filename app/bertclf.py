@@ -13,7 +13,7 @@ from sklearn.metrics import f1_score
 from sklearn.model_selection import cross_val_score, cross_validate, StratifiedKFold, train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-import tensorflow as tf
+#import tensorflow as tf
 import torch
 from torch.utils.data import TensorDataset, random_split, DataLoader, RandomSampler, SequentialSampler
 from transformers import BertTokenizer, BertForSequenceClassification, AdamW, BertConfig, get_linear_schedule_with_warmup
