@@ -195,7 +195,7 @@ def main():
 			model = BertForSequenceClassification.from_pretrained(model_name, 
 																  num_labels = num_labels,
 																  output_attentions = False,
-																  output_hidden_states = False)
+																  output_hidden_states = False).cuda()
 
 			optimizer = AdamW(model.parameters(),
 							  lr = 2e-5,
