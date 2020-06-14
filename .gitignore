@@ -128,6 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 corpora/old/
+corpora/domain-adaption/
 utils/
 app/old/
 utils/old/
