@@ -49,7 +49,7 @@ def main():
 	# predefined parameters #
 	# =======================
 
-	cv = 10
+	cv = args.cv
 	num_labels = 3
 
 	batch_size = args.batch_size
@@ -85,6 +85,19 @@ def main():
 	# classification # 
 	# ================
 
+
+	# =======================
+	# use GPU, if available #
+	# =======================
+
+	if torch.cuda.is_available(): 
+		device = torch.device("cuda")  
+		print('There are %d GPU(s) available.' % torch.cuda.device_count())
+		print('Used GPU:', torch.cuda.get_device_name(0))
+	else:
+		print('No GPU available, using the CPU instead.')
+		device = torch.device("cpu")
+
 	for i in range(1, cv+1):
 
 		if args.corpus_name == "poet":
@@ -101,19 +114,7 @@ def main():
 		class_name2 = "epoch_poet"
 		text_name = "poem"
 
-		# =======================
-		# use GPU, if available #
-		# =======================
-
-		if torch.cuda.is_available(): 
-			device = torch.device("cuda")  
-			print('There are %d GPU(s) available.' % torch.cuda.device_count())
-			print('Used GPU:', torch.cuda.get_device_name(0))
-		else:
-			print('No GPU available, using the CPU instead.')
-			device = torch.device("cpu")
-
-
+		
 		for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
@@ -220,7 +221,7 @@ def main():
 				total_train_loss = 0
 				model.train()
 				for step, batch in enumerate(train_dataloader):
-					if step % 20 == 0 and not step == 0:
+					if step % 50 == 0 and not step == 0:
 						elapsed = utils.format_time(time.time() - t0)
 						print('Batch {:>5,}  of  {:>5,}.    Elapsed: {:}.'.format(step, len(train_dataloader), elapsed))
 
@@ -305,8 +306,9 @@ def main():
 									   'val_time': validation_time})
 
 			logging.info(f"Training for {class_name} done.")
-			logging.info("Training took {:} (h:mm:ss)".format(utils.format_time(time.time()-total_t0)))
-			
+			logging.info("Training took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
+			print("--------------------------------\n")
+
 			stats = pd.DataFrame(data=training_stats)
 			cv_acc_dict[class_name].append(utils.get_mean_acc(stats))
 
@@ -320,13 +322,15 @@ def main():
 		
 		logging.info(f"Training for run {i}/{cv} completed.")
 		logging.info("Training run took {:} (h:mm:ss)".format(utils.format_time(time.time()-total_t0)))
-	
+		print("________________________________")
+		print("________________________________\n")
 
 	# ================
 	# saving results #
 	# ================
 
 	result_path = "../results/bert/"
+	logging.info(f"Writing results to '{result_path}'.")
 	if args.domain_adaption:
 		output_name = f"{args.corpus_name}_da_{args.model}"
 	else:
@@ -355,6 +359,7 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser(prog="bertclf", description="Bert classifier.")
 	parser.add_argument("--batch_size", "-bs", type=int, default=8, help="Indicates batch size.")
 	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
+	parser.add_argument("--cv", "-cv", type=int, default=10, help="Indicates the number of cross validations.")
 	parser.add_argument("--domain_adaption", "-da", action="store_true", help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.")
 	parser.add_argument("--domain_adapted_path", "-dap", type=str, default="../corpora/domain-adaption", help="Indicates the path of a domain-adapted model.")
 	parser.add_argument("--epochs", "-e", type=int, default=4, help="Indicates number of epochs.")
