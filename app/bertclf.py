@@ -35,21 +35,19 @@ def main():
 	# bert classification logging handler #
 	# =====================================
 	logging_filename = f"../logs/bertclf_{args.corpus_name}.log"
-	logging.basicConfig(level=logging.DEBUG, filename=logging_filename, filemode="w")
+	logging.basicConfig(level=logging.INFO, filename=logging_filename, filemode="w")
 	console = logging.StreamHandler()
 	console.setLevel(logging.INFO)
 	formatter = logging.Formatter("%(levelname)s: %(message)s")
 	console.setFormatter(formatter)
 	logging.getLogger('').addHandler(console)
 
-	mpl_logger = logging.getLogger('matplotlib')
-	mpl_logger.setLevel(logging.WARNING)
 
 	# =======================
 	# predefined parameters #
 	# =======================
 
-	cv = args.cv
+	cv = args.cross_validation
 	num_labels = 3
 
 	batch_size = args.batch_size
@@ -359,7 +357,7 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser(prog="bertclf", description="Bert classifier.")
 	parser.add_argument("--batch_size", "-bs", type=int, default=8, help="Indicates batch size.")
 	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
-	parser.add_argument("--cv", "-cv", type=int, default=10, help="Indicates the number of cross validations.")
+	parser.add_argument("--cross_validation", "-cv", type=int, default=10, help="Indicates the number of cross validations.")
 	parser.add_argument("--domain_adaption", "-da", action="store_true", help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.")
 	parser.add_argument("--domain_adapted_path", "-dap", type=str, default="../corpora/domain-adaption", help="Indicates the path of a domain-adapted model.")
 	parser.add_argument("--epochs", "-e", type=int, default=4, help="Indicates number of epochs.")

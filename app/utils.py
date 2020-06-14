@@ -19,6 +19,8 @@ from typing import Dict, List, Optional, Tuple, Union
 
 
 def flat_f1(preds, labels):
+    """ Flattens predictions and labels and omputes macro f1-score.
+    """
     pred_flat = np.argmax(preds, axis=1).flatten()
     labels_flat = labels.flatten()
     return f1_score(pred_flat, labels_flat, average="macro")
@@ -45,12 +47,19 @@ def get_mean_acc(df):
 
 
 def load_train(path, cv, i, string):
-    dfs = list()
-    for f in range(1, cv+1):
-        if f != i:
-            df = pd.read_csv(f"{path}/{string}{f}.csv")   
-            dfs.append(df)
-    return pd.concat(dfs, axis=0, ignore_index=True)
+    """ Load a bunch of csv data files and add them together in a DataFrame.
+        For optimal use, 'cv' should be greater than 1.
+    """
+    if cv == 1:
+        print("ATTENTION! Train set is equal to val set.")
+        return pd.read_csv(f"{path}/{string}{i}.csv")
+    else:
+        dfs = list()
+        for f in range(1, cv+1):
+            if f != i:
+                df = pd.read_csv(f"{path}/{string}{f}.csv")   
+                dfs.append(df)
+        return pd.concat(dfs, axis=0, ignore_index=True)
 
 def multilabel_col(cols):
     if cols[0] != cols[1]:
