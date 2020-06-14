@@ -1,0 +1,64 @@
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+There are 1 GPU(s) available.
+Used GPU: GeForce RTX 2080 Ti
+
+======== Epoch 1 / 4 ========
+Now Training.
+Traceback (most recent call last):
+  File "bertclf.py", line 366, in <module>
+    main()
+  File "bertclf.py", line 232, in main
+    loss, logits = model(b_input_ids, 
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 1260, in forward
+    outputs = self.bert(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 740, in forward
+    embedding_output = self.embeddings(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 175, in forward
+    inputs_embeds = self.word_embeddings(input_ids)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/sparse.py", line 112, in forward
+    return F.embedding(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/functional.py", line 1484, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+RuntimeError: Expected object of device type cuda but got device type cpu for argument #1 'self' in call to _th_index_select
