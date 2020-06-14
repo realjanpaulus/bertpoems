@@ -88,11 +88,11 @@ def main():
 	for i in range(1, cv+1):
 
 		if args.corpus_name == "poet":
-			train = utils.load_train("../corpora/train_epochpoet", cv, i, "epochpoet")
-			val = pd.read_csv(f"../corpora/train_epochpoet/epochpoet{i}.csv")
+			train_data = utils.load_train("../corpora/train_epochpoet", cv, i, "epochpoet")
+			val_data = pd.read_csv(f"../corpora/train_epochpoet/epochpoet{i}.csv")
 		elif args.corpus_name == "year":
-			train = utils.load_train("../corpora/train_epochyear", cv, i, "epochyear")
-			val = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
+			train_data = utils.load_train("../corpora/train_epochyear", cv, i, "epochyear")
+			val_data = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
 		else:
 			logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 
@@ -114,9 +114,6 @@ def main():
 			device = torch.device("cpu")
 
 
-		X_train = train[text_name].values
-		X_val = val[text_name].values
-
 		for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
@@ -125,9 +122,12 @@ def main():
 			val_input_ids = []
 			val_attention_masks = []
 
+			X_train = train_data[text_name].values
+			X_val = val_data[text_name].values
 
-			y_train = LabelEncoder().fit_transform(train[class_name].values)
-			y_val = LabelEncoder().fit_transform(val[class_name].values)
+
+			y_train = LabelEncoder().fit_transform(train_data[class_name].values)
+			y_val = LabelEncoder().fit_transform(val_data[class_name].values)
 
 
 			# ==============
@@ -220,7 +220,7 @@ def main():
 				total_train_loss = 0
 				model.train()
 				for step, batch in enumerate(train_dataloader):
-					if step % 50 == 0 and not step == 0:
+					if step % 20 == 0 and not step == 0:
 						elapsed = utils.format_time(time.time() - t0)
 						print('Batch {:>5,}  of  {:>5,}.    Elapsed: {:}.'.format(step, len(train_dataloader), elapsed))
 
