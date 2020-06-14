@@ -75,11 +75,7 @@ def main():
 			logging.warning(f"Couldn't find a model with the name '{args.model}'.")
 	
 
-	# tmp lists and result dicts #
-	train_input_ids = []
-	train_attention_masks = []
-	val_input_ids = []
-	val_attention_masks = []
+	
 
 	cv_acc_dict = defaultdict(list)
 	year_cv_dict = {}
@@ -118,7 +114,13 @@ def main():
 			device = torch.device("cpu")
 
 
-		for class_name in [class_name1]:#, class_name2]:
+		for class_name in [class_name1, class_name2]:
+
+			# tmp lists and result dicts #
+			train_input_ids = []
+			train_attention_masks = []
+			val_input_ids = []
+			val_attention_masks = []
 
 
 			X_train = train[text_name].values
