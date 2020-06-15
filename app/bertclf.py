@@ -341,10 +341,10 @@ def main():
 	with open(f'{result_path}cv_{output_name}.json', 'w') as f:
 		json.dump(cv_acc_dict, f)
 
-	with open(f'{result_path}year_{output_name}.json', 'w') as f:
+	with open(f'{result_path}_cv_{output_name}.json', 'w') as f:
 		json.dump(year_cv_dict, f)
 
-	with open(f'{result_path}poet{output_name}.json', 'w') as f:
+	with open(f'{result_path}_cv_{output_name}.json', 'w') as f:
 		json.dump(poet_cv_dict, f)
 
 	program_duration = float(time.time() - program_st)
