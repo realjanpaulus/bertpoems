@@ -330,9 +330,9 @@ def main():
 	result_path = "../results/bert/"
 	logging.info(f"Writing results to '{result_path}'.")
 	if args.domain_adaption:
-		output_name = f"{args.corpus_name}_da_{args.model}"
+		output_name = f"{args.corpus_name}c_da_{args.model}"
 	else:
-		output_name = f"{args.corpus_name}_{args.model}"
+		output_name = f"{args.corpus_name}c_{args.model}"
 
 	if args.save_date:
 		output_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
@@ -341,10 +341,10 @@ def main():
 	with open(f'{result_path}cv_{output_name}.json', 'w') as f:
 		json.dump(cv_acc_dict, f)
 
-	with open(f'{result_path}cvy_{output_name}.json', 'w') as f:
+	with open(f'{result_path}eyear_{output_name}.json', 'w') as f:
 		json.dump(year_cv_dict, f)
 
-	with open(f'{result_path}cvp_{output_name}.json', 'w') as f:
+	with open(f'{result_path}epoet_{output_name}.json', 'w') as f:
 		json.dump(poet_cv_dict, f)
 
 	program_duration = float(time.time() - program_st)
