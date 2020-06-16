@@ -372,6 +372,16 @@ def main():
 			print(type(predictions))
 			print(type(true_labels))
 
+			scores = []
+			for i in range(len(true_labels)):
+				pred_labels_i = np.argmax(predictions[i], axis=1).flatten()
+				f1_i = f1_score(true_labels[i], pred_labels_i, average="macro")                
+				scores.append(f1_i)
+
+			print(scores)
+			print(np.mean(scores))
+
+			"""
 			classes = test_data[class_name].drop_duplicates().tolist()
 			test_score = utils.flat_f1(true_labels, predictions)
 			cm = confusion_matrix(true_labels.flatten(), np.argmax(predictions, axis=1).flatten())
@@ -386,7 +396,7 @@ def main():
 				cm_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
 
 			cm_df.to_csv(f"../results/bert/confusion_matrices/cm{i}_{cm_name}.csv")
-
+			"""
 
 			stats = pd.DataFrame(data=training_stats)
 			cv_acc_dict[class_name].append(test_score)
