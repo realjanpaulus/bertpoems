@@ -316,7 +316,7 @@ def main():
 				# ================
 
 
-				if utils.early_stopping(validation_losses, patience=2)
+				if utils.early_stopping(validation_losses, patience=2):
 					break
 
 
@@ -336,20 +336,20 @@ def main():
 
 
 			for sent in X_test:
-			    encoded_sent = tokenizer.encode(sent, add_special_tokens = True)
-			    test_input_ids.append(encoded_sent)
+				encoded_sent = tokenizer.encode(sent, add_special_tokens = True)
+				test_input_ids.append(encoded_sent)
 
-		    test_input_ids = pad_sequences(test_input_ids, 
-		    							   maxlen=args.max_length, 
-		    							   dtype="long", 
-		    							   truncating="post", 
-		    							   padding="post")
+			test_input_ids = pad_sequences(test_input_ids, 
+										   maxlen=args.max_length, 
+										   dtype="long", 
+										   truncating="post", 
+										   padding="post")
 
-		    for seq in test_input_ids:
-		    	seq_mask = [float(i>0) for i in seq]
-		    	test_attention_masks.append(seq_mask) 
+			for seq in test_input_ids:
+				seq_mask = [float(i>0) for i in seq]
+				test_attention_masks.append(seq_mask) 
 
-	    	prediction_inputs = torch.tensor(test_input_ids)
+			prediction_inputs = torch.tensor(test_input_ids)
 			prediction_masks = torch.tensor(test_attention_masks)
 			prediction_labels = torch.tensor(y_test)
 
@@ -370,9 +370,9 @@ def main():
 				  
 				
 				with torch.no_grad():
-				    outputs = model(b_input_ids, 
-				    				token_type_ids=None, 
-				    				attention_mask=b_input_mask)
+					outputs = model(b_input_ids, 
+									token_type_ids=None, 
+									attention_mask=b_input_mask)
 
 				logits = outputs[0]
 
