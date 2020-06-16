@@ -369,8 +369,9 @@ def main():
 			print("--------------------------------\n")
 
 
-			print(type(predictions))
-			print(type(true_labels))
+			print(predictions)
+			print("\n\n")
+			print(true_labels)
 
 			scores = []
 			for i in range(len(true_labels)):
@@ -378,8 +379,8 @@ def main():
 				f1_i = f1_score(true_labels[i], pred_labels_i, average="macro")                
 				scores.append(f1_i)
 
-			print(scores)
-			print(np.mean(scores))
+			
+			test_score = np.mean(scores)
 
 			"""
 			classes = test_data[class_name].drop_duplicates().tolist()
