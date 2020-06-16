@@ -320,10 +320,10 @@ def main():
 													 pad_to_max_length = True,
 													 return_attention_mask = True, 
 													 return_tensors = 'pt')
-    
-			    test_input_ids.append(encoded_dict['input_ids'])
-			    
-			    test_attention_masks.append(encoded_dict['attention_mask'])
+	
+				test_input_ids.append(encoded_dict['input_ids'])
+				
+				test_attention_masks.append(encoded_dict['attention_mask'])
 
 			test_input_ids = torch.cat(test_input_ids, dim=0)
 			test_attention_masks = torch.cat(test_attention_masks, dim=0)
