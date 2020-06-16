@@ -121,8 +121,7 @@ def main():
 			attention_masks = []
 
 			texts = train_data[text_name].values
-			labels = train_data[class_name].values
-
+			labels = LabelEncoder().fit_transform(train_data[class_name].values)
 
 			# ==============
 			# tokenization #
