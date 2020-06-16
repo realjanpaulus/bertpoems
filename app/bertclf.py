@@ -9,7 +9,7 @@ import logging
 import numpy as np
 import pandas as pd
 
-from sklearn.metrics import f1_score 
+from sklearn.metrics import confusion_matrix, f1_score 
 from sklearn.model_selection import cross_val_score, cross_validate, StratifiedKFold, train_test_split
 from sklearn.preprocessing import LabelEncoder
 
@@ -100,10 +100,10 @@ def main():
 
 		if args.corpus_name == "poet":
 			train_data = utils.load_train("../corpora/train_epochpoet", cv, i, "epochpoet")
-			val_data = pd.read_csv(f"../corpora/train_epochpoet/epochpoet{i}.csv")
+			test_data = pd.read_csv(f"../corpora/train_epochpoet/epochpoet{i}.csv")
 		elif args.corpus_name == "year":
 			train_data = utils.load_train("../corpora/train_epochyear", cv, i, "epochyear")
-			val_data = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
+			test_data = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
 		else:
 			logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 
@@ -111,6 +111,9 @@ def main():
 		class_name1 = "epoch_year"
 		class_name2 = "epoch_poet"
 		text_name = "poem"
+
+
+		train_data, val_data = train_test_split(train_data, test_size=0.2)
 
 		
 		for class_name in [class_name1, class_name2]:
@@ -146,7 +149,7 @@ def main():
 				train_input_ids.append(train_encoded['input_ids'])
 				train_attention_masks.append(train_encoded['attention_mask'])
 
-			# data leakage, da von gleichem tokenizer?
+	
 			for sent in X_val:
 				val_encoded = tokenizer.encode_plus(sent,
 													add_special_tokens = True,
@@ -198,8 +201,8 @@ def main():
 																  output_hidden_states = False).cuda()
 
 			optimizer = AdamW(model.parameters(),
-							  lr = 2e-5,
-							  eps = 1e-8)
+							  lr=2e-5,
+							  eps=1e-8)
 
 			total_steps = len(train_dataloader) * epochs
 
@@ -210,6 +213,8 @@ def main():
 			
 			training_stats = []
 			total_t0 = time.time()
+
+			validation_losses = {}
 
 			for epoch_i in range(0, epochs):
 				print("")
@@ -303,12 +308,107 @@ def main():
 									   'train_time': training_time,
 									   'val_time': validation_time})
 
+				current_epoch = f"epoch{epoch_i + 1}"
+				validation_losses[current_epoch] = avg_val_loss
+
+				# ================
+				# Early Stopping #
+				# ================
+
+
+				if utils.early_stopping(validation_losses, patience=2)
+					break
+
+
 			logging.info(f"Training for {class_name} done.")
 			logging.info("Training took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
 			print("--------------------------------\n")
 
+			# =========
+			# Testing #
+			# =========
+
+			test_input_ids = []
+			test_attention_masks = []
+
+			X_test = test_data[text_name].values
+			y_test = test_data[class_name].values
+
+
+			for sent in X_test:
+			    encoded_sent = tokenizer.encode(sent, add_special_tokens = True)
+			    test_input_ids.append(encoded_sent)
+
+		    test_input_ids = pad_sequences(test_input_ids, 
+		    							   maxlen=args.max_length, 
+		    							   dtype="long", 
+		    							   truncating="post", 
+		    							   padding="post")
+
+		    for seq in test_input_ids:
+		    	seq_mask = [float(i>0) for i in seq]
+		    	test_attention_masks.append(seq_mask) 
+
+	    	prediction_inputs = torch.tensor(test_input_ids)
+			prediction_masks = torch.tensor(test_attention_masks)
+			prediction_labels = torch.tensor(y_test)
+
+			prediction_data = TensorDataset(prediction_inputs, prediction_masks, prediction_labels)
+			prediction_sampler = SequentialSampler(prediction_data)
+			prediction_dataloader = DataLoader(prediction_data, sampler=prediction_sampler, batch_size=args.batch_size)
+
+			model.eval()
+
+			predictions, true_labels = [], []
+
+			for batch in prediction_dataloader:
+				# Add batch to GPU
+				batch = tuple(t.to(device) for t in batch)
+				  
+				# Unpack the inputs from our dataloader
+				b_input_ids, b_input_mask, b_labels = batch
+				  
+				
+				with torch.no_grad():
+				    outputs = model(b_input_ids, 
+				    				token_type_ids=None, 
+				    				attention_mask=b_input_mask)
+
+				logits = outputs[0]
+
+				# Move logits and labels to CPU
+				logits = logits.detach().cpu().numpy()
+				label_ids = b_labels.to('cpu').numpy()
+				  
+				# Store predictions and true labels
+				predictions.append(logits)
+				true_labels.append(label_ids)
+
+
+
+			logging.info(f"Testing for {class_name} done.")
+			logging.info("Testing took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
+			print("--------------------------------\n")
+
+
+			classes = test_data[class_name].drop_duplicates().tolist()
+			test_score = f1_score(true_labels, predictions, average="macro")
+			cm = confusion_matrix(true_labels, predictions)
+			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
+
+			if args.domain_adaption:
+				cm_name = f"{args.corpus_name}c_da_{args.model}"
+			else:
+				cm_name = f"{args.corpus_name}c_{args.model}"
+
+			if args.save_date:
+				cm_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
+
+			cm_df.to_csv(f"../results/bert/confusion_matrices/cm{i}_{cm_name}.csv")
+
+
 			stats = pd.DataFrame(data=training_stats)
-			cv_acc_dict[class_name].append(utils.get_mean_acc(stats))
+			cv_acc_dict[class_name].append(test_score)
 
 			if class_name == "epoch_year":
 				year_cv_dict[f"cv{i}"] = training_stats

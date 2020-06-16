@@ -16,6 +16,19 @@ from typing import Dict, List, Optional, Tuple, Union
 # clf utils #
 # ===========
 
+def early_stopping(d, patience=2):
+    """ Implements Early stopping.
+    """
+    comparisons = []
+    for epoch in range(1, len(d)+1):
+        if epoch > 1:
+            comparisons.append(d[f"e{epoch}"] >= d[f"e{epoch-1}"])
+    if False not in comparisons[-patience:]:
+        return True
+    else:
+        return False
+    
+
 def flat_f1(preds, labels):
     """ Flattens predictions and labels and omputes macro f1-score.
     """
@@ -29,19 +42,6 @@ def format_time(elapsed):
     """
     elapsed_rounded = int(round((elapsed)))
     return str(datetime.timedelta(seconds=elapsed_rounded))
-
-def get_mean_acc(df):
-    """ Returns mean validation accuracy for non-overfitted training.
-    """
-    prev_loss = 1000
-    val_acc = []
-    for idx, row in df.iterrows():
-        val_acc.append(row["val_acc"])
-        if row["val_loss"] > prev_loss:
-            break
-        else:
-            prev_loss = row["val_loss"]
-    return np.mean(val_acc)
 
 
 def load_train(path, cv, i, string):
