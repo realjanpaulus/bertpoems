@@ -310,7 +310,7 @@ def main():
 			test_attention_masks = []
 
 			X_test = test_data[text_name].values
-			y_test = test_data[class_name].values
+			y_test = LabelEncoder().fit_transform(test_data[class_name].values)
 
 
 			for sent in X_test:
