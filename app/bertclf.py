@@ -369,10 +369,6 @@ def main():
 			print("--------------------------------\n")
 
 
-			print(predictions)
-			print("\n\n")
-			print(true_labels)
-
 			scores = []
 			for i in range(len(true_labels)):
 				pred_labels_i = np.argmax(predictions[i], axis=1).flatten()
