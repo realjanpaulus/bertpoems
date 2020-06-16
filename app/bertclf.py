@@ -380,6 +380,10 @@ def main():
 			test_score = np.mean(scores)
 			print("\n")
 			print(test_score)
+			pred2 = [nparray.flatten() for nparray in predictions]
+			print(f1_score(true_labels, , average="macro"))
+			print("---")
+			print(pred2)
 
 			"""
 			classes = test_data[class_name].drop_duplicates().tolist()
