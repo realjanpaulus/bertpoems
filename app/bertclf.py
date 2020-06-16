@@ -378,7 +378,7 @@ def main():
 				f1_j = f1_score(true_labels[j], pred_labels_j, average="macro")             
 				scores.append(f1_j)
 
-				cm = confusion_matrix(true_labels[j], np.argmax(pred_labels_j, axis=1).flatten())
+				cm = confusion_matrix(true_labels[j], pred_labels_j)
 				if cm.shape == (2,2):
 					cm = np.lib.pad(cm, ((0,1),(0,1)), 'constant', constant_values=(0))
 				elif cm.shape == (1,1):
