@@ -370,14 +370,13 @@ def main():
 
 
 			scores = []
-			for i in range(len(true_labels)):
-				pred_labels_i = np.argmax(predictions[i], axis=1).flatten()
-				f1_i = f1_score(true_labels[i], pred_labels_i, average="macro")             
-				scores.append(f1_i)
+			for j in range(len(true_labels)):
+				pred_labels_j = np.argmax(predictions[j], axis=1).flatten()
+				f1_j = f1_score(true_labels[j], pred_labels_j, average="macro")             
+				scores.append(f1_j)
 
 			
 			test_score = np.mean(scores)
-			print(test_score)
 
 			"""
 			classes = test_data[class_name].drop_duplicates().tolist()
@@ -399,6 +398,7 @@ def main():
 			stats = pd.DataFrame(data=training_stats)
 			cv_acc_dict[class_name].append(test_score)
 
+
 			if class_name == "epoch_year":
 				year_cv_dict[f"cv{i}"] = training_stats
 			elif class_name == "epoch_poet":
@@ -406,7 +406,7 @@ def main():
 			else:
 				logging.info(f"The class {class_name} does not exist.")
 
-		
+		logging.info(f"CV Test F1-Score: {test_score}")
 		logging.info(f"Training for run {i}/{cv} completed.")
 		logging.info("Training run took {:} (h:mm:ss)".format(utils.format_time(time.time()-total_t0)))
 		print("________________________________")
