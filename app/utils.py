@@ -19,14 +19,18 @@ from typing import Dict, List, Optional, Tuple, Union
 def early_stopping(d, patience=2):
 	""" Implements Early stopping.
 	"""
-	comparisons = []
-	for epoch in range(1, len(d)+1):
-		if epoch > 1:
-			comparisons.append(d[f"e{epoch}"] >= d[f"e{epoch-1}"])
-	if False not in comparisons[-patience:] and len(comparisons) > patience:
-		return True
-	else:
+
+	if len(d) <= 1:
 		return False
+	elif len(d) > 1:
+		comparisons = []
+		for epoch in range(1, len(d)+1):
+			if epoch > 1:
+				comparisons.append(d[f"e{epoch}"] >= d[f"e{epoch-1}"])
+		if False not in comparisons[-patience:] and len(comparisons) > patience:
+			return True
+		else:
+			return False
 
 
 def flat_f1(true_labels, preds):
