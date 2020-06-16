@@ -26,7 +26,7 @@ def early_stopping(d, patience=2):
 		comparisons = []
 		for epoch in range(1, len(d)+1):
 			if epoch > 1:
-				comparisons.append(d[f"e{epoch}"] >= d[f"e{epoch-1}"])
+				comparisons.append(d[f"epoch{epoch}"] >= d[f"epoch{epoch-1}"])
 		if False not in comparisons[-patience:] and len(comparisons) > patience:
 			return True
 		else:
