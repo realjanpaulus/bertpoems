@@ -373,8 +373,8 @@ def main():
 			print(type(true_labels))
 
 			classes = test_data[class_name].drop_duplicates().tolist()
-			test_score = flat_f1(true_labels, predictions, average="macro")
-			cm = confusion_matrix(true_labels, predictions)
+			test_score = utils.flat_f1(true_labels, predictions, average="macro")
+			cm = confusion_matrix(true_labels.flatten(), np.argmax(predictions, axis=1).flatten())
 			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
 
 			if args.domain_adaption:
