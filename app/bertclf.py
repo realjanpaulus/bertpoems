@@ -314,27 +314,27 @@ def main():
 
 
 			for sent in X_test:
-				encoded_sent = tokenizer.encode(sent, add_special_tokens = True)
-				test_input_ids.append(encoded_sent)
+				encoded_dict = tokenizer.encode_plus(sent,
+													 add_special_tokens = True,
+													 max_length = args.max_length,
+													 pad_to_max_length = True,
+													 return_attention_mask = True, 
+													 return_tensors = 'pt')
+    
+			    test_input_ids.append(encoded_dict['input_ids'])
+			    
+			    test_attention_masks.append(encoded_dict['attention_mask'])
 
-			test_input_ids = pad_sequences(test_input_ids, 
-										   maxlen=args.max_length, 
-										   dtype="long", 
-										   truncating="post", 
-										   padding="post")
+			test_input_ids = torch.cat(test_input_ids, dim=0)
+			test_attention_masks = torch.cat(test_attention_masks, dim=0)
+			labels = torch.tensor(y_test)
 
-			for seq in test_input_ids:
-				seq_mask = [float(i>0) for i in seq]
-				test_attention_masks.append(seq_mask) 
-
-			prediction_inputs = torch.tensor(test_input_ids)
-			prediction_masks = torch.tensor(test_attention_masks)
-			prediction_labels = torch.tensor(y_test)
-
-			prediction_data = TensorDataset(prediction_inputs, prediction_masks, prediction_labels)
+			prediction_data = TensorDataset(test_input_ids, test_attention_masks, labels)
 			prediction_sampler = SequentialSampler(prediction_data)
-			prediction_dataloader = DataLoader(prediction_data, sampler=prediction_sampler, batch_size=args.batch_size)
-
+			prediction_dataloader = DataLoader(prediction_data, 
+											   sampler=prediction_sampler, 
+											   batch_size=batch_size)
+			
 			model.eval()
 
 			predictions, true_labels = [], []
