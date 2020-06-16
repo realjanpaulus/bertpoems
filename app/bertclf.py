@@ -372,16 +372,12 @@ def main():
 			scores = []
 			for i in range(len(true_labels)):
 				pred_labels_i = np.argmax(predictions[i], axis=1).flatten()
-				f1_i = f1_score(true_labels[i], pred_labels_i, average="macro")
-				print(f1_i)                
+				f1_i = f1_score(true_labels[i], pred_labels_i, average="macro")             
 				scores.append(f1_i)
 
 			
 			test_score = np.mean(scores)
-			print("\n")
 			print(test_score)
-			pred2 = [nparray.flatten() for nparray in predictions]
-			print(f1_score(true_labels, pred2, average="macro"))
 
 			"""
 			classes = test_data[class_name].drop_duplicates().tolist()
