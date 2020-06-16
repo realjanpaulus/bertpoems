@@ -113,24 +113,15 @@ def main():
 		class_name2 = "epoch_poet"
 		text_name = "poem"
 
-
-		train_data, val_data = train_test_split(train_data, test_size=0.2)
-
-		
+				
 		for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
-			train_input_ids = []
-			train_attention_masks = []
-			val_input_ids = []
-			val_attention_masks = []
+			input_ids = []
+			attention_masks = []
 
-			X_train = train_data[text_name].values
-			X_val = val_data[text_name].values
-
-
-			y_train = LabelEncoder().fit_transform(train_data[class_name].values)
-			y_val = LabelEncoder().fit_transform(val_data[class_name].values)
+			texts = train_data[text_name].values
+			labels = train_data[class_name].values
 
 
 			# ==============
@@ -139,85 +130,44 @@ def main():
 
 			tokenizer = BertTokenizer.from_pretrained(model_name, do_lower_case=False)
 
-			for sent in X_train:
-				train_encoded = tokenizer.encode_plus(sent,
-													  add_special_tokens = True,
-													  max_length = args.max_length,
-													  pad_to_max_length = True,
-													  return_attention_mask = True, 
-													  return_tensors = 'pt')
+			for sent in texts:
+				encoded_dict = tokenizer.encode_plus(sent,
+													 add_special_tokens = True,
+													 max_length = args.max_length,
+													 pad_to_max_length = True,
+													 return_attention_mask = True, 
+													 return_tensors = 'pt')
 
-				train_input_ids.append(train_encoded['input_ids'])
-				train_attention_masks.append(train_encoded['attention_mask'])
+				input_ids.append(encoded_dict['input_ids'])
+				attention_masks.append(encoded_dict['attention_mask'])
 
 	
-			for sent in X_val:
-				val_encoded = tokenizer.encode_plus(sent,
-													add_special_tokens = True,
-													max_length = args.max_length,
-													pad_to_max_length = True,
-													return_attention_mask = True, 
-													return_tensors = 'pt')
+			input_ids = torch.cat(input_ids, dim=0)
+			attention_masks = torch.cat(attention_masks, dim=0)
+			labels = torch.tensor(labels)
 
-				val_input_ids.append(val_encoded['input_ids'])
-				val_attention_masks.append(val_encoded['attention_mask'])
+			# =================
+			# train val split #
+			# =================
 
-			# ======================================
-			# Padding, Truncating, Attention Masks #
-			# ======================================
+			dataset = TensorDataset(input_ids, attention_masks, labels)
 
-			train_input_ids = pad_sequences(train_input_ids, 
-											maxlen=args.max_length, 
-											dtype="long",
-											value=0, 
-											truncating="post", 
-											padding="post")
+			train_size = int(0.8 * len(dataset))
+			val_size = len(dataset) - train_size
 
-			val_input_ids = pad_sequences(val_input_ids, 
-											maxlen=args.max_length, 
-											dtype="long",
-											value=0, 
-											truncating="post", 
-											padding="post")
+			train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 
 
-			for sent in train_input_ids:
-				att_mask = [int(token_id > 0) for token_id in sent]
-				train_attention_masks.append(att_mask)
+			# ============
+			# DataLoader #
+			# ============
 
-			for sent in val_input_ids:
-				att_mask = [int(token_id > 0) for token_id in sent]
-				val_attention_masks.append(att_mask)
-
-			# ==============================
-			# filling tensors & DataLoader #
-			# ==============================
-
-			train_input_ids = torch.cat(train_input_ids, dim=0)
-			val_input_ids = torch.cat(val_input_ids, dim=0)
-
-			train_attention_masks = torch.cat(train_attention_masks, dim=0)
-			val_attention_masks = torch.cat(val_attention_masks, dim=0)
-
-			y_train = torch.tensor(y_train)
-			y_val = torch.tensor(y_val)
-
-
-			train = TensorDataset(train_input_ids, 
-								  train_attention_masks,
-								  y_train)
-
-			val = TensorDataset(val_input_ids, 
-								val_attention_masks,
-								y_val)
-
-
-			train_dataloader = DataLoader(train,
-										  sampler = RandomSampler(train),
+			train_dataloader = DataLoader(train_dataset,
+										  sampler = RandomSampler(train_dataset),
 										  batch_size = batch_size)
 
-			val_dataloader = DataLoader(val, 
-										sampler = SequentialSampler(val),
+			val_dataloader = DataLoader(val_dataset, 
+										sampler = SequentialSampler(val_dataset),
 										batch_size = batch_size)
 
 			# ======== #
