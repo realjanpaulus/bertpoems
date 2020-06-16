@@ -4,6 +4,7 @@
 import argparse
 from collections import Counter, defaultdict
 from datetime import datetime
+from keras.preprocessing.sequence import pad_sequences
 import json
 import logging
 import numpy as np
@@ -161,6 +162,33 @@ def main():
 				val_input_ids.append(val_encoded['input_ids'])
 				val_attention_masks.append(val_encoded['attention_mask'])
 
+			# ======================================
+			# Padding, Truncating, Attention Masks #
+			# ======================================
+
+			train_input_ids = pad_sequences(train_input_ids, 
+											maxlen=args.max_length, 
+											dtype="long",
+											value=0, 
+											truncating="post", 
+											padding="post")
+
+			val_input_ids = pad_sequences(val_input_ids, 
+											maxlen=args.max_length, 
+											dtype="long",
+											value=0, 
+											truncating="post", 
+											padding="post")
+
+
+			for sent in train_input_ids:
+    			att_mask = [int(token_id > 0) for token_id in sent]
+    			train_attention_masks.append(att_mask)
+
+			for sent in val_input_ids:
+    			att_mask = [int(token_id > 0) for token_id in sent]
+    			val_attention_masks.append(att_mask)
+
 			# ==============================
 			# filling tensors & DataLoader #
 			# ==============================
@@ -317,6 +345,7 @@ def main():
 
 
 				if utils.early_stopping(validation_losses, patience=2):
+					logging.info(f"Stopping epoch run early (Epoch {epoch_i}).")
 					break
 
 
