@@ -379,11 +379,11 @@ def main():
 				scores.append(f1_j)
 
 				cm = confusion_matrix(true_labels[j], np.argmax(pred_labels_j, axis=1).flatten())
-			    if cm.shape == (2,2):
-			        cm = np.lib.pad(cm, ((0,1),(0,1)), 'constant', constant_values=(0))
-		        elif cm.shape == (1,1):
-		        	cm = np.lib.pad(cm, ((0,2),(0,2)), 'constant', constant_values=(0))
-			    cmatrices.append(cm)
+				if cm.shape == (2,2):
+					cm = np.lib.pad(cm, ((0,1),(0,1)), 'constant', constant_values=(0))
+				elif cm.shape == (1,1):
+					cm = np.lib.pad(cm, ((0,2),(0,2)), 'constant', constant_values=(0))
+				cmatrices.append(cm)
 
 			
 			test_score = np.mean(scores)			
