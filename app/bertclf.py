@@ -182,12 +182,12 @@ def main():
 
 
 			for sent in train_input_ids:
-    			att_mask = [int(token_id > 0) for token_id in sent]
-    			train_attention_masks.append(att_mask)
+				att_mask = [int(token_id > 0) for token_id in sent]
+				train_attention_masks.append(att_mask)
 
 			for sent in val_input_ids:
-    			att_mask = [int(token_id > 0) for token_id in sent]
-    			val_attention_masks.append(att_mask)
+				att_mask = [int(token_id > 0) for token_id in sent]
+				val_attention_masks.append(att_mask)
 
 			# ==============================
 			# filling tensors & DataLoader #
