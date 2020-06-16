@@ -265,7 +265,7 @@ def main():
 					label_ids = b_labels.to('cpu').numpy()
 
 					# TODO: geht f1 score hier?
-					total_eval_accuracy += utils.flat_f1(logits, label_ids)
+					total_eval_accuracy += utils.flat_f1(label_ids, logits)
 					
 
 				# final validation accuracy / loss
@@ -368,10 +368,12 @@ def main():
 			logging.info("Testing took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
 			print("--------------------------------\n")
 
-			predictions = np.argmax(predictions, axis=1).flatten()
+
+			print(type(predictions))
+			print(type(true_labels))
 
 			classes = test_data[class_name].drop_duplicates().tolist()
-			test_score = f1_score(true_labels, predictions, average="macro")
+			test_score = flat_f1(true_labels, predictions, average="macro")
 			cm = confusion_matrix(true_labels, predictions)
 			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
 

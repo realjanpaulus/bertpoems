@@ -27,14 +27,14 @@ def early_stopping(d, patience=2):
         return True
     else:
         return False
-    
 
-def flat_f1(preds, labels):
+
+def flat_f1(true_labels, preds):
     """ Flattens predictions and labels and omputes macro f1-score.
     """
     pred_flat = np.argmax(preds, axis=1).flatten()
-    labels_flat = labels.flatten()
-    return f1_score(pred_flat, labels_flat, average="macro")
+    labels_flat = true_labels.flatten()
+    return f1_score(labels_flat, pred_flat, average="macro")
 
 
 def format_time(elapsed):
