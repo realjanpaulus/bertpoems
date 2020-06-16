@@ -334,7 +334,7 @@ def main():
 			prediction_dataloader = DataLoader(prediction_data, 
 											   sampler=prediction_sampler, 
 											   batch_size=batch_size)
-			
+
 			model.eval()
 
 			predictions, true_labels = [], []
@@ -368,6 +368,7 @@ def main():
 			logging.info("Testing took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
 			print("--------------------------------\n")
 
+			predictions = np.argmax(predictions, axis=1).flatten()
 
 			classes = test_data[class_name].drop_duplicates().tolist()
 			test_score = f1_score(true_labels, predictions, average="macro")
