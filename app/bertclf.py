@@ -381,6 +381,7 @@ def main():
 
 			
 			test_score = np.mean(scores)
+			print(test_score)
 
 			"""
 			classes = test_data[class_name].drop_duplicates().tolist()
