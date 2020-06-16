@@ -151,7 +151,7 @@ def main():
 
 			dataset = TensorDataset(input_ids, attention_masks, labels)
 
-			train_size = int(0.8 * len(dataset))
+			train_size = int(0.9 * len(dataset))
 			val_size = len(dataset) - train_size
 
 			train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
