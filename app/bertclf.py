@@ -370,19 +370,26 @@ def main():
 
 
 			scores = []
+			cmatrices = []
+
+			# looping through predictions #
 			for j in range(len(true_labels)):
 				pred_labels_j = np.argmax(predictions[j], axis=1).flatten()
 				f1_j = f1_score(true_labels[j], pred_labels_j, average="macro")             
 				scores.append(f1_j)
 
-			
-			test_score = np.mean(scores)
+				cm = confusion_matrix(true_labels[j], np.argmax(pred_labels_j, axis=1).flatten())
+			    if cm.shape == (2,2):
+			        cm = np.lib.pad(cm, ((0,1),(0,1)), 'constant', constant_values=(0))
+		        elif cm.shape == (1,1):
+		        	cm = np.lib.pad(cm, ((0,2),(0,2)), 'constant', constant_values=(0))
+			    cmatrices.append(cm)
 
-			"""
+			
+			test_score = np.mean(scores)			
 			classes = test_data[class_name].drop_duplicates().tolist()
-			test_score = utils.flat_f1(true_labels, predictions)
-			cm = confusion_matrix(true_labels.flatten(), np.argmax(predictions, axis=1).flatten())
-			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
+			cm_sum = sum(cmatrices)
+			cm_df = pd.DataFrame(cm_sum, index=classes, columns=classes)
 
 			if args.domain_adaption:
 				cm_name = f"{args.corpus_name}c_da_{args.model}"
@@ -393,7 +400,7 @@ def main():
 				cm_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
 
 			cm_df.to_csv(f"../results/bert/confusion_matrices/cm{i}_{cm_name}.csv")
-			"""
+			
 
 			stats = pd.DataFrame(data=training_stats)
 			cv_acc_dict[class_name].append(test_score)
@@ -452,6 +459,7 @@ if __name__ == "__main__":
 	parser.add_argument("--epochs", "-e", type=int, default=4, help="Indicates number of epochs.")
 	parser.add_argument("--max_length", "-ml", type=int, default=510, help="Indicates the maximum document length.")
 	parser.add_argument("--model", "-m", type=str, default="german", help="Indicates the BERT model name. Default is 'german' (short for: bert-base-german-dbmdz-cased). Another option is 'rede' (short for: bert-base-historical-german-rw-cased).")
+	parser.add_argument("--patience", "-p", type=int, default=3, help="Indicates patience for early stopping.")
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
 	
 	args = parser.parse_args()
