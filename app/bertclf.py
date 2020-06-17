@@ -362,13 +362,6 @@ def main():
 				predictions.append(logits)
 				true_labels.append(label_ids)
 
-
-
-			logging.info(f"Testing for {class_name} done.")
-			logging.info("Testing took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
-			print("--------------------------------\n")
-
-
 			scores = []
 			cmatrices = []
 
@@ -392,9 +385,9 @@ def main():
 			cm_df = pd.DataFrame(cm_sum, index=classes, columns=classes)
 
 			if args.domain_adaption:
-				cm_name = f"{args.corpus_name}c_da_{args.model}"
+				cm_name = f"{args.corpus_name}c_{class_name}_da_{args.model}"
 			else:
-				cm_name = f"{args.corpus_name}c_{args.model}"
+				cm_name = f"{args.corpus_name}c_{class_name}_{args.model}"
 
 			if args.save_date:
 				cm_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
@@ -413,7 +406,11 @@ def main():
 			else:
 				logging.info(f"The class {class_name} does not exist.")
 
-		logging.info(f"CV Test F1-Score: {test_score}")
+			logging.info(f"Testing for {class_name} done.")
+			logging.info(f"CV Test F1-Score: {test_score} (run: {i}/{cv}).")
+			logging.info("Testing took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
+			print("--------------------------------\n")
+
 		logging.info(f"Training for run {i}/{cv} completed.")
 		logging.info("Training run took {:} (h:mm:ss)".format(utils.format_time(time.time()-total_t0)))
 		print("________________________________")

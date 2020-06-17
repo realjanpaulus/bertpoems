@@ -133,7 +133,9 @@ TODOS.md
 app/old/
 corpora/old/
 corpora/domain-adaption/
+paper/
+resources/old/
 results/old/
+results/bert/old/
 utils/
 utils/old/
-

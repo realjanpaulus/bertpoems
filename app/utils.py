@@ -19,7 +19,6 @@ from typing import Dict, List, Optional, Tuple, Union
 def early_stopping(d, patience=2):
 	""" Implements Early stopping.
 	"""
-
 	if len(d) <= 1:
 		return False
 	elif len(d) > 1:
