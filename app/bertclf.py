@@ -53,7 +53,9 @@ def main():
 
 	batch_size = args.batch_size
 	epochs = args.epochs
+	learning_rate = args.learning_rate
 	max_length = args.max_length
+
 	
 
 	if args.domain_adaption:
@@ -178,7 +180,7 @@ def main():
 																  output_hidden_states = False).cuda()
 
 			optimizer = AdamW(model.parameters(),
-							  lr=2e-5,
+							  lr=learning_rate,
 							  eps=1e-8)
 
 			total_steps = len(train_dataloader) * epochs
@@ -447,6 +449,7 @@ def main():
 
 if __name__ == "__main__":
 	
+	#TODO: learning rate
 	parser = argparse.ArgumentParser(prog="bertclf", description="Bert classifier.")
 	parser.add_argument("--batch_size", "-bs", type=int, default=8, help="Indicates batch size.")
 	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
@@ -454,6 +457,7 @@ if __name__ == "__main__":
 	parser.add_argument("--domain_adaption", "-da", action="store_true", help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.")
 	parser.add_argument("--domain_adapted_path", "-dap", type=str, default="../corpora/domain-adaption", help="Indicates the path of a domain-adapted model.")
 	parser.add_argument("--epochs", "-e", type=int, default=4, help="Indicates number of epochs.")
+	parser.add_argument("--learning_rate", "-lr", type=float, default=2e-5, help="Set learning rate for optimizer.")
 	parser.add_argument("--max_length", "-ml", type=int, default=510, help="Indicates the maximum document length.")
 	parser.add_argument("--model", "-m", type=str, default="german", help="Indicates the BERT model name. Default is 'german' (short for: bert-base-german-dbmdz-cased). Another option is 'rede' (short for: bert-base-historical-german-rw-cased).")
 	parser.add_argument("--patience", "-p", type=int, default=3, help="Indicates patience for early stopping.")
