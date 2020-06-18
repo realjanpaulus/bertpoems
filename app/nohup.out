@@ -12906,3 +12906,2457 @@ Now Validating.
 ________________________________
 ________________________________
 
+Using TensorFlow backend.
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/tokenization_utils.py:884: FutureWarning: Parameter max_len is deprecated and will be removed in a future release. Use model_max_length instead.
+  warnings.warn(
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:21 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6106513369671265 (run: 1/10).
+INFO: Testing took 0:07:25 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.693570415938837 (run: 1/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Training for run 1/10 completed.
+INFO: Training run took 0:07:27 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6377431535326271 (run: 2/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7005113794587478 (run: 2/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Training for run 2/10 completed.
+INFO: Training run took 0:07:27 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+There are 1 GPU(s) available.
+Used GPU: GeForce RTX 2080 Ti
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:16.
+Batch   100  of    304.    Elapsed: 0:00:32.
+Batch   150  of    304.    Elapsed: 0:00:49.
+Batch   200  of    304.    Elapsed: 0:01:05.
+Batch   250  of    304.    Elapsed: 0:01:22.
+Batch   300  of    304.    Elapsed: 0:01:39.
+
+  Average training loss: 0.74
+  Training epoch took: 0:01:40
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 0.69
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:29.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.51
+  Training epoch took: 0:01:48
+
+Now Validating.
+  Validation Accuracy: 0.55
+  Validation Loss: 0.82
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:36.
+Batch   150  of    304.    Elapsed: 0:00:54.
+Batch   200  of    304.    Elapsed: 0:01:12.
+Batch   250  of    304.    Elapsed: 0:01:30.
+Batch   300  of    304.    Elapsed: 0:01:48.
+
+  Average training loss: 0.26
+  Training epoch took: 0:01:49
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 0.97
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:36.
+Batch   150  of    304.    Elapsed: 0:00:54.
+Batch   200  of    304.    Elapsed: 0:01:12.
+Batch   250  of    304.    Elapsed: 0:01:30.
+Batch   300  of    304.    Elapsed: 0:01:47.
+
+  Average training loss: 0.13
+  Training epoch took: 0:01:49
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 1.44
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.87
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.67
+  Validation Loss: 0.71
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.53
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.69
+  Validation Loss: 0.61
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.30
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 0.82
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.16
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.73
+  Validation Loss: 1.03
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.76
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.68
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.52
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 0.58
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.29
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.95
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.11
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 1.21
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.90
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 0.72
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.56
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.72
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.28
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 1.30
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.10
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.72
+  Validation Loss: 1.32
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:22 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.5917312706786391 (run: 3/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:22 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6771847548163337 (run: 3/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Training for run 3/10 completed.
+INFO: Training run took 0:07:27 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.623058666479719 (run: 4/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6675379201694992 (run: 4/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Training for run 4/10 completed.
+INFO: Training run took 0:07:27 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.75
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 0.69
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.53
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 0.62
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.29
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.67
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.12
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 1.23
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.91
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 0.71
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.52
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 0.58
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.27
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.69
+  Validation Loss: 0.99
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.12
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 1.61
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.79
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.55
+  Validation Loss: 0.71
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.55
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.67
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.28
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 1.02
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.13
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.59
+  Validation Loss: 1.49
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.89
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.75
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.51
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.84
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.28
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 1.01
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.10
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 1.74
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.76
+  Training epoch took: 0:01:46
+
+Now Validating.INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:26 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6320154504365029 (run: 5/10).
+INFO: Testing took 0:07:30 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.689281284018126 (run: 5/10).
+INFO: Testing took 0:07:28 (h:mm:ss) 
+
+INFO: Training for run 5/10 completed.
+INFO: Training run took 0:07:28 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.612591648117964 (run: 6/10).
+INFO: Testing took 0:07:28 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:22 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6749512670565303 (run: 6/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Training for run 6/10 completed.
+INFO: Training run took 0:07:27 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+
+  Validation Accuracy: 0.53
+  Validation Loss: 0.77
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.53
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.62
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:29.
+Batch   300  of    304.    Elapsed: 0:01:47.
+
+  Average training loss: 0.28
+  Training epoch took: 0:01:48
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 1.06
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:36.
+Batch   150  of    304.    Elapsed: 0:00:54.
+Batch   200  of    304.    Elapsed: 0:01:12.
+Batch   250  of    304.    Elapsed: 0:01:29.
+Batch   300  of    304.    Elapsed: 0:01:47.
+
+  Average training loss: 0.11
+  Training epoch took: 0:01:49
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 1.62
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.94
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 0.68
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.57
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.74
+  Validation Loss: 0.53
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.32
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.73
+  Validation Loss: 0.79
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.14
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.72
+  Validation Loss: 0.99
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.76
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.54
+  Validation Loss: 0.73
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.53
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.59
+  Validation Loss: 0.75
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.30
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.79
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.13
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.63
+  Validation Loss: 1.24
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.90
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 0.75
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.49
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.73
+  Validation Loss: 0.60
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.23
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 1.07
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.09
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.70
+  Validation Loss: 1.37
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.73
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.52
+  Validation Loss: 0.75
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6066766079923973 (run: 7/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:22 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7018448900027848 (run: 7/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Training for run 7/10 completed.
+INFO: Training run took 0:07:27 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.622901416322469 (run: 8/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.675824662666768 (run: 8/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Training for run 8/10 completed.
+INFO: Training run took 0:07:27 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.48
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 0.90
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.24
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.58
+  Validation Loss: 0.99
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.12
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.59
+  Validation Loss: 1.70
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.91
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.63
+  Validation Loss: 0.71
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.56
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 0.71
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.27
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.73
+  Validation Loss: 0.71
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.14
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 1.23
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.77
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.53
+  Validation Loss: 0.72
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.50
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.58
+  Validation Loss: 0.79
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.27
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 1.03
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.12
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 1.38
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.90
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 0.78
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.54
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.70
+  Validation Loss: 0.72
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.27
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.70
+  Validation Loss: 0.85
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.10
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 1.39
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.77
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.63
+  Validation Loss: 0.61
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.53INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6991557662610294 (run: 9/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6601173680121049 (run: 9/10).
+INFO: Testing took 0:07:28 (h:mm:ss) 
+
+INFO: Training for run 9/10 completed.
+INFO: Training run took 0:07:28 (h:mm:ss)
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:07:23 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6301987973040606 (run: 10/10).
+INFO: Testing took 0:07:27 (h:mm:ss) 
+
+INFO: Model name 'redewiedergabe/bert-base-historical-german-rw-cased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming 'redewiedergabe/bert-base-historical-german-rw-cased' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/vocab.txt from cache at /home/paulus/.cache/torch/transformers/b25d3ecfe9931049cada1de9f396b9896126fb8c849acb62f690eee8bcd6eb20.2a48e6c60dcdb582effb718237ce5894652e3b4abb94f0a4d9a857b70333308d
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/added_tokens.json from cache at /home/paulus/.cache/torch/transformers/f48b1bb3e7da99e956aa11d68dbccc34fb5523b93319193cb8eb385dc73fc787.3889713104075cfee9e96090bcdd0dc753733b3db9da20d1dd8b2cd1030536a2
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/special_tokens_map.json from cache at /home/paulus/.cache/torch/transformers/f1df45096f88eb4caefd14a1e5e9c5b088a1c050fe911dfbe3909bd4a23c6780.275045728fbf41c11d3dae08b8742c054377e18d92cc7b72b6351152a99b64e4
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/tokenizer_config.json from cache at /home/paulus/.cache/torch/transformers/b336aa7b57c73dcca1ba03b20f91abb4f17dcee75e17b7643bea1555610eaa10.85aeda2ee9f5ffe5945714ad1ffe401aaeb83ce6b05c554f972487c55bb1a407
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/redewiedergabe/bert-base-historical-german-rw-cased/config.json from cache at /home/paulus/.cache/torch/transformers/c7eac2bbd5eeb696e76fe4ab946bf85556fa8cc563a0f45c6b98f1dd62d4e19f.4d552623f46c71e8e0c1a0eb4e59da5816bca7958d32ae9290d9de4cee162c6b
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file https://cdn.huggingface.co/redewiedergabe/bert-base-historical-german-rw-cased/pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/7b94372da10571827a243ce8a66111e0add5b5488fd5c0e1a11cc9eeda97975f.18e920485dc2653505ff82f986d2f87173ef2c3d2dd9498a93f49e498e46c8da
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 4).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:09:14 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7155780866307183 (run: 10/10).
+INFO: Testing took 0:09:18 (h:mm:ss) 
+
+INFO: Training for run 10/10 completed.
+INFO: Training run took 0:09:18 (h:mm:ss)
+INFO: Writing results to '../results/bert/'.
+INFO: Total duration: 153.61666666666667 minute(s).
+
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 0.65
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.28
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 0.71
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.10
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.73
+  Validation Loss: 0.89
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.87
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.72
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.51
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 0.61
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.25
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 0.91
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.11
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.70
+  Validation Loss: 1.38
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:34.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:27.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.72
+  Training epoch took: 0:01:46
+
+Now Validating.
+  Validation Accuracy: 0.58
+  Validation Loss: 0.69
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.47
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.59
+  Validation Loss: 0.68
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.25
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 1.22
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.10
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 1.71
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:17.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:52.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.88
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 0.67
+  Validation took: 0:00:04
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.51
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 0.72
+  Validation took: 0:00:04
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:11.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.26
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.74
+  Validation Loss: 0.70
+  Validation took: 0:00:04
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:45.
+
+  Average training loss: 0.10
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.77
+  Validation Loss: 0.92
+  Validation took: 0:00:04
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of    304.    Elapsed: 0:00:18.
+Batch   100  of    304.    Elapsed: 0:00:35.
+Batch   150  of    304.    Elapsed: 0:00:53.
+Batch   200  of    304.    Elapsed: 0:01:10.
+Batch   250  of    304.    Elapsed: 0:01:28.
+Batch   300  of    304.    Elapsed: 0:01:46.
+
+  Average training loss: 0.03
+  Training epoch took: 0:01:47
+
+Now Validating.
+  Validation Accuracy: 0.74
+  Validation Loss: 1.28
+  Validation took: 0:00:04
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
