@@ -4,12 +4,13 @@
 import argparse
 from collections import Counter, defaultdict
 from datetime import datetime
+from keras.preprocessing.sequence import pad_sequences
 import json
 import logging
 import numpy as np
 import pandas as pd
 
-from sklearn.metrics import f1_score 
+from sklearn.metrics import confusion_matrix, f1_score 
 from sklearn.model_selection import cross_val_score, cross_validate, StratifiedKFold, train_test_split
 from sklearn.preprocessing import LabelEncoder
 
@@ -52,7 +53,9 @@ def main():
 
 	batch_size = args.batch_size
 	epochs = args.epochs
+	learning_rate = args.learning_rate
 	max_length = args.max_length
+
 	
 
 	if args.domain_adaption:
@@ -100,10 +103,10 @@ def main():
 
 		if args.corpus_name == "poet":
 			train_data = utils.load_train("../corpora/train_epochpoet", cv, i, "epochpoet")
-			val_data = pd.read_csv(f"../corpora/train_epochpoet/epochpoet{i}.csv")
+			test_data = pd.read_csv(f"../corpora/train_epochpoet/epochpoet{i}.csv")
 		elif args.corpus_name == "year":
 			train_data = utils.load_train("../corpora/train_epochyear", cv, i, "epochyear")
-			val_data = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
+			test_data = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
 		else:
 			logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 
@@ -112,22 +115,15 @@ def main():
 		class_name2 = "epoch_poet"
 		text_name = "poem"
 
-		
+				
 		for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
-			train_input_ids = []
-			train_attention_masks = []
-			val_input_ids = []
-			val_attention_masks = []
+			input_ids = []
+			attention_masks = []
 
-			X_train = train_data[text_name].values
-			X_val = val_data[text_name].values
-
-
-			y_train = LabelEncoder().fit_transform(train_data[class_name].values)
-			y_val = LabelEncoder().fit_transform(val_data[class_name].values)
-
+			texts = train_data[text_name].values
+			labels = LabelEncoder().fit_transform(train_data[class_name].values)
 
 			# ==============
 			# tokenization #
@@ -135,58 +131,44 @@ def main():
 
 			tokenizer = BertTokenizer.from_pretrained(model_name, do_lower_case=False)
 
-			for sent in X_train:
-				train_encoded = tokenizer.encode_plus(sent,
-													  add_special_tokens = True,
-													  max_length = args.max_length,
-													  pad_to_max_length = True,
-													  return_attention_mask = True, 
-													  return_tensors = 'pt')
+			for sent in texts:
+				encoded_dict = tokenizer.encode_plus(sent,
+													 add_special_tokens = True,
+													 max_length = args.max_length,
+													 pad_to_max_length = True,
+													 return_attention_mask = True, 
+													 return_tensors = 'pt')
 
-				train_input_ids.append(train_encoded['input_ids'])
-				train_attention_masks.append(train_encoded['attention_mask'])
+				input_ids.append(encoded_dict['input_ids'])
+				attention_masks.append(encoded_dict['attention_mask'])
 
-			# data leakage, da von gleichem tokenizer?
-			for sent in X_val:
-				val_encoded = tokenizer.encode_plus(sent,
-													add_special_tokens = True,
-													max_length = args.max_length,
-													pad_to_max_length = True,
-													return_attention_mask = True, 
-													return_tensors = 'pt')
+	
+			input_ids = torch.cat(input_ids, dim=0)
+			attention_masks = torch.cat(attention_masks, dim=0)
+			labels = torch.tensor(labels)
 
-				val_input_ids.append(val_encoded['input_ids'])
-				val_attention_masks.append(val_encoded['attention_mask'])
+			# =================
+			# train val split #
+			# =================
 
-			# ==============================
-			# filling tensors & DataLoader #
-			# ==============================
+			dataset = TensorDataset(input_ids, attention_masks, labels)
 
-			train_input_ids = torch.cat(train_input_ids, dim=0)
-			val_input_ids = torch.cat(val_input_ids, dim=0)
+			train_size = int(0.9 * len(dataset))
+			val_size = len(dataset) - train_size
 
-			train_attention_masks = torch.cat(train_attention_masks, dim=0)
-			val_attention_masks = torch.cat(val_attention_masks, dim=0)
-
-			y_train = torch.tensor(y_train)
-			y_val = torch.tensor(y_val)
+			train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 
 
-			train = TensorDataset(train_input_ids, 
-								  train_attention_masks,
-								  y_train)
+			# ============
+			# DataLoader #
+			# ============
 
-			val = TensorDataset(val_input_ids, 
-								val_attention_masks,
-								y_val)
-
-
-			train_dataloader = DataLoader(train,
-										  sampler = RandomSampler(train),
+			train_dataloader = DataLoader(train_dataset,
+										  sampler = RandomSampler(train_dataset),
 										  batch_size = batch_size)
 
-			val_dataloader = DataLoader(val, 
-										sampler = SequentialSampler(val),
+			val_dataloader = DataLoader(val_dataset, 
+										sampler = SequentialSampler(val_dataset),
 										batch_size = batch_size)
 
 			# ======== #
@@ -198,8 +180,8 @@ def main():
 																  output_hidden_states = False).cuda()
 
 			optimizer = AdamW(model.parameters(),
-							  lr = 2e-5,
-							  eps = 1e-8)
+							  lr=learning_rate,
+							  eps=1e-8)
 
 			total_steps = len(train_dataloader) * epochs
 
@@ -210,6 +192,8 @@ def main():
 			
 			training_stats = []
 			total_t0 = time.time()
+
+			validation_losses = {}
 
 			for epoch_i in range(0, epochs):
 				print("")
@@ -283,7 +267,7 @@ def main():
 					label_ids = b_labels.to('cpu').numpy()
 
 					# TODO: geht f1 score hier?
-					total_eval_accuracy += utils.flat_f1(logits, label_ids)
+					total_eval_accuracy += utils.flat_f1(label_ids, logits)
 					
 
 				# final validation accuracy / loss
@@ -303,12 +287,119 @@ def main():
 									   'train_time': training_time,
 									   'val_time': validation_time})
 
+				current_epoch = f"epoch{epoch_i + 1}"
+				validation_losses[current_epoch] = avg_val_loss
+
+				# ================
+				# Early Stopping #
+				# ================
+
+
+				if utils.early_stopping(validation_losses, patience=2):
+					logging.info(f"Stopping epoch run early (Epoch {epoch_i}).")
+					break
+
+
 			logging.info(f"Training for {class_name} done.")
 			logging.info("Training took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
 			print("--------------------------------\n")
 
+			# =========
+			# Testing #
+			# =========
+
+			test_input_ids = []
+			test_attention_masks = []
+
+			X_test = test_data[text_name].values
+			y_test = LabelEncoder().fit_transform(test_data[class_name].values)
+
+
+			for sent in X_test:
+				encoded_dict = tokenizer.encode_plus(sent,
+													 add_special_tokens = True,
+													 max_length = args.max_length,
+													 pad_to_max_length = True,
+													 return_attention_mask = True, 
+													 return_tensors = 'pt')
+	
+				test_input_ids.append(encoded_dict['input_ids'])
+				
+				test_attention_masks.append(encoded_dict['attention_mask'])
+
+			test_input_ids = torch.cat(test_input_ids, dim=0)
+			test_attention_masks = torch.cat(test_attention_masks, dim=0)
+			labels = torch.tensor(y_test)
+
+			prediction_data = TensorDataset(test_input_ids, test_attention_masks, labels)
+			prediction_sampler = SequentialSampler(prediction_data)
+			prediction_dataloader = DataLoader(prediction_data, 
+											   sampler=prediction_sampler, 
+											   batch_size=batch_size)
+
+			model.eval()
+
+			predictions, true_labels = [], []
+
+			for batch in prediction_dataloader:
+				# Add batch to GPU
+				batch = tuple(t.to(device) for t in batch)
+				  
+				# Unpack the inputs from our dataloader
+				b_input_ids, b_input_mask, b_labels = batch
+				  
+				
+				with torch.no_grad():
+					outputs = model(b_input_ids, 
+									token_type_ids=None, 
+									attention_mask=b_input_mask)
+
+				logits = outputs[0]
+
+				# Move logits and labels to CPU
+				logits = logits.detach().cpu().numpy()
+				label_ids = b_labels.to('cpu').numpy()
+				  
+				# Store predictions and true labels
+				predictions.append(logits)
+				true_labels.append(label_ids)
+
+			scores = []
+			cmatrices = []
+
+			# looping through predictions #
+			for j in range(len(true_labels)):
+				pred_labels_j = np.argmax(predictions[j], axis=1).flatten()
+				f1_j = f1_score(true_labels[j], pred_labels_j, average="macro")             
+				scores.append(f1_j)
+
+				cm = confusion_matrix(true_labels[j], pred_labels_j)
+				if cm.shape == (2,2):
+					cm = np.lib.pad(cm, ((0,1),(0,1)), 'constant', constant_values=(0))
+				elif cm.shape == (1,1):
+					cm = np.lib.pad(cm, ((0,2),(0,2)), 'constant', constant_values=(0))
+				cmatrices.append(cm)
+
+			
+			test_score = np.mean(scores)			
+			classes = test_data[class_name].drop_duplicates().tolist()
+			cm_sum = sum(cmatrices)
+			cm_df = pd.DataFrame(cm_sum, index=classes, columns=classes)
+
+			if args.domain_adaption:
+				cm_name = f"{args.corpus_name}c_{class_name}_da_{args.model}"
+			else:
+				cm_name = f"{args.corpus_name}c_{class_name}_{args.model}"
+
+			if args.save_date:
+				cm_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
+
+			cm_df.to_csv(f"../results/bert/confusion_matrices/cm{i}_{cm_name}.csv")
+			
+
 			stats = pd.DataFrame(data=training_stats)
-			cv_acc_dict[class_name].append(utils.get_mean_acc(stats))
+			cv_acc_dict[class_name].append(test_score)
+
 
 			if class_name == "epoch_year":
 				year_cv_dict[f"cv{i}"] = training_stats
@@ -317,7 +408,11 @@ def main():
 			else:
 				logging.info(f"The class {class_name} does not exist.")
 
-		
+			logging.info(f"Testing for {class_name} done.")
+			logging.info(f"CV Test F1-Score: {test_score} (run: {i}/{cv}).")
+			logging.info("Testing took {:} (h:mm:ss) \n".format(utils.format_time(time.time()-total_t0)))
+			print("--------------------------------\n")
+
 		logging.info(f"Training for run {i}/{cv} completed.")
 		logging.info("Training run took {:} (h:mm:ss)".format(utils.format_time(time.time()-total_t0)))
 		print("________________________________")
@@ -354,15 +449,18 @@ def main():
 
 if __name__ == "__main__":
 	
+	#TODO: learning rate
 	parser = argparse.ArgumentParser(prog="bertclf", description="Bert classifier.")
 	parser.add_argument("--batch_size", "-bs", type=int, default=8, help="Indicates batch size.")
 	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
 	parser.add_argument("--cross_validation", "-cv", type=int, default=10, help="Indicates the number of cross validations.")
 	parser.add_argument("--domain_adaption", "-da", action="store_true", help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.")
 	parser.add_argument("--domain_adapted_path", "-dap", type=str, default="../corpora/domain-adaption", help="Indicates the path of a domain-adapted model.")
-	parser.add_argument("--epochs", "-e", type=int, default=4, help="Indicates number of epochs.")
+	parser.add_argument("--epochs", "-e", type=int, default=10, help="Indicates number of epochs.")
+	parser.add_argument("--learning_rate", "-lr", type=float, default=2e-5, help="Set learning rate for optimizer.")
 	parser.add_argument("--max_length", "-ml", type=int, default=510, help="Indicates the maximum document length.")
 	parser.add_argument("--model", "-m", type=str, default="german", help="Indicates the BERT model name. Default is 'german' (short for: bert-base-german-dbmdz-cased). Another option is 'rede' (short for: bert-base-historical-german-rw-cased).")
+	parser.add_argument("--patience", "-p", type=int, default=3, help="Indicates patience for early stopping.")
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
 	
 	args = parser.parse_args()
