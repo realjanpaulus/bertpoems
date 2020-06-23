@@ -60,10 +60,8 @@ def main():
 
 	if args.domain_adaption:
 		if args.model == "german":
-			#TODO: überprüfen
 			model_name = '../corpora/domain-adaption/german/'
 		elif args.model == "rede":
-			#TODO: überprüfen
 			model_name = '../corpora/domain-adaption/redewiedergabe/'
 		else:
 			logging.warning(f"Couldn't find a model with the name '{args.model}'.")
@@ -266,7 +264,6 @@ def main():
 					logits = logits.detach().cpu().numpy()
 					label_ids = b_labels.to('cpu').numpy()
 
-					# TODO: geht f1 score hier?
 					total_eval_accuracy += utils.flat_f1(label_ids, logits)
 					
 
@@ -449,7 +446,6 @@ def main():
 
 if __name__ == "__main__":
 	
-	#TODO: learning rate
 	parser = argparse.ArgumentParser(prog="bertclf", description="Bert classifier.")
 	parser.add_argument("--batch_size", "-bs", type=int, default=8, help="Indicates batch size.")
 	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
