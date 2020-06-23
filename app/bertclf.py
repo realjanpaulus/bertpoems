@@ -60,9 +60,15 @@ def main():
 
 	if args.domain_adaption:
 		if args.model == "german":
-			model_name = '../corpora/domain-adaption/german-test/'
+			if args.domain_adaption_alternative_path:
+				model_name = '../corpora/domain-adaption/german-alternative/'
+			else:
+				model_name = '../corpora/domain-adaption/german/'
 		elif args.model == "rede":
-			model_name = '../corpora/domain-adaption/redewiedergabe/'
+			if args.domain_adaption_alternative_path:
+				model_name = '../corpora/domain-adaption/redewiedergabe-alternative/'
+			else:
+				model_name = '../corpora/domain-adaption/redewiedergabe/'
 		elif args.model == "test":
 			model_name = '../corpora/domain-adaption/test/'
 		else:
@@ -453,6 +459,7 @@ if __name__ == "__main__":
 	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
 	parser.add_argument("--cross_validation", "-cv", type=int, default=10, help="Indicates the number of cross validations.")
 	parser.add_argument("--domain_adaption", "-da", action="store_true", help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.")
+	parser.add_argument("--domain_adaption_alternative_path", "-daap", action="store_true", help="Uses an alternative path if an pytorch model loading error occurs (e.g. git lfs is not installed).")
 	parser.add_argument("--epochs", "-e", type=int, default=10, help="Indicates number of epochs.")
 	parser.add_argument("--learning_rate", "-lr", type=float, default=2e-5, help="Set learning rate for optimizer.")
 	parser.add_argument("--max_length", "-ml", type=int, default=510, help="Indicates the maximum document length.")
