@@ -60,9 +60,9 @@ def main():
 
 	if args.domain_adaption:
 		if args.model == "german":
-			model_name = '../corpora/domain-adaption/german/'
+			model_name = '../corpora/domain-adaption/german'
 		elif args.model == "rede":
-			model_name = '../corpora/domain-adaption/redewiedergabe/'
+			model_name = '../corpora/domain-adaption/redewiedergabe'
 		else:
 			logging.warning(f"Couldn't find a model with the name '{args.model}'.")
 	else:
