@@ -60,15 +60,9 @@ def main():
 
 	if args.domain_adaption:
 		if args.model == "german":
-			try:
-				model_name = '../corpora/domain-adaption/german/'
-			except:
-				model_name = '../corpora/domain-adaption/german-test/'
+			model_name = '../corpora/domain-adaption/german-test/'
 		elif args.model == "rede":
-			try:
-				model_name = '../corpora/domain-adaption/redewiedergabe/'
-			except:
-				model_name = '../corpora/domain-adaption/redewiedergabe-test/'
+			model_name = '../corpora/domain-adaption/redewiedergabe/'
 		elif args.model == "test":
 			model_name = '../corpora/domain-adaption/test/'
 		else:
