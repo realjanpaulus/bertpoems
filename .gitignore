@@ -132,7 +132,7 @@ dmypy.json
 TODOS.md
 app/old/
 corpora/old/
-corpora/domain-adaption/
+corpora/domain-adaption/old/
 paper/
 resources/old/
 results/old/
