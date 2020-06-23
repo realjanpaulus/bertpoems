@@ -121,8 +121,8 @@ def main():
 		class_name2 = "epoch_poet"
 		text_name = "poem"
 
-				
-		for class_name in [class_name1, class_name2]:
+		#TODO: weg
+		for class_name in [class_name2]: #, class_name2]:
 
 			# tmp lists and result dicts #
 			input_ids = []
