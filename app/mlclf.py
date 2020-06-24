@@ -8,8 +8,8 @@ import pandas as pd
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import f1_score 
-from sklearn.model_selection import confusion_matrix, cross_val_predict, cross_val_score, cross_validate, GridSearchCV, StratifiedKFold, train_test_split
+from sklearn.metrics import confusion_matrix, f1_score 
+from sklearn.model_selection import cross_val_predict, cross_val_score, cross_validate, GridSearchCV, StratifiedKFold, train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder
 from sklearn.svm import LinearSVC
