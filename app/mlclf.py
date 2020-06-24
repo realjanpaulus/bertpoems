@@ -124,26 +124,29 @@ def main():
 									 features, 
 									 class1, 
 									 cv=cv, 
-									 n_jobs=args.n_jobs,
+									 n_jobs=args.n_jobs)
 									 #return_estimator=False,
-									 scoring="f1_macro")
+									 #scoring="f1_macro")
 
 
 	lsvm_cv_scores2 = cross_val_predict(lsvm_grid2,#.best_estimator_, 
 									  features, 
 									  class2, 
 									  cv=cv, 
-									  n_jobs=args.n_jobs,
+									  n_jobs=args.n_jobs)
 									  #return_estimator=False,
-									  scoring="f1_macro")
+									  #scoring="f1_macro")
 	#todo: weg
 	class1_unique = class1.drop_duplicates().tolist()
 	class2_unique = class2.drop_duplicates().tolist()
 
-	conf_mat1 = confusion_matrix(class1, lsvm_cv_scores1)
+	lclass1 = LabelEncoder().fit_transform(class1.values)
+	lclass2 = LabelEncoder().fit_transform(class2.values)
+
+	conf_mat1 = confusion_matrix(lclass1, lsvm_cv_scores1)
 	cm_df1 = pd.DataFrame(conf_mat1, index=class1_unique, columns=class1_unique)
 
-	conf_mat2 = confusion_matrix(class2, lsvm_cv_scores2)
+	conf_mat2 = confusion_matrix(lclass2, lsvm_cv_scores2)
 	cm_df2 = pd.DataFrame(conf_mat2, index=class2_unique, columns=class2_unique)
 
 	
@@ -233,18 +236,18 @@ def main():
 									   features, 
 									   class1, 
 									   cv=cv, 
-									   n_jobs=args.n_jobs,
+									   n_jobs=args.n_jobs)
 									   #return_estimator=False,
-									   scoring="f1_macro")
+									   #scoring="f1_macro")
 
 
 	lr_cv_scores2 = cross_val_predict(lr_grid2,#.best_estimator_, 
 									   features, 
 									   class2, 
 									   cv=cv, 
-									   n_jobs=args.n_jobs,
+									   n_jobs=args.n_jobs)
 									   #return_estimator=False,
-									   scoring="f1_macro")
+									   #scoring="f1_macro")
 
 	"""
 	lr_cv_scores1 = cross_validate(lr_grid1,
@@ -266,10 +269,10 @@ def main():
 	"""
 
 	#TODO: weg
-	conf_mat1 = confusion_matrix(class1, lr_cv_scores1)
+	conf_mat1 = confusion_matrix(lclass1, lr_cv_scores1)
 	cm_df1 = pd.DataFrame(conf_mat1, index=class1_unique, columns=class1_unique)
 
-	conf_mat2 = confusion_matrix(class2, lr_cv_scores2)
+	conf_mat2 = confusion_matrix(lclass2, lr_cv_scores2)
 	cm_df2 = pd.DataFrame(conf_mat2, index=class2_unique, columns=class2_unique)
 
 	
