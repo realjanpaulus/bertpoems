@@ -117,24 +117,24 @@ def main():
 							 scoring="f1_macro")
 
 	#TODO
-	lsvm_grid1 = lsvm_grid1.fit(features, class1)
-	lsvm_grid2 = lsvm_grid2.fit(features, class2)
+	#lsvm_grid1 = lsvm_grid1.fit(features, class1)
+	#lsvm_grid2 = lsvm_grid2.fit(features, class2)
 
-	lsvm_cv_scores1 = cross_val_predict(lsvm_grid1.best_estimator_,
+	lsvm_cv_scores1 = cross_val_predict(lsvm_grid1,#.best_estimator_,
 									 features, 
 									 class1, 
 									 cv=cv, 
 									 n_jobs=args.n_jobs,
-									 return_estimator=False,
+									 #return_estimator=False,
 									 scoring="f1_macro")
 
 
-	lsvm_cv_scores2 = cross_val_predict(lsvm_grid2.best_estimator_, 
+	lsvm_cv_scores2 = cross_val_predict(lsvm_grid2,#.best_estimator_, 
 									  features, 
 									  class2, 
 									  cv=cv, 
 									  n_jobs=args.n_jobs,
-									  return_estimator=False,
+									  #return_estimator=False,
 									  scoring="f1_macro")
 	#todo: weg
 	class1_unique = class1.drop_duplicates().tolist()
@@ -226,11 +226,28 @@ def main():
 							scoring="f1_macro")
 
 	#TODO
-	lr_grid1 = lr_grid1.fit(features, class1)
-	lr_grid2 = lr_grid2.fit(features, class2)
+	#lr_grid1 = lr_grid1.fit(features, class1)
+	#lr_grid2 = lr_grid2.fit(features, class2)
+
+	lr_cv_scores1 = cross_val_predict(lr_grid1,#.best_estimator_,
+									   features, 
+									   class1, 
+									   cv=cv, 
+									   n_jobs=args.n_jobs,
+									   #return_estimator=False,
+									   scoring="f1_macro")
 
 
-	lr_cv_scores1 = cross_validate(lr_grid1.best_estimator_,
+	lr_cv_scores2 = cross_val_predict(lr_grid2,#.best_estimator_, 
+									   features, 
+									   class2, 
+									   cv=cv, 
+									   n_jobs=args.n_jobs,
+									   #return_estimator=False,
+									   scoring="f1_macro")
+
+	"""
+	lr_cv_scores1 = cross_validate(lr_grid1,
 								   features, 
 								   class1, 
 								   cv=cv, 
@@ -239,14 +256,14 @@ def main():
 								   scoring="f1_macro")
 
 
-	lr_cv_scores2 = cross_validate(lr_grid2.best_estimator_, 
+	lr_cv_scores2 = cross_validate(lr_grid2,
 								   features, 
 								   class2, 
 								   cv=cv, 
 								   n_jobs=args.n_jobs,
 								   return_estimator=False,
 								   scoring="f1_macro")
-
+	"""
 
 	#TODO: weg
 	conf_mat1 = confusion_matrix(class1, lr_cv_scores1)
