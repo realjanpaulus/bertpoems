@@ -395,7 +395,7 @@ def main():
 			flat_predictions = np.argmax(flat_predictions, axis=1).flatten()
 			flat_true_labels = np.concatenate(true_labels, axis=0)
 
-			for idx, t, p in enumerate(zip(flat_true_labels, flat_predictions)):
+			for idx, (t, p) in enumerate(zip(flat_true_labels, flat_predictions)):
 				if t != p:
 					false_classifications.append(test_pid[idx])
 
