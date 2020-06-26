@@ -121,8 +121,8 @@ def main():
 		class_name2 = "epoch_poet"
 		text_name = "poem"
 
-		#TODO: weg
-		for class_name in [class_name2]: #, class_name2]:
+		#TODO
+		for class_name in [class_name2]:#[class_name1, class_name2]:
 
 			# tmp lists and result dicts #
 			input_ids = []
@@ -368,6 +368,12 @@ def main():
 				# Store predictions and true labels
 				predictions.append(logits)
 				true_labels.append(label_ids)
+
+			print("hier----------------------")
+			print(predictions)
+			print("\n")
+			print(true)
+			print("---------------------------")
 
 			scores = []
 			cmatrices = []

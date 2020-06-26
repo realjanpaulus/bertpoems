@@ -85,7 +85,7 @@ def main():
 	lsvm_st = time.time()
 	lsvm_pipe = Pipeline(steps=[("vect", vectorizer),
 								("clf", LinearSVC())])
-	"""TODO
+	
 	lsvm_parameters = {"vect__ngram_range": [(1,1), (1,2), (2,2)],
 					   "clf__penalty": ["l2"],
 					   "clf__loss": ["squared_hinge"],
@@ -100,7 +100,7 @@ def main():
 					   "clf__tol": [1e-3],
 					   "clf__C": [1.0],
 					   "clf__max_iter": [1000]}
-	
+	"""
 
 	lsvm_grid1 = GridSearchCV(lsvm_pipe, 
 							 lsvm_parameters,
@@ -116,50 +116,8 @@ def main():
 							 n_jobs=args.n_jobs,
 							 scoring="f1_macro")
 
-	#TODO
-	#lsvm_grid1 = lsvm_grid1.fit(features, class1)
-	#lsvm_grid2 = lsvm_grid2.fit(features, class2)
-
-	lsvm_cv_scores1 = cross_val_predict(lsvm_grid1,#.best_estimator_,
-									 features, 
-									 class1, 
-									 cv=cv, 
-									 n_jobs=args.n_jobs)
-									 #return_estimator=False,
-									 #scoring="f1_macro")
-
-
-	lsvm_cv_scores2 = cross_val_predict(lsvm_grid2,#.best_estimator_, 
-									  features, 
-									  class2, 
-									  cv=cv, 
-									  n_jobs=args.n_jobs)
-									  #return_estimator=False,
-									  #scoring="f1_macro")
-	#todo: weg
-	class1_unique = class1.drop_duplicates().tolist()
-	class2_unique = class2.drop_duplicates().tolist()
-
-	lclass1 = LabelEncoder().fit_transform(class1.values)
-	lclass2 = LabelEncoder().fit_transform(class2.values)
-
-	conf_mat1 = confusion_matrix(lclass1, lsvm_cv_scores1)
-	cm_df1 = pd.DataFrame(conf_mat1, index=class1_unique, columns=class1_unique)
-
-	conf_mat2 = confusion_matrix(lclass2, lsvm_cv_scores2)
-	cm_df2 = pd.DataFrame(conf_mat2, index=class2_unique, columns=class2_unique)
-
 	
-	if args.save_date:
-		output_path1 = f"../results/lsvm_cm_ey_{args.corpus_name}({datetime.now():%d.%m.%y}_{datetime.now():%H:%M}).csv"
-		output_path2 = f"../results/lsvm_cm_ep_{args.corpus_name}({datetime.now():%d.%m.%y}_{datetime.now():%H:%M}).csv"
-	else:
-		output_path1 = f"../results/lsvm_cm_ey_{args.corpus_name}.csv"
-		output_path2 = f"../results/lsvm_cm_ep_{args.corpus_name}.csv"
-	cm_df1.to_csv(output_path1)
-	cm_df2.to_csv(output_path2)
-
-	"""
+	
 	lsvm_cv_scores1 = cross_validate(lsvm_grid1,
 									 features, 
 									 class1, 
@@ -174,18 +132,18 @@ def main():
 									  cv=cv, 
 									  return_estimator=False,
 									  scoring="f1_macro")
-	"""
+	
 	
 	
 	
 	cv_dict["LSVM"] = {"year": np.mean(lsvm_cv_scores1["test_score"]),
 					   "poet": np.mean(lsvm_cv_scores2["test_score"])}
-
+	
 
 	lsvm_duration = float(time.time() - lsvm_st)
 	clf_durations["LSVM"].append(lsvm_duration)
 	logging.info(f"Run-time LSVM: {lsvm_duration} seconds")
-
+	
 
 	# =====================
 	# Logistic Regression #
@@ -197,7 +155,7 @@ def main():
 	lr_pipe = Pipeline(steps=[("vect", vectorizer),
 							  ("clf", LogisticRegression())])
 
-	"""TODO
+	
 	lr_parameters = {"vect__ngram_range": [(1,1), (1,2), (2,2)],
 					 "clf__penalty": ["l1", "l2"],
 					 "clf__tol": [1e-5, 1e-3],
@@ -211,7 +169,7 @@ def main():
 	lr_parameters = {"clf__penalty": ["l1"],
 					 "clf__solver": ["liblinear"],
 					 "clf__max_iter": [1000]}
-
+	"""
 
 	lr_grid1 = GridSearchCV(lr_pipe, 
 							lr_parameters,
@@ -228,28 +186,7 @@ def main():
 							n_jobs=args.n_jobs,
 							scoring="f1_macro")
 
-	#TODO
-	#lr_grid1 = lr_grid1.fit(features, class1)
-	#lr_grid2 = lr_grid2.fit(features, class2)
-
-	lr_cv_scores1 = cross_val_predict(lr_grid1,#.best_estimator_,
-									   features, 
-									   class1, 
-									   cv=cv, 
-									   n_jobs=args.n_jobs)
-									   #return_estimator=False,
-									   #scoring="f1_macro")
-
-
-	lr_cv_scores2 = cross_val_predict(lr_grid2,#.best_estimator_, 
-									   features, 
-									   class2, 
-									   cv=cv, 
-									   n_jobs=args.n_jobs)
-									   #return_estimator=False,
-									   #scoring="f1_macro")
-
-	"""
+	
 	lr_cv_scores1 = cross_validate(lr_grid1,
 								   features, 
 								   class1, 
@@ -266,29 +203,11 @@ def main():
 								   n_jobs=args.n_jobs,
 								   return_estimator=False,
 								   scoring="f1_macro")
-	"""
-
-	#TODO: weg
-	conf_mat1 = confusion_matrix(lclass1, lr_cv_scores1)
-	cm_df1 = pd.DataFrame(conf_mat1, index=class1_unique, columns=class1_unique)
-
-	conf_mat2 = confusion_matrix(lclass2, lr_cv_scores2)
-	cm_df2 = pd.DataFrame(conf_mat2, index=class2_unique, columns=class2_unique)
-
-	
-	if args.save_date:
-		output_path1 = f"../results/lr_cm_ey_{args.corpus_name}({datetime.now():%d.%m.%y}_{datetime.now():%H:%M}).csv"
-		output_path2 = f"../results/lr_cm_ep_{args.corpus_name}({datetime.now():%d.%m.%y}_{datetime.now():%H:%M}).csv"
-	else:
-		output_path1 = f"../results/lr_cm_ey_{args.corpus_name}.csv"
-		output_path2 = f"../results/lr_cm_ep_{args.corpus_name}.csv"
-	cm_df1.to_csv(output_path1)
-	cm_df2.to_csv(output_path2)
 	
 	cv_dict["LR"] = {"year": np.mean(lr_cv_scores1["test_score"]),
 					 "poet": np.mean(lr_cv_scores2["test_score"])}
-
-
+	
+	
 	lr_duration = float(time.time() - lr_st)
 	clf_durations["LR"].append(lr_duration)
 	logging.info(f"Run-time LR: {lr_duration} seconds")
@@ -297,6 +216,7 @@ def main():
 	# Saving classification results & durations #
 	# ===========================================
 
+	
 	cv_df = pd.DataFrame(cv_dict)
 	cv_name = f"mlcv_{args.corpus_name}"
 	if args.save_date:
@@ -309,7 +229,7 @@ def main():
 	if args.save_date:
 		durations_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
 	durations_df.to_csv(f"../results/{durations_name}.csv")
-
+	
 
 	program_duration = float(time.time() - program_st)
 	logging.info(f"Run-time: {int(program_duration)/60} minute(s).")
