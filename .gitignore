@@ -137,5 +137,7 @@ paper/
 resources/old/
 results/old/
 results/bert/old/
+results/detailed_results/old/
+results/short_results/old/
 utils/
 utils/old/

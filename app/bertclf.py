@@ -462,7 +462,10 @@ def main():
 		json.dump(poet_cv_dict, f)
 
 	if args.save_misclassification:
-		with open(f'{result_path}/misclassifications/pid_{output_name}.json', 'w') as f:
+		mis_output_path = f'{result_path}/misclassifications/pid_{output_name}'
+		if args.save_date:
+			mis_output_path += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
+		with open(f'{mis_output_path}.json', 'w') as f:
 			json.dump(false_clf_dict, f)
 
 	program_duration = float(time.time() - program_st)
