@@ -120,16 +120,17 @@ def main():
 	
 
 	test_pid = corpus["pid"].values
-	false_classifications = []
+	false_classifications = {"Jahrhundertwende": {"Naturalismus": [], "Expressionismus": []},
+							 "Naturalismus": {"Jahrhundertwende": [], "Expressionismus": []},
+							 "Expressionismus": {"Naturalismus": [], "Jahrhundertwende": []}}
 
 	for idx, (t, p) in enumerate(zip(class2, lsvm_preds)):
 		if t != p:
-			false_classifications.append(test_pid[idx])
+			false_classifications[t][p].append(test_pid[idx])
 
 	
-	false_clf_dict = {"pid": false_classifications}
 	with open(f'../results/ml/misclassifications/pid_lsvm.json', 'w') as f:
-		json.dump(false_clf_dict, f)
+		json.dump(false_classifications, f)
 
 
 	lsvm_duration = float(time.time() - lsvm_st)
@@ -138,26 +139,6 @@ def main():
 	
 
 
-	# ===========================================
-	# Saving classification results & durations #
-	# ===========================================
-
-	"""TODO
-	
-	cv_df = pd.DataFrame(cv_dict)
-	cv_name = f"mlcv_{args.corpus_name}"
-	if args.save_date:
-		cv_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
-	cv_df.to_csv(f"../results/{cv_name}.csv")
-
-
-	durations_df = pd.DataFrame(clf_durations.items(), columns=["clf", "durations"])
-	durations_name = f"mldurations_{args.corpus_name}"
-	if args.save_date:
-		durations_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
-	durations_df.to_csv(f"../results/{durations_name}.csv")
-	
-	"""
 	program_duration = float(time.time() - program_st)
 	logging.info(f"Run-time: {int(program_duration)/60} minute(s).")
 	
