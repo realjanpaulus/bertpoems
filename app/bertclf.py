@@ -369,11 +369,13 @@ def main():
 				predictions.append(logits)
 				true_labels.append(label_ids)
 
+			print(X_test.shape)
 			print("hier----------------------")
 			print([np.argmax(predictions[j], axis=1).flatten() for j in range(len(true_labels))])
 			print("\n")
 			print(true_labels)
 			print("---------------------------")
+			print(len([i for l in true_labels for i in l]))
 
 			scores = []
 			cmatrices = []
