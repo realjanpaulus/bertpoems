@@ -126,10 +126,9 @@ def main():
 
 	for idx, (t, p) in enumerate(zip(class2, lsvm_preds)):
 		if t != p:
-			false_classifications[t][p].append(test_pid[idx])
+			false_classifications[t][p].append(int(test_pid[idx]))
 
-	
-	with open(f'../results/ml/misclassifications/pid_lsvm.json', 'w') as f:
+	with open(f'../results/ml/misclassifications/pid_lsvm.json', 'w+') as f:
 		json.dump(false_classifications, f)
 
 
