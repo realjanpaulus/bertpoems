@@ -369,30 +369,9 @@ def main():
 				predictions.append(logits)
 				true_labels.append(label_ids)
 
-				
-			test_pid = test_data["pid"].values
-			
-			"""
-			for j in range(len(true_labels)):
-				pred_labels_j = np.argmax(predictions[j], axis=1).flatten()
-			
-			print(X_test.shape)
-			print("hier----------------------")
-			print(predictions)
-			print([np.argmax(predictions[j], axis=1).flatten() for j in range(len(true_labels))])
-			print("\n")
-			print(true_labels)
-			print("---------------------------")
-			pr = [i for j in range(len(true_labels)) for i in np.argmax(predictions[j], axis=1).flatten()]
-			tr = [i for l in true_labels for i in l]
-			print(f1_score(tr, pr, average="macro"))
-			"""
 
-			
-
-			scores = []
-
-			"""
+	
+			"""TODO
 			cmatrices = []
 
 			# looping through predictions #
@@ -409,17 +388,25 @@ def main():
 				cmatrices.append(cm)
 			"""
 
+			test_pid = test_data["pid"].values
+			false_classifications = []
+
 			flat_predictions = np.concatenate(predictions, axis=0)
 			flat_predictions = np.argmax(flat_predictions, axis=1).flatten()
 			flat_true_labels = np.concatenate(true_labels, axis=0)
+
+			for idx, t, p in enumerate(zip(flat_true_labels, flat_predictions)):
+				if t != p:
+					false_classifications.append(test_pid[idx])
+
+			print("false------------------")
+			print(false_classifications)
 			
 			test_score = f1_score(flat_true_labels, flat_predictions, average="macro")		
 			classes = test_data[class_name].drop_duplicates().tolist()
 
 			cm = confusion_matrix(flat_true_labels, flat_predictions)
 			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
-
-			print(cm)
 
 			#TODO
 			#cm_sum = sum(cmatrices)
