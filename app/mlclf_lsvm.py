@@ -33,7 +33,7 @@ def main():
 	# =======================
 
 	n_jobs = args.n_jobs
-	cv = 2 #TODO
+	cv = 10
 	cv_dict = {}
 	vectorizer = TfidfVectorizer(lowercase=args.lowercase,
 								 max_features=args.max_features,
