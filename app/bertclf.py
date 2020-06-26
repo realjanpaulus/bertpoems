@@ -87,6 +87,7 @@ def main():
 	cv_acc_dict = defaultdict(list)
 	year_cv_dict = {}
 	poet_cv_dict = {}
+	false_clf_dict = {} #TODO
 
 	# ================
 	# classification # 
@@ -122,7 +123,8 @@ def main():
 		text_name = "poem"
 
 		#TODO
-		for class_name in [class_name2]:#[class_name1, class_name2]:
+		# for class_name in [class_name2]:
+		for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
 			input_ids = []
@@ -370,37 +372,26 @@ def main():
 				true_labels.append(label_ids)
 
 
-	
 			"""TODO
-			cmatrices = []
-
-			# looping through predictions #
-			for j in range(len(true_labels)):
-				pred_labels_j = np.argmax(predictions[j], axis=1).flatten()
-				f1_j = f1_score(true_labels[j], pred_labels_j, average="macro")             
-				scores.append(f1_j)
-
-				cm = confusion_matrix(true_labels[j], pred_labels_j)
-				if cm.shape == (2,2):
-					cm = np.lib.pad(cm, ((0,1),(0,1)), 'constant', constant_values=(0))
-				elif cm.shape == (1,1):
-					cm = np.lib.pad(cm, ((0,2),(0,2)), 'constant', constant_values=(0))
-				cmatrices.append(cm)
-			"""
-
 			test_pid = test_data["pid"].values
 			false_classifications = []
+			"""
 
 			flat_predictions = np.concatenate(predictions, axis=0)
 			flat_predictions = np.argmax(flat_predictions, axis=1).flatten()
 			flat_true_labels = np.concatenate(true_labels, axis=0)
 
+
+			"""TODO
 			for idx, (t, p) in enumerate(zip(flat_true_labels, flat_predictions)):
 				if t != p:
 					false_classifications.append(test_pid[idx])
 
 			print("false------------------")
 			print(false_classifications)
+
+			false_clf_dict...
+			"""
 			
 			test_score = f1_score(flat_true_labels, flat_predictions, average="macro")		
 			classes = test_data[class_name].drop_duplicates().tolist()
@@ -408,10 +399,7 @@ def main():
 			cm = confusion_matrix(flat_true_labels, flat_predictions)
 			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
 
-			#TODO
-			#cm_sum = sum(cmatrices)
-			#cm_df = pd.DataFrame(cm_sum, index=classes, columns=classes)
-
+			
 			if args.domain_adaption:
 				cm_name = f"{args.corpus_name}c_{class_name}_da_{args.model}"
 			else:
