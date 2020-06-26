@@ -87,7 +87,12 @@ def main():
 	cv_acc_dict = defaultdict(list)
 	year_cv_dict = {}
 	poet_cv_dict = {}
-	false_clf_dict = {} #TODO
+
+	class_name1 = "epoch_year"
+	class_name2 = "epoch_poet"
+	text_name = "poem"
+
+	false_clf_dict = {class_name1: {}, class_name2: {}} #TODO
 
 	# ================
 	# classification # 
@@ -118,9 +123,6 @@ def main():
 			logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 
 
-		class_name1 = "epoch_year"
-		class_name2 = "epoch_poet"
-		text_name = "poem"
 
 		#TODO
 		# for class_name in [class_name2]:
@@ -372,26 +374,22 @@ def main():
 				true_labels.append(label_ids)
 
 
-			"""TODO
-			test_pid = test_data["pid"].values
-			false_classifications = []
-			"""
+			
 
 			flat_predictions = np.concatenate(predictions, axis=0)
 			flat_predictions = np.argmax(flat_predictions, axis=1).flatten()
 			flat_true_labels = np.concatenate(true_labels, axis=0)
 
 
-			"""TODO
-			for idx, (t, p) in enumerate(zip(flat_true_labels, flat_predictions)):
-				if t != p:
-					false_classifications.append(test_pid[idx])
+			if args.save_misclassification:
+				test_pid = test_data["pid"].values
+				false_classifications = []
+				
+				for idx, (t, p) in enumerate(zip(flat_true_labels, flat_predictions)):
+					if t != p:
+						false_classifications.append(test_pid[idx])
 
-			print("false------------------")
-			print(false_classifications)
-
-			false_clf_dict...
-			"""
+				false_clf_dict[class_name][i] = false_classifications
 			
 			test_score = f1_score(flat_true_labels, flat_predictions, average="macro")		
 			classes = test_data[class_name].drop_duplicates().tolist()
@@ -438,6 +436,8 @@ def main():
 
 	result_path = "../results/bert/"
 	logging.info(f"Writing results to '{result_path}'.")
+
+
 	if args.domain_adaption:
 		output_name = f"{args.corpus_name}c_da_{args.model}"
 	else:
@@ -455,6 +455,10 @@ def main():
 
 	with open(f'{result_path}epoet_{output_name}.json', 'w') as f:
 		json.dump(poet_cv_dict, f)
+
+	if args.save_misclassification:
+		with open(f'{result_path}/misclassifications/pid_{output_name}.json', 'w') as f:
+			json.dump(false_clf_dict, f)
 
 	program_duration = float(time.time() - program_st)
 	logging.info(f"Total duration: {int(program_duration)/60} minute(s).")
@@ -475,7 +479,8 @@ if __name__ == "__main__":
 	parser.add_argument("--model", "-m", type=str, default="german", help="Indicates the BERT model name. Default is 'german' (short for: bert-base-german-dbmdz-cased). Another option is 'rede' (short for: bert-base-historical-german-rw-cased).")
 	parser.add_argument("--patience", "-p", type=int, default=3, help="Indicates patience for early stopping.")
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
-	
+	parser.add_argument("--save_misclassification", "-sm", action="store_true", help="Indicates if pids of missclassifications should be saved.")
+
 	args = parser.parse_args()
 
 	main()
