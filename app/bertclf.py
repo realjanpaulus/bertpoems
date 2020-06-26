@@ -369,13 +369,22 @@ def main():
 				predictions.append(logits)
 				true_labels.append(label_ids)
 
+
+			test_pid = test_data["PID"].values
+			print(test_pid)
+			"""
+			for j in range(len(true_labels)):
+				pred_labels_j = np.argmax(predictions[j], axis=1).flatten()
+			"""
 			print(X_test.shape)
 			print("hier----------------------")
 			print([np.argmax(predictions[j], axis=1).flatten() for j in range(len(true_labels))])
 			print("\n")
 			print(true_labels)
 			print("---------------------------")
-			print(len([i for l in true_labels for i in l]))
+			pr = [i for j in range(len(true_labels)) for i in np.argmax(predictions[j], axis=1).flatten()]
+			tr = [i for l in true_labels for i in l]
+			print(f1_score(tr, pr, average="macro"))
 
 			scores = []
 			cmatrices = []
