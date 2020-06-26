@@ -383,30 +383,35 @@ def main():
 
 			if args.save_misclassification:
 				test_pid = test_data["pid"].values
-				false_classifications = []
+				false_classifications = {"Jahrhundertwende": {"Naturalismus": [], "Expressionismus": []},
+										 "Naturalismus": {"Jahrhundertwende": [], "Expressionismus": []},
+										 "Expressionismus": {"Naturalismus": [], "Jahrhundertwende": []}}
+
 				
 				for idx, (t, p) in enumerate(zip(flat_true_labels, flat_predictions)):
 					if t != p:
-						false_classifications.append(test_pid[idx])
+						false_classifications[t][p].append(test_pid[idx])
 
 				false_clf_dict[class_name][i] = false_classifications
 			
 			test_score = f1_score(flat_true_labels, flat_predictions, average="macro")		
 			classes = test_data[class_name].drop_duplicates().tolist()
 
-			cm = confusion_matrix(flat_true_labels, flat_predictions)
-			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
 
-			
-			if args.domain_adaption:
-				cm_name = f"{args.corpus_name}c_{class_name}_da_{args.model}"
-			else:
-				cm_name = f"{args.corpus_name}c_{class_name}_{args.model}"
+			if args.save_confusion_matrices:
+				cm = confusion_matrix(flat_true_labels, flat_predictions)
+				cm_df = pd.DataFrame(cm, index=classes, columns=classes)
 
-			if args.save_date:
-				cm_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
+				
+				if args.domain_adaption:
+					cm_name = f"{args.corpus_name}c_{class_name}_da_{args.model}"
+				else:
+					cm_name = f"{args.corpus_name}c_{class_name}_{args.model}"
 
-			cm_df.to_csv(f"../results/bert/confusion_matrices/cm{i}_{cm_name}.csv")
+				if args.save_date:
+					cm_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
+
+				cm_df.to_csv(f"../results/bert/confusion_matrices/cm{i}_{cm_name}.csv")
 			
 
 			stats = pd.DataFrame(data=training_stats)
@@ -478,6 +483,7 @@ if __name__ == "__main__":
 	parser.add_argument("--max_length", "-ml", type=int, default=510, help="Indicates the maximum document length.")
 	parser.add_argument("--model", "-m", type=str, default="german", help="Indicates the BERT model name. Default is 'german' (short for: bert-base-german-dbmdz-cased). Another option is 'rede' (short for: bert-base-historical-german-rw-cased).")
 	parser.add_argument("--patience", "-p", type=int, default=3, help="Indicates patience for early stopping.")
+	parser.add_argument("--save_confusion_matrices", "-scm", action="store_true", help="Indicates if confusion matrices should be saved." )
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
 	parser.add_argument("--save_misclassification", "-sm", action="store_true", help="Indicates if pids of missclassifications should be saved.")
 

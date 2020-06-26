@@ -138,7 +138,6 @@ def main():
 	logging.info(f"Run-time LSVM: {lsvm_duration} seconds")
 	
 
-
 	program_duration = float(time.time() - program_st)
 	logging.info(f"Run-time: {int(program_duration)/60} minute(s).")
 	
