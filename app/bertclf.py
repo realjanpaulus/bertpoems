@@ -370,7 +370,7 @@ def main():
 				true_labels.append(label_ids)
 
 
-			test_pid = test_data["PID"].values
+			test_pid = test_data["pid"].values
 			print(test_pid)
 			"""
 			for j in range(len(true_labels)):
