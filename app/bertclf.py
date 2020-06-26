@@ -386,6 +386,13 @@ def main():
 			tr = [i for l in true_labels for i in l]
 			print(f1_score(tr, pr, average="macro"))
 
+			flat_predictions = np.concatenate(predictions, axis=0)
+			flat_predictions = np.argmax(flat_predictions, axis=1).flatten()
+			flat_true_labels = np.concatenate(true_labels, axis=0)
+
+			# Calculate the MCC
+			print(f1_score(flat_true_labels, flat_predictions, average="macro"))
+
 			scores = []
 			cmatrices = []
 
