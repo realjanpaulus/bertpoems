@@ -43,8 +43,15 @@ def main():
 		else:
 			command = f"python bertclf.py -cn {args.corpus_name} -m {args.model} -bs {t[0]} -lr {t[1]}"
 		
+		
 		if args.save_date:
 			command += " -sd"
+
+		if args.save_confusion_matrices:
+			command += " -scm"
+
+		if args.save_misclassification:
+			command += " -sm"
 		
 		subprocess.call(["bash", "-c", command])
 		print("\n")
@@ -60,8 +67,10 @@ if __name__ == "__main__":
 	parser.add_argument("--domain_adaption", "-da", action="store_true", help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.")
 	parser.add_argument("--domain_adaption_alternative_path", "-daap", action="store_true", help="Uses an alternative path if an pytorch model loading error occurs (e.g. git lfs is not installed).")
 	parser.add_argument("--model", "-m", type=str, default="german", help="Indicates the BERT model name. Default is 'german' (short for: bert-base-german-dbmdz-cased). Another option is 'rede' (short for: bert-base-historical-german-rw-cased).")
+	parser.add_argument("--save_confusion_matrices", "-scm", action="store_true", help="Indicates if confusion matrices should be saved." )
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
-	
+	parser.add_argument("--save_misclassification", "-sm", action="store_true", help="Indicates if pids of missclassifications should be saved.")
+
 	args = parser.parse_args()
 
 	main()
