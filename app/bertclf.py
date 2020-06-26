@@ -378,6 +378,7 @@ def main():
 			"""
 			print(X_test.shape)
 			print("hier----------------------")
+			print(predictions)
 			print([np.argmax(predictions[j], axis=1).flatten() for j in range(len(true_labels))])
 			print("\n")
 			print(true_labels)
@@ -390,7 +391,6 @@ def main():
 			flat_predictions = np.argmax(flat_predictions, axis=1).flatten()
 			flat_true_labels = np.concatenate(true_labels, axis=0)
 
-			# Calculate the MCC
 			print(f1_score(flat_true_labels, flat_predictions, average="macro"))
 
 			scores = []
