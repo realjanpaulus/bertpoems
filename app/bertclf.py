@@ -372,7 +372,7 @@ def main():
 			print("hier----------------------")
 			print(predictions)
 			print("\n")
-			print(true)
+			print(true_labels)
 			print("---------------------------")
 
 			scores = []
