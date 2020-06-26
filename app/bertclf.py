@@ -369,9 +369,9 @@ def main():
 				predictions.append(logits)
 				true_labels.append(label_ids)
 
-
+				
 			test_pid = test_data["pid"].values
-			print(test_pid)
+			
 			"""
 			for j in range(len(true_labels)):
 				pred_labels_j = np.argmax(predictions[j], axis=1).flatten()
@@ -416,7 +416,7 @@ def main():
 			test_score = f1_score(flat_true_labels, flat_predictions, average="macro")		
 			classes = test_data[class_name].drop_duplicates().tolist()
 
-			cm = confusion_matrix(y_true, y_pred)
+			cm = confusion_matrix(flat_true_labels, flat_predictions)
 			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
 
 			print(cm)
