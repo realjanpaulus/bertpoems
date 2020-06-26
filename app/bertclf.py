@@ -375,7 +375,7 @@ def main():
 			"""
 			for j in range(len(true_labels)):
 				pred_labels_j = np.argmax(predictions[j], axis=1).flatten()
-			"""
+			
 			print(X_test.shape)
 			print("hier----------------------")
 			print(predictions)
@@ -386,14 +386,13 @@ def main():
 			pr = [i for j in range(len(true_labels)) for i in np.argmax(predictions[j], axis=1).flatten()]
 			tr = [i for l in true_labels for i in l]
 			print(f1_score(tr, pr, average="macro"))
+			"""
 
-			flat_predictions = np.concatenate(predictions, axis=0)
-			flat_predictions = np.argmax(flat_predictions, axis=1).flatten()
-			flat_true_labels = np.concatenate(true_labels, axis=0)
-
-			print(f1_score(flat_true_labels, flat_predictions, average="macro"))
+			
 
 			scores = []
+
+			"""
 			cmatrices = []
 
 			# looping through predictions #
@@ -408,12 +407,23 @@ def main():
 				elif cm.shape == (1,1):
 					cm = np.lib.pad(cm, ((0,2),(0,2)), 'constant', constant_values=(0))
 				cmatrices.append(cm)
+			"""
 
+			flat_predictions = np.concatenate(predictions, axis=0)
+			flat_predictions = np.argmax(flat_predictions, axis=1).flatten()
+			flat_true_labels = np.concatenate(true_labels, axis=0)
 			
-			test_score = np.mean(scores)			
+			test_score = f1_score(flat_true_labels, flat_predictions, average="macro")		
 			classes = test_data[class_name].drop_duplicates().tolist()
-			cm_sum = sum(cmatrices)
-			cm_df = pd.DataFrame(cm_sum, index=classes, columns=classes)
+
+			cm = confusion_matrix(y_true, y_pred)
+			cm_df = pd.DataFrame(cm, index=classes, columns=classes)
+
+			print(cm)
+
+			#TODO
+			#cm_sum = sum(cmatrices)
+			#cm_df = pd.DataFrame(cm_sum, index=classes, columns=classes)
 
 			if args.domain_adaption:
 				cm_name = f"{args.corpus_name}c_{class_name}_da_{args.model}"
