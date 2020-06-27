@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # Some parts of the code are from this tutorial: 
 # https://colab.research.google.com/drive/1pTuQhug6Dhl9XalKB0zUGf4FIdYFlpcX#scrollTo=6O_NbXFGMukX
+import os
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"]="1,2"
+
 import argparse
 from collections import Counter, defaultdict
 from datetime import datetime
@@ -8,14 +12,14 @@ from keras.preprocessing.sequence import pad_sequences
 import json
 import logging
 import numpy as np
-import os
 import pandas as pd
 
 from sklearn.metrics import confusion_matrix, f1_score 
 from sklearn.model_selection import cross_val_score, cross_validate, StratifiedKFold, train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-#import tensorflow as tf
+
+import tensorflow as tf
 import torch
 from torch.utils.data import TensorDataset, random_split, DataLoader, RandomSampler, SequentialSampler
 from transformers import BertTokenizer, BertForSequenceClassification, AdamW, BertConfig, get_linear_schedule_with_warmup
