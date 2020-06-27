@@ -129,9 +129,7 @@ def main():
 
 
 
-		#TODO
-		for class_name in [class_name2]:
-		#for class_name in [class_name1, class_name2]:
+		for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
 			input_ids = []
