@@ -5,7 +5,6 @@ print('__pyTorch VERSION:', torch.__version__)
 print('__CUDA VERSION')
 from subprocess import call
 # call(["nvcc", "--version"]) does not work
-! nvcc --version
 print('__CUDNN VERSION:', torch.backends.cudnn.version())
 print('__Number CUDA Devices:', torch.cuda.device_count())
 print('__Devices')
