@@ -255,3 +255,2025 @@ INFO: Model config BertConfig {
 INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
 INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
 INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:15.
+
+  Average training loss: 1.04
+  Training epoch took: 0:00:26
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 0.90
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:16.
+
+  Average training loss: 0.73
+  Training epoch took: 0:00:27
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 0.78
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:16.
+
+  Average training loss: 0.45
+  Training epoch took: 0:00:27
+
+Now Validating.
+  Validation Accuracy: 0.69
+  Validation Loss: 0.82
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:16.
+
+  Average training loss: 0.21
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.63
+  Validation Loss: 1.22
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:16.
+
+  Average training loss: 1.06
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.48
+  Validation Loss: 0.84
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.77
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.52
+  Validation Loss: 0.76
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.48
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.45
+  Validation Loss: 1.20
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.28
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.88
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.13
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.53
+  Validation Loss: 1.40
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.04
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 1.49
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.03
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.21
+  Validation Loss: 1.13
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.73
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.52
+  Validation Loss: 0.89
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.48
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.49
+  Validation Loss: 0.97
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.24
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.53
+  Validation Loss: 1.17
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.04
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.51
+  Validation Loss: 0.83
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.81
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.74
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.58
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.64
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.36
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.82
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.18
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 1.11
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.04
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.54
+  Validation Loss: 0.89
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.77
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.51
+  Validation Loss: 0.78
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.49
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.58
+  Validation Loss: 0.74
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.26
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.63
+  Validation Loss: 0.99
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.14
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.53
+  Validation Loss: 1.45
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.99
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.50
+  Validation Loss: 0.90
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.70
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.59
+  Validation Loss: 0.82
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.44
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 0.83
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.26
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.82
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.11
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 1.52
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.06
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 1.40
+  Validation took: 0:00:01
+
+======== Epoch 7 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.02
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.69
+  Validation Loss: 1.54
+  Validation took: 0:00:01
+INFO: Stopping epoch run early (Epoch 9).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:04:59 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6485731633272617 (run: 3/10).
+INFO: Testing took 0:05:00 (h:mm:ss) 
+
+INFO: Training for run 3/10 completed.
+INFO: Training run took 0:05:00 (h:mm:ss)
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 6).
+INFO: Training for epoch_year done.
+INFO: Training took 0:03:31 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6149835926749233 (run: 4/10).
+INFO: Testing took 0:03:32 (h:mm:ss) 
+
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:01 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6444444444444444 (run: 4/10).
+INFO: Testing took 0:02:02 (h:mm:ss) 
+
+INFO: Training for run 4/10 completed.
+INFO: Training run took 0:02:02 (h:mm:ss)
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:02:01 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.7118779753230351 (run: 5/10).
+INFO: Testing took 0:02:02 (h:mm:ss) 
+
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 5).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:03:01 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6393565109552585 (run: 5/10).
+INFO: Testing took 0:03:02 (h:mm:ss) 
+
+INFO: Training for run 5/10 completed.
+INFO: Training run took 0:03:02 (h:mm:ss)
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+
+======== Epoch 8 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.01
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 1.53
+  Validation took: 0:00:01
+
+======== Epoch 9 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 1.65
+  Validation took: 0:00:01
+
+======== Epoch 10 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 1.66
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.03
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.43
+  Validation Loss: 0.92
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.74
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.47
+  Validation Loss: 0.98
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.53
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 0.73
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.25
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 1.00
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.14
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.99
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.09
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 1.32
+  Validation took: 0:00:01
+
+======== Epoch 7 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.01
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 1.46
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.00
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.30
+  Validation Loss: 1.03
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.70
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.44
+  Validation Loss: 0.99
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.41
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.44
+  Validation Loss: 1.25
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.27
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.49
+  Validation Loss: 1.40
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.09
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.48
+  Validation Loss: 0.98
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.81
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.55
+  Validation Loss: 0.83
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.53
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.59
+  Validation Loss: 0.94
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.34
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 1.05
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.06
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.46
+  Validation Loss: 0.89
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.78
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 0.68
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.55
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 1.12
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.34
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.63
+  Validation Loss: 0.69
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.19
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.90
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.07
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 1.00
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.12
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.31
+  Validation Loss: 1.08
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.03
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.39
+  Validation Loss: 1.00
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.82
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.53
+  Validation Loss: 0.90
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.66
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 0.85
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.43
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.83
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.32
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 0.90
+  Validation took: 0:00:01
+
+======== Epoch 7 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.21
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.67INFO: Stopping epoch run early (Epoch 6).
+INFO: Training for epoch_year done.
+INFO: Training took 0:03:27 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.7317003199823459 (run: 6/10).
+INFO: Testing took 0:03:28 (h:mm:ss) 
+
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 4).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:30 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7390876308046281 (run: 6/10).
+INFO: Testing took 0:02:31 (h:mm:ss) 
+
+INFO: Training for run 6/10 completed.
+INFO: Training run took 0:02:31 (h:mm:ss)
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 5).
+INFO: Training for epoch_year done.
+INFO: Training took 0:03:00 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6817496229260936 (run: 7/10).
+INFO: Testing took 0:03:01 (h:mm:ss) 
+
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:01:58 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7594780806048412 (run: 7/10).
+INFO: Testing took 0:01:59 (h:mm:ss) 
+
+INFO: Training for run 7/10 completed.
+INFO: Training run took 0:01:59 (h:mm:ss)
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 4).
+INFO: Training for epoch_year done.
+INFO: Training took 0:02:28 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6361685823754789 (run: 8/10).
+INFO: Testing took 0:02:29 (h:mm:ss) 
+
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 4).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:28 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6299956082564778 (run: 8/10).
+INFO: Testing took 0:02:29 (h:mm:ss) 
+
+INFO: Training for run 8/10 completed.
+INFO: Training run took 0:02:29 (h:mm:ss)
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_year done.
+INFO: Training took 0:01:59 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.7007924802863155 (run: 9/10).
+INFO: Testing took 0:02:00 (h:mm:ss) 
+
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+
+  Validation Loss: 0.93
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.03
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.54
+  Validation Loss: 0.84
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.74
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.51
+  Validation Loss: 0.86
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.49
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 0.67
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.28
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 0.88
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.12
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.59
+  Validation Loss: 0.96
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.07
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.48
+  Validation Loss: 0.99
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.80
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.52
+  Validation Loss: 0.83
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.52
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.50
+  Validation Loss: 1.04
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.33
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 0.98
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.16
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 1.48
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.04
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.46
+  Validation Loss: 1.79
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:16.
+
+  Average training loss: 0.99
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.45
+  Validation Loss: 0.87
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.67
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.50
+  Validation Loss: 0.87
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.43
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.48
+  Validation Loss: 1.11
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.27
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.55
+  Validation Loss: 1.18
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:16.
+
+  Average training loss: 1.08
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 0.91
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.75
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.73
+  Validation Loss: 0.67
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.47
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.61
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.24
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 0.83
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.10
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 1.24
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.05
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.47
+  Validation Loss: 0.94
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.79
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 0.83
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.50
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.66
+  Validation Loss: 0.59
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.26
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.69
+  Validation Loss: 0.59
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.12
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.58
+  Validation Loss: 1.16
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.06
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.37
+  Validation Loss: 0.98
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.76
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.55
+  Validation Loss: 0.70
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.44
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.75
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.25
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 0.89
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:16.
+
+  Average training loss: 1.02
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.40
+  Validation Loss: 0.97
+  Validation took: 0:00:01INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:01:58 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.5784340187466261 (run: 9/10).
+INFO: Testing took 0:01:59 (h:mm:ss) 
+
+INFO: Training for run 9/10 completed.
+INFO: Training run took 0:01:59 (h:mm:ss)
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 5).
+INFO: Training for epoch_year done.
+INFO: Training took 0:02:58 (h:mm:ss) 
+
+INFO: Testing for epoch_year done.
+INFO: CV Test F1-Score: 0.6226379440665154 (run: 10/10).
+INFO: Testing took 0:02:59 (h:mm:ss) 
+
+INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-vocab.txt from cache at /home/paulus/.cache/torch/transformers/31cabea4c0b209d88980a7ce42042f9b2814074a57b22656b68f82598787f1df.bac90776f6fa34759f05c7387e9124c4d626300e981b5786b82f674e08f99d72
+INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-cased-config.json from cache at /home/paulus/.cache/torch/transformers/0dfefbc876c3d95e5e69d083ef59737a83cdca73434cef0b055c065217c5c132.20a95e3fb07c002de6bb9b1aeb3b00e9cb3ce70a1ed7c27f66f41ecb3e607ad1
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 31102
+}
+
+INFO: loading weights file https://cdn.huggingface.co/bert-base-german-dbmdz-cased-pytorch_model.bin from cache at /home/paulus/.cache/torch/transformers/cfd096fadf5d8e41a15715893a5085ca5af611a3cb6521b696c4b680077e1da9.9e54461b318575a272338a079389939660145c8a016316a649b1e9226d670962
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+INFO: Stopping epoch run early (Epoch 5).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:57 (h:mm:ss) 
+
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6377610693400166 (run: 10/10).
+INFO: Testing took 0:02:58 (h:mm:ss) 
+
+INFO: Training for run 10/10 completed.
+INFO: Training run took 0:02:58 (h:mm:ss)
+INFO: Writing results to '../results/bert/'.
+INFO: Total duration: 55.06666666666667 minute(s).
+
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.78
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 0.65
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.43
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 0.69
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.19
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.76
+  Validation Loss: 0.77
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.11
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.21
+  Validation Loss: 1.10
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.01
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.32
+  Validation Loss: 0.98
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.71
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.46
+  Validation Loss: 1.03
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.50
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.50
+  Validation Loss: 0.97
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.31
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.48
+  Validation Loss: 1.10
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.17
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.50
+  Validation Loss: 1.21
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 1.09
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.27
+  Validation Loss: 1.04
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.94
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.37
+  Validation Loss: 0.92
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.73
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.44
+  Validation Loss: 0.91
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.60
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.50
+  Validation Loss: 0.85
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.39
+  Training epoch took: 0:00:28
+
+Now Validating.
+  Validation Accuracy: 0.47
+  Validation Loss: 1.01
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of     86.    Elapsed: 0:00:17.
+
+  Average training loss: 0.23
+  Training epoch took: 0:00:29
+
+Now Validating.
+  Validation Accuracy: 0.52
+  Validation Loss: 1.32
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
