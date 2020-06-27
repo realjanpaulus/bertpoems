@@ -66,7 +66,7 @@ if __name__ == "__main__":
 	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
 	parser.add_argument("--domain_adaption", "-da", action="store_true", help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.")
 	parser.add_argument("--domain_adaption_alternative_path", "-daap", action="store_true", help="Uses an alternative path if an pytorch model loading error occurs (e.g. git lfs is not installed).")
-	parser.add_argument("--model", "-m", type=str, default="german", help="Indicates the BERT model name. Default is 'german' (short for: bert-base-german-dbmdz-cased). Another option is 'rede' (short for: bert-base-historical-german-rw-cased).")
+	parser.add_argument("--model", "-m", type=str, default="rede", help="Indicates the BERT model name. Default is 'rede' (short for: bert-base-historical-german-rw-cased). Another option is 'deutsch' (short for: bert-base-german-dbmdz-cased).")
 	parser.add_argument("--save_confusion_matrices", "-scm", action="store_true", help="Indicates if confusion matrices should be saved." )
 	parser.add_argument("--save_date", "-sd", action="store_true", help="Indicates if the creation date of the results should be saved.")
 	parser.add_argument("--save_misclassification", "-sm", action="store_true", help="Indicates if pids of missclassifications should be saved.")

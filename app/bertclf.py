@@ -8,6 +8,7 @@ from keras.preprocessing.sequence import pad_sequences
 import json
 import logging
 import numpy as np
+import os
 import pandas as pd
 
 from sklearn.metrics import confusion_matrix, f1_score 
@@ -104,6 +105,8 @@ def main():
 	# =======================
 
 	if torch.cuda.is_available(): 
+		os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID";
+		os.environ["CUDA_VISIBLE_DEVICES"]="1"; 
 		device = torch.device("cuda")  
 		print('There are %d GPU(s) available.' % torch.cuda.device_count())
 		print('Used GPU:', torch.cuda.get_device_name(0))
