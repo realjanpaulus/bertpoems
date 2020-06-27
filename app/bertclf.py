@@ -105,8 +105,6 @@ def main():
 	# =======================
 
 	if torch.cuda.is_available(): 
-		os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID";
-		os.environ["CUDA_VISIBLE_DEVICES"]="2"; 
 		device = torch.device("cuda")  
 		logging.info(f'There are {torch.cuda.device_count()} GPU(s) available.')
 		logging.info(f'Used GPU: {torch.cuda.get_device_name(0)}')
