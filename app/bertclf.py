@@ -3,7 +3,7 @@
 # https://colab.research.google.com/drive/1pTuQhug6Dhl9XalKB0zUGf4FIdYFlpcX#scrollTo=6O_NbXFGMukX
 import os
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"]="2"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 import argparse
 from collections import Counter, defaultdict
@@ -21,6 +21,7 @@ from sklearn.preprocessing import LabelEncoder
 
 import tensorflow as tf
 import torch
+torch.cuda.empty_cache()
 from torch.utils.data import TensorDataset, random_split, DataLoader, RandomSampler, SequentialSampler
 from transformers import BertTokenizer, BertForSequenceClassification, AdamW, BertConfig, get_linear_schedule_with_warmup
 
@@ -471,8 +472,6 @@ def main():
 
 	if args.save_misclassification:
 		mis_output_path = f'{result_path}/misclassifications/pid_{output_name}'
-		if args.save_date:
-			mis_output_path += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
 		with open(f'{mis_output_path}.json', 'w') as f:
 			json.dump(false_clf_dict, f)
 
