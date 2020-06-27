@@ -130,15 +130,18 @@ def main():
 
 
 		#TODO
-		# for class_name in [class_name2]:
-		for class_name in [class_name1, class_name2]:
+		for class_name in [class_name2]:
+		#for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
 			input_ids = []
 			attention_masks = []
 
 			texts = train_data[text_name].values
-			labels = LabelEncoder().fit_transform(train_data[class_name].values)
+			encoder = LabelEncoder()
+			labels = encoder.fit_transform(train_data[class_name].values)
+
+			encoder_mapping = dict(zip(encoder.transform(encoder.classes_), encoder.classes_))
 
 			# ==============
 			# tokenization #
