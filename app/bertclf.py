@@ -106,10 +106,10 @@ def main():
 
 	if torch.cuda.is_available(): 
 		os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID";
-		os.environ["CUDA_VISIBLE_DEVICES"]="1"; 
+		os.environ["CUDA_VISIBLE_DEVICES"]="2"; 
 		device = torch.device("cuda")  
-		logging.info('There are %d GPU(s) available.' % torch.cuda.device_count())
-		logging.info('Used GPU:', torch.cuda.get_device_name(0))
+		logging.info(f'There are {torch.cuda.device_count()} GPU(s) available.')
+		logging.info(f'Used GPU: {torch.cuda.get_device_name(0)}')
 	else:
 		logging.info('No GPU available, using the CPU instead.')
 		device = torch.device("cpu")
