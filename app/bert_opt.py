@@ -53,8 +53,6 @@ def main():
 		if args.save_misclassification:
 			command += " -sm"
 
-		#TODO
-		command += " -e 1 -cv 2"
 		
 		subprocess.call(["bash", "-c", command])
 		print("\n")

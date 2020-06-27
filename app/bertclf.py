@@ -97,7 +97,7 @@ def main():
 	class_name2 = "epoch_poet"
 	text_name = "poem"
 
-	false_clf_dict = {class_name1: {}, class_name2: {}} #TODO
+	false_clf_dict = {class_name1: {}, class_name2: {}}
 
 	# ================
 	# classification # 
@@ -399,7 +399,7 @@ def main():
 				
 				for idx, (t, p) in enumerate(zip(flat_true_labels, flat_predictions)):
 					if t != p:
-						false_classifications[encoder_mapping[t]][encoder_mapping[p]].append(test_pid[idx])
+						false_classifications[encoder_mapping[t]][encoder_mapping[p]].append(int(test_pid[idx]))
 
 				false_clf_dict[class_name][i] = false_classifications
 			
