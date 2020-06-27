@@ -1287,3 +1287,1552 @@ INFO: Model config BertConfig {
 INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
 INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
 INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO: Stopping epoch run early (Epoch 5).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:03:42 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7372028255777495 (run: 2/10).
+INFO: Testing took 0:03:43 (h:mm:ss) 
+
+INFO: Training for run 2/10 completed.
+INFO: Training run took 0:03:43 (h:mm:ss)
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:26 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6907738095238095 (run: 3/10).
+INFO: Testing took 0:02:27 (h:mm:ss) 
+
+INFO: Training for run 3/10 completed.
+INFO: Training run took 0:02:27 (h:mm:ss)
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO: Stopping epoch run early (Epoch 5).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:03:37 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7303030303030303 (run: 4/10).
+INFO: Testing took 0:03:38 (h:mm:ss) 
+
+INFO: Training for run 4/10 completed.
+INFO: Training run took 0:03:38 (h:mm:ss)
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:20.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.92
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.58
+  Validation Loss: 0.73
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:11.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:32.
+
+  Average training loss: 0.47
+  Training epoch took: 0:00:37
+
+Now Validating.
+  Validation Accuracy: 0.54
+  Validation Loss: 0.91
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:11.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:32.
+
+  Average training loss: 0.19
+  Training epoch took: 0:00:37
+
+Now Validating.
+  Validation Accuracy: 0.56
+  Validation Loss: 1.37
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:11.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:32.
+
+  Average training loss: 0.05
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 1.59
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:11.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:32.
+
+  Average training loss: 0.87
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.52
+  Validation Loss: 0.79
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:32.
+
+  Average training loss: 0.53
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.54
+  Validation Loss: 1.01
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:11.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.29
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.59
+  Validation Loss: 1.73
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.08
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.67
+  Validation Loss: 1.35
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.01
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.63
+  Validation Loss: 1.54
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.01
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 1.69
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:20.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.87
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.58
+  Validation Loss: 0.77
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.44
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.74
+  Validation Loss: 0.56
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.17
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 1.35
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.03
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 1.59
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:20.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.92
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 0.58
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:20.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.52
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.67
+  Validation Loss: 0.70
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.25
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 1.27
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.07
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.75
+  Validation Loss: 0.95
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:20.
+Batch   150  of    171.    Elapsed: 0:00:30.
+
+  Average training loss: 0.01
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.72
+  Validation Loss: 1.22
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:20.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 1.32
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.90
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.54
+  Validation Loss: 0.76
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:20.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.47
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 0.83
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.18INFO: Stopping epoch run early (Epoch 5).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:03:40 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6951030057413036 (run: 5/10).
+INFO: Testing took 0:03:41 (h:mm:ss) 
+
+INFO: Training for run 5/10 completed.
+INFO: Training run took 0:03:41 (h:mm:ss)
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:29 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.8184204671857619 (run: 6/10).
+INFO: Testing took 0:02:30 (h:mm:ss) 
+
+INFO: Training for run 6/10 completed.
+INFO: Training run took 0:02:30 (h:mm:ss)
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:33 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7497300944669366 (run: 7/10).
+INFO: Testing took 0:02:34 (h:mm:ss) 
+
+INFO: Training for run 7/10 completed.
+INFO: Training run took 0:02:34 (h:mm:ss)
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:30 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.74375 (run: 8/10).
+INFO: Testing took 0:02:32 (h:mm:ss) 
+
+INFO: Training for run 8/10 completed.
+INFO: Training run took 0:02:32 (h:mm:ss)
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 1.57
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.03
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 1.49
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 1.70
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:20.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 1.93
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.90
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.55
+  Validation Loss: 0.74
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:11.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:32.
+
+  Average training loss: 0.47
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 0.62
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:10.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:31.
+
+  Average training loss: 0.23
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.67
+  Validation Loss: 1.00
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    171.    Elapsed: 0:00:11.
+Batch   100  of    171.    Elapsed: 0:00:21.
+Batch   150  of    171.    Elapsed: 0:00:32.
+
+  Average training loss: 0.06
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.68
+  Validation Loss: 1.30
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:10.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.93
+  Training epoch took: 0:00:37
+
+Now Validating.
+  Validation Accuracy: 0.61
+  Validation Loss: 0.74
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:10.
+Batch   100  of    172.    Elapsed: 0:00:22.
+Batch   150  of    172.    Elapsed: 0:00:33.
+
+  Average training loss: 0.54
+  Training epoch took: 0:00:38
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 0.80
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.19
+  Training epoch took: 0:00:37
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 1.40
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.05
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 1.41
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.86
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.54
+  Validation Loss: 0.84
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:10.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:31.
+
+  Average training loss: 0.46
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.62
+  Validation Loss: 0.82
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.17
+  Training epoch took: 0:00:37
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 1.55
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.04
+  Training epoch took: 0:00:37
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 1.56
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:10.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:31.
+
+  Average training loss: 0.85
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.49
+  Validation Loss: 1.04
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.49
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.73
+  Validation Loss: 0.65
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.16
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.60
+  Validation Loss: 1.46
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:31.
+
+  Average training loss: 0.05
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.69
+  Validation Loss: 1.28
+  Validation took: 0:00:01
+
+======== Epoch 5 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:10.
+Batch   100  of    172.    Elapsed: 0:00:20.
+Batch   150  of    172.    Elapsed: 0:00:31.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:35
+
+Now Validating.
+  Validation Accuracy: 0.71
+  Validation Loss: 1.36
+  Validation took: 0:00:01
+
+======== Epoch 6 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:31.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.69
+  Validation Loss: 1.36
+  Validation took: 0:00:01
+
+======== Epoch 7 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:10.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:31.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.70
+  Validation Loss: 1.41
+  Validation took: 0:00:01
+
+======== Epoch 8 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.INFO: Stopping epoch run early (Epoch 7).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:04:57 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.6493053075928175 (run: 9/10).
+INFO: Testing took 0:04:58 (h:mm:ss) 
+
+INFO: Training for run 9/10 completed.
+INFO: Training run took 0:04:58 (h:mm:ss)
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO: Stopping epoch run early (Epoch 3).
+INFO: Training for epoch_poet done.
+INFO: Training took 0:02:30 (h:mm:ss) 
+
+INFO: Saving misclassifications.
+INFO: Saving confusion matrices.
+INFO: Testing for epoch_poet done.
+INFO: CV Test F1-Score: 0.7113889399603686 (run: 10/10).
+INFO: Testing took 0:02:32 (h:mm:ss) 
+
+INFO: Training for run 10/10 completed.
+INFO: Training run took 0:02:32 (h:mm:ss)
+INFO: Writing results to '../results/bert/'.
+INFO: Total duration: 31.7 minute(s).
+
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.00
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.69
+  Validation Loss: 1.43
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+
+======== Epoch 1 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:10.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.91
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.58
+  Validation Loss: 0.67
+  Validation took: 0:00:01
+
+======== Epoch 2 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.47
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.57
+  Validation Loss: 0.76
+  Validation took: 0:00:01
+
+======== Epoch 3 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.17
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.65
+  Validation Loss: 1.41
+  Validation took: 0:00:01
+
+======== Epoch 4 / 10 ========
+Now Training.
+Batch    50  of    172.    Elapsed: 0:00:11.
+Batch   100  of    172.    Elapsed: 0:00:21.
+Batch   150  of    172.    Elapsed: 0:00:32.
+
+  Average training loss: 0.09
+  Training epoch took: 0:00:36
+
+Now Validating.
+  Validation Accuracy: 0.64
+  Validation Loss: 1.58
+  Validation took: 0:00:01
+--------------------------------
+
+--------------------------------
+
+________________________________
+________________________________
+
+INFO: Argument combination 3/6.
+INFO: Batch size: 4.
+INFO: Learning rate: 2e-05.
+Using TensorFlow backend.
+INFO: There are 1 GPU(s) available.
+INFO: Used GPU: GeForce RTX 2080 Ti
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/tokenization_utils.py:884: FutureWarning: Parameter max_len is deprecated and will be removed in a future release. Use model_max_length instead.
+  warnings.warn(
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+
+======== Epoch 1 / 10 ========
+Now Training.
+Traceback (most recent call last):
+  File "bertclf.py", line 503, in <module>
+    main()
+  File "bertclf.py", line 234, in main
+    loss, logits = model(b_input_ids, 
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 1260, in forward
+    outputs = self.bert(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 743, in forward
+    encoder_outputs = self.encoder(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 412, in forward
+    layer_outputs = layer_module(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 367, in forward
+    self_attention_outputs = self.attention(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 311, in forward
+    self_outputs = self.self(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 236, in forward
+    attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
+RuntimeError: CUDA out of memory. Tried to allocate 48.00 MiB (GPU 0; 10.73 GiB total capacity; 972.24 MiB already allocated; 45.69 MiB free; 1.00 GiB reserved in total by PyTorch)
+INFO: Argument combination 4/6.
+INFO: Batch size: 8.
+INFO: Learning rate: 4e-05.
+Using TensorFlow backend.
+INFO: There are 1 GPU(s) available.
+INFO: Used GPU: GeForce RTX 2080 Ti
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/tokenization_utils.py:884: FutureWarning: Parameter max_len is deprecated and will be removed in a future release. Use model_max_length instead.
+  warnings.warn(
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+
+======== Epoch 1 / 10 ========
+Now Training.
+Traceback (most recent call last):
+  File "bertclf.py", line 503, in <module>
+    main()
+  File "bertclf.py", line 234, in main
+    loss, logits = model(b_input_ids, 
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 1260, in forward
+    outputs = self.bert(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 743, in forward
+    encoder_outputs = self.encoder(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 412, in forward
+    layer_outputs = layer_module(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 367, in forward
+    self_attention_outputs = self.attention(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 311, in forward
+    self_outputs = self.self(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 236, in forward
+    attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
+RuntimeError: CUDA out of memory. Tried to allocate 96.00 MiB (GPU 0; 10.73 GiB total capacity; 1013.86 MiB already allocated; 13.69 MiB free; 1.03 GiB reserved in total by PyTorch)
+INFO: Argument combination 5/6.
+INFO: Batch size: 8.
+INFO: Learning rate: 3e-05.
+Using TensorFlow backend.
+INFO: There are 1 GPU(s) available.
+INFO: Used GPU: GeForce RTX 2080 Ti
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/tokenization_utils.py:884: FutureWarning: Parameter max_len is deprecated and will be removed in a future release. Use model_max_length instead.
+  warnings.warn(
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+
+======== Epoch 1 / 10 ========
+Now Training.
+Traceback (most recent call last):
+  File "bertclf.py", line 503, in <module>
+    main()
+  File "bertclf.py", line 234, in main
+    loss, logits = model(b_input_ids, 
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 1260, in forward
+    outputs = self.bert(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 743, in forward
+    encoder_outputs = self.encoder(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 412, in forward
+    layer_outputs = layer_module(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 367, in forward
+    self_attention_outputs = self.attention(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 311, in forward
+    self_outputs = self.self(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 236, in forward
+    attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
+RuntimeError: CUDA out of memory. Tried to allocate 96.00 MiB (GPU 0; 10.73 GiB total capacity; 1013.86 MiB already allocated; 13.69 MiB free; 1.03 GiB reserved in total by PyTorch)
+INFO: Argument combination 6/6.
+INFO: Batch size: 8.
+INFO: Learning rate: 2e-05.
+Using TensorFlow backend.
+INFO: There are 1 GPU(s) available.
+INFO: Used GPU: GeForce RTX 2080 Ti
+INFO: Model name '../corpora/domain-adaption/redewiedergabe-alternative/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '../corpora/domain-adaption/redewiedergabe-alternative/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO: Didn't find file ../corpora/domain-adaption/redewiedergabe-alternative/added_tokens.json. We won't load it.
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/vocab.txt
+INFO: loading file None
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/special_tokens_map.json
+INFO: loading file ../corpora/domain-adaption/redewiedergabe-alternative/tokenizer_config.json
+/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/tokenization_utils.py:884: FutureWarning: Parameter max_len is deprecated and will be removed in a future release. Use model_max_length instead.
+  warnings.warn(
+INFO: loading configuration file ../corpora/domain-adaption/redewiedergabe-alternative/config.json
+INFO: Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO: loading weights file ../corpora/domain-adaption/redewiedergabe-alternative/pytorch_model.bin
+INFO: Weights of BertForSequenceClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+INFO: Weights from pretrained model not used in BertForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+
+======== Epoch 1 / 10 ========
+Now Training.
+Traceback (most recent call last):
+  File "bertclf.py", line 503, in <module>
+    main()
+  File "bertclf.py", line 234, in main
+    loss, logits = model(b_input_ids, 
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 1260, in forward
+    outputs = self.bert(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 743, in forward
+    encoder_outputs = self.encoder(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 412, in forward
+    layer_outputs = layer_module(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 367, in forward
+    self_attention_outputs = self.attention(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 311, in forward
+    self_outputs = self.self(
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/paulus/.conda/envs/bertpoems/lib/python3.8/site-packages/transformers/modeling_bert.py", line 236, in forward
+    attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
+RuntimeError: CUDA out of memory. Tried to allocate 96.00 MiB (GPU 0; 10.73 GiB total capacity; 1013.86 MiB already allocated; 13.69 MiB free; 1.03 GiB reserved in total by PyTorch)
+INFO: Overall run-time: 59.61666666666667 minute(s).
+--------------------------------------------
+--------------------------------------------
+
+
+--------------------------------------------
+--------------------------------------------
+
+
+--------------------------------------------
+--------------------------------------------
+
+
+--------------------------------------------
+--------------------------------------------
+
+
+--------------------------------------------
+--------------------------------------------
+
+
+--------------------------------------------
+--------------------------------------------
+
+
