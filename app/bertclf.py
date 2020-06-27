@@ -390,6 +390,7 @@ def main():
 
 
 			if args.save_misclassification:
+				logging.info("Saving misclassifications.")
 				test_pid = test_data["pid"].values
 				false_classifications = {"Jahrhundertwende": {"Naturalismus": [], "Expressionismus": []},
 										 "Naturalismus": {"Jahrhundertwende": [], "Expressionismus": []},
@@ -398,7 +399,7 @@ def main():
 				
 				for idx, (t, p) in enumerate(zip(flat_true_labels, flat_predictions)):
 					if t != p:
-						false_classifications[t][p].append(test_pid[idx])
+						false_classifications[encoder_mapping[t]][encoder_mapping[p]].append(test_pid[idx])
 
 				false_clf_dict[class_name][i] = false_classifications
 			
@@ -407,6 +408,7 @@ def main():
 
 
 			if args.save_confusion_matrices:
+				logging.info("Saving confusion matrices.")
 				cm = confusion_matrix(flat_true_labels, flat_predictions)
 				cm_df = pd.DataFrame(cm, index=classes, columns=classes)
 
