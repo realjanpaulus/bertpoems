@@ -86,7 +86,7 @@ def main():
 	lsvm_pipe = Pipeline(steps=[("vect", vectorizer),
 								("clf", LinearSVC())])
 	
-	lsvm_parameters = {"vect__ngram_range": [(1,1), (1,2), (2,2)],
+	lsvm_parameters = {"vect__ngram_range": [(1,1)], #TODO, (1,2), (2,2)],
 					   "clf__penalty": ["l2"],
 					   "clf__loss": ["squared_hinge"],
 					   "clf__tol": [1e-5, 1e-3],
@@ -111,13 +111,14 @@ def main():
 							  n_jobs=args.n_jobs,
 							  scoring="f1_macro")
 
-	lsvm_grid2.fit(features, class2)
+	#lsvm_grid2.fit(features, class2)
 	
 
 	lsvm_cv_scores2 = cross_validate(lsvm_grid2, 
 									  features, 
 									  class2, 
 									  cv=cv, 
+							  		  n_jobs=args.n_jobs,
 									  return_estimator=False,
 									  scoring="f1_macro")
 
@@ -129,7 +130,7 @@ def main():
 								   n_jobs=args.n_jobs)
 	
 	
-
+	"""
 	test_pid = corpus["pid"].values
 	false_classifications = {"Jahrhundertwende": {"Naturalismus": [], "Expressionismus": []},
 							 "Naturalismus": {"Jahrhundertwende": [], "Expressionismus": []},
@@ -141,7 +142,7 @@ def main():
 
 	with open(f'../results/ml/misclassifications/pid_lsvm.json', 'w+') as f:
 		json.dump(false_classifications, f)
-
+	"""
 
 	#todo: weg
 	class2_unique = class2.drop_duplicates().tolist()
@@ -149,7 +150,7 @@ def main():
 	lclass2 = class2
 
 
-	conf_mat2 = confusion_matrix(lclass2, lsvm_cv_scores2)
+	conf_mat2 = confusion_matrix(lclass2, lsvm_preds)
 	cm_df2 = pd.DataFrame(conf_mat2, index=class2_unique, columns=class2_unique)
 
 	
