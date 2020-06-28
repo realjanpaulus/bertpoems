@@ -132,9 +132,8 @@ def main():
 			logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 
 
-		#TODO
-		for class_name in [class_name2]:
-		#for class_name in [class_name1, class_name2]:
+		
+		for class_name in [class_name1, class_name2]:
 
 			# tmp lists and result dicts #
 			input_ids = []
