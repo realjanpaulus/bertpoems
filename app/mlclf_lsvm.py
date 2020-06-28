@@ -60,6 +60,8 @@ def main():
 		corpus = pd.read_csv("../corpora/german_modern_poems_epochpoet.csv")
 	elif args.corpus_name == "year":
 		corpus = pd.read_csv("../corpora/german_modern_poems_epochyear.csv")
+	elif args.corpus_name == "poeta":
+		corpus = pd.read_csv("../corpora/german_modern_poems_epochpoet_alternative.csv")
 	else:
 		logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 	
@@ -111,6 +113,15 @@ def main():
 
 	lsvm_grid2.fit(features, class2)
 	
+
+	lsvm_cv_scores2 = cross_validate(lsvm_grid2, 
+									  features, 
+									  class2, 
+									  cv=cv, 
+									  return_estimator=False,
+									  scoring="f1_macro")
+
+
 	lsvm_preds = cross_val_predict(lsvm_grid2, 
 								   features, 
 								   class2, 
@@ -132,9 +143,28 @@ def main():
 		json.dump(false_classifications, f)
 
 
+	cv_dict["LSVM"] = {"poet": np.mean(lsvm_cv_scores2["test_score"])}
+
 	lsvm_duration = float(time.time() - lsvm_st)
 	clf_durations["LSVM"].append(lsvm_duration)
 	logging.info(f"Run-time LSVM: {lsvm_duration} seconds")
+
+	# ===========================================
+	# Saving classification results & durations #
+	# ===========================================
+
+	
+	cv_df = pd.DataFrame(cv_dict)
+	cv_name = f"mlcv_{args.corpus_name}"
+	if args.save_date:
+		cv_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
+	cv_df.to_csv(f"../results/{cv_name}.csv")
+
+	durations_df = pd.DataFrame(clf_durations.items(), columns=["clf", "durations"])
+	durations_name = f"mldurations_{args.corpus_name}"
+	if args.save_date:
+		durations_name += f"({datetime.now():%d.%m.%y}_{datetime.now():%H:%M})"
+	durations_df.to_csv(f"../results/{durations_name}.csv")
 	
 
 	program_duration = float(time.time() - program_st)
@@ -143,7 +173,7 @@ def main():
 if __name__ == "__main__":
 	
 	parser = argparse.ArgumentParser(prog="mlclf_lsvm", description="Classification of LSVM.")
-	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
+	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Other possible values are 'poet' or 'poeta'.")
 	parser.add_argument("--lowercase", "-l", type=bool, default=False, help="Indicates if words should be lowercased.")
 	parser.add_argument("--max_features", "-mf", type=int, default=60000, help="Indicates the number of most frequent words.")
 	parser.add_argument("--n_jobs", "-nj", type=int, default=1, help="Indicates the number of processors used for computation.")
