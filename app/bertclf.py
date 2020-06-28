@@ -126,8 +126,8 @@ def main():
 			train_data = utils.load_train("../corpora/train_epochyear", cv, i, "epochyear")
 			test_data = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
 		elif args.corpus_name == "poeta":
-			train_data = utils.load_train("../corpora/train_epochpoetalternative", cv, i, "epochpoet")
-			test_data = pd.read_csv(f"../corpora/train_epochpoetalternative/epochpoet{i}.csv")
+			train_data = utils.load_train("../corpora/train_epochpoetalternative", cv, i, "epochpoetalternative")
+			test_data = pd.read_csv(f"../corpora/train_epochpoetalternative/epochpoetalternative{i}.csv")
 		else:
 			logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 
