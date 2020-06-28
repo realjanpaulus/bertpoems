@@ -125,6 +125,9 @@ def main():
 		elif args.corpus_name == "year":
 			train_data = utils.load_train("../corpora/train_epochyear", cv, i, "epochyear")
 			test_data = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
+		elif args.corpus_name == "poeta":
+			train_data = utils.load_train("../corpora/train_epochpoetalternative", cv, i, "epochpoet")
+			test_data = pd.read_csv(f"../corpora/train_epochpoetalternative/epochpoet{i}.csv")
 		else:
 			logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 
@@ -485,7 +488,7 @@ if __name__ == "__main__":
 	
 	parser = argparse.ArgumentParser(prog="bertclf", description="Bert classifier.")
 	parser.add_argument("--batch_size", "-bs", type=int, default=8, help="Indicates batch size.")
-	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.")
+	parser.add_argument("--corpus_name", "-cn", type=str, default="year", help="Indicates the corpus. Default is 'year'. Other possible values are 'poet' or 'poeta'.")
 	parser.add_argument("--cross_validation", "-cv", type=int, default=10, help="Indicates the number of cross validations.")
 	parser.add_argument("--domain_adaption", "-da", action="store_true", help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.")
 	parser.add_argument("--domain_adaption_alternative_path", "-daap", action="store_true", help="Uses an alternative path if an pytorch model loading error occurs (e.g. git lfs is not installed).")
