@@ -143,6 +143,23 @@ def main():
 		json.dump(false_classifications, f)
 
 
+	#todo: weg
+	class2_unique = class2.drop_duplicates().tolist()
+
+	lclass2 = class2
+
+
+	conf_mat2 = confusion_matrix(lclass2, lsvm_cv_scores2)
+	cm_df2 = pd.DataFrame(conf_mat2, index=class2_unique, columns=class2_unique)
+
+	
+	if args.save_date:
+		output_path2 = f"../results/lsvm_cm_epa_{args.corpus_name}({datetime.now():%d.%m.%y}_{datetime.now():%H:%M}).csv"
+	else:
+		output_path2 = f"../results/lsvm_cm_epa_{args.corpus_name}.csv"
+	cm_df2.to_csv(output_path2)
+
+
 	cv_dict["LSVM"] = {"poet": np.mean(lsvm_cv_scores2["test_score"])}
 
 	lsvm_duration = float(time.time() - lsvm_st)
