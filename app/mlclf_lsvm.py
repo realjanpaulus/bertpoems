@@ -86,7 +86,7 @@ def main():
 	lsvm_pipe = Pipeline(steps=[("vect", vectorizer),
 								("clf", LinearSVC())])
 	
-	lsvm_parameters = {"vect__ngram_range": [(1,1)], #TODO, (1,2), (2,2)],
+	lsvm_parameters = {"vect__ngram_range": [(1,1)], 
 					   "clf__penalty": ["l2"],
 					   "clf__loss": ["squared_hinge"],
 					   "clf__tol": [1e-5, 1e-3],
