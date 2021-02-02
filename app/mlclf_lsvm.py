@@ -33,7 +33,7 @@ def main():
 	# =======================
 
 	n_jobs = args.n_jobs
-	cv = 10
+	cv = 3
 	cv_dict = {}
 	vectorizer = TfidfVectorizer(lowercase=args.lowercase,
 								 max_features=args.max_features,
@@ -43,7 +43,7 @@ def main():
 	# ================================
 	# classification logging handler #
 	# ================================
-	logging_filename = f"../logs/mlclf_lsvm_{args.corpus_name}.log"
+	logging_filename = f"../logs/lsvm.log"
 	logging.basicConfig(level=logging.DEBUG, filename=logging_filename, filemode="w")
 	console = logging.StreamHandler()
 	console.setLevel(logging.INFO)
