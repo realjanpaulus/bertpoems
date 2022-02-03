@@ -5,7 +5,7 @@ In a series of experiments it was to be examined whether literary epochs were re
 - SVM
 - Logistic Regression
 
-In addition, experiments with **BERT** were extended with a *domain adaptation*. The detailed analyses of the text classification techniques as well as a comparison of these methods were carried out in a seminar paper (access only on request).
+In addition, experiments with **BERT** were extended with a *domain adaption*. The detailed analyses of the text classification techniques as well as a comparison of these methods were carried out in a seminar paper (access only on request).
 
 ## project structure
 
