@@ -129,7 +129,6 @@ dmypy.json
 .pyre/
 
 # my stuff
-TODOS.md
 app/old/
 corpora/old/
 corpora/domain-adaption/old/

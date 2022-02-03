@@ -147,7 +147,6 @@ def main():
 		json.dump(false_classifications, f)
 	"""
 
-    # todo: weg
     class2_unique = class2.drop_duplicates().tolist()
 
     lclass2 = class2
