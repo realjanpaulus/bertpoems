@@ -41,7 +41,9 @@ def main():
             else:
                 command = f"python bertclf.py -cn {args.corpus_name} -m {args.model} -da -bs {t[0]} -lr {t[1]}"
         else:
-            command = f"python bertclf.py -cn {args.corpus_name} -m {args.model} -bs {t[0]} -lr {t[1]}"
+            command = (
+                f"python bertclf.py -cn {args.corpus_name} -m {args.model} -bs {t[0]} -lr {t[1]}"
+            )
 
         if args.save_date:
             command += " -sd"

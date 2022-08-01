@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "bertpoems"
+version = "0.1.0"
+description = "BERT on german poems."
+authors = ["Jan Paulus <janpaulus95@web.de>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+keras = "^2.9.0"
+torch = "^1.12.0"
+pandas = "^1.4.3"
+tokenizers = "0.11.6"
+transformers = "4.19"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+isort = "^5.10.1"
+
+[tool.black]
+line-length = 99
+
+[tool.isort]
+include_trailing_comma = true
+line_length = 99
+multi_line_output = 3
+use_parentheses = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

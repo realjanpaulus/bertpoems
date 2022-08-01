@@ -127,16 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# my stuff
-app/old/
-corpora/old/
-corpora/domain-adaption/old/
-paper_hausarbeiten/
-resources/old/
-results/old/
-results/bert/old2/
-results/detailed_results/old/
-results/short_results/old/
-utils/
-utils/old/

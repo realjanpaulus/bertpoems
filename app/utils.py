@@ -12,11 +12,8 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics import f1_score
 from sklearn.metrics.pairwise import cosine_similarity
 
-# ===========
-# clf utils #
-# ===========
 
-
+# clf utils
 def early_stopping(d, patience=2):
     """Implements Early stopping."""
     if len(d) <= 1:
@@ -61,13 +58,14 @@ def load_train(path, cv, i, string):
         return pd.concat(dfs, axis=0, ignore_index=True)
 
 
-# ========
-# others #
-# ========
+# others
 
 
 def df_to_latex(df, alignment="c"):
     """Convert a pandas dataframe to a LaTeX tabular.
+
+    Notes
+    -----
     Prints labels in bold, does not use math mode.
     Adapted from: https://techoverflow.net/2013/12/08/converting-a-pandas-dataframe-to-a-customized-latex-tabular/.
     """
@@ -85,8 +83,7 @@ def df_to_latex(df, alignment="c"):
     # Write data lines
     for i in range(numRows):
         output.write(
-            "\\textbf{%s} & %s\\\\\n"
-            % (df.index[i], " & ".join([str(val) for val in df.iloc[i]]))
+            "\\textbf{%s} & %s\\\\\n" % (df.index[i], " & ".join([str(val) for val in df.iloc[i]]))
         )
 
     # Write footer

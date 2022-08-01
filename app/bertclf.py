@@ -9,43 +9,48 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 import argparse
 import json
 import logging
+import random
+import sys
+import time
 from collections import Counter, defaultdict
 from datetime import datetime
 
 import numpy as np
 import pandas as pd
-import tensorflow as tf
 import torch
+import utils
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.metrics import confusion_matrix, f1_score
-from sklearn.model_selection import (StratifiedKFold, cross_val_score,
-                                     cross_validate, train_test_split)
+from sklearn.model_selection import (
+    StratifiedKFold,
+    cross_val_score,
+    cross_validate,
+    train_test_split,
+)
 from sklearn.preprocessing import LabelEncoder
+from torch.utils.data import (
+    DataLoader,
+    RandomSampler,
+    SequentialSampler,
+    TensorDataset,
+    random_split,
+)
+from transformers import (
+    AdamW,
+    BertConfig,
+    BertForSequenceClassification,
+    BertTokenizer,
+    get_linear_schedule_with_warmup,
+)
 
 torch.cuda.empty_cache()
-import random
-import sys
-import time
-
-from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler,
-                              TensorDataset, random_split)
-from transformers import (AdamW, BertConfig, BertForSequenceClassification,
-                          BertTokenizer, get_linear_schedule_with_warmup)
-
-import utils
 
 
 def main():
-
-    # ================
-    # time managment #
-    # ================
-
+    # time managment
     program_st = time.time()
 
-    # =====================================
-    # bert classification logging handler #
-    # =====================================
+    # bert classification logging handler
     logging_filename = f"../logs/bertclf_{args.corpus_name}.log"
     logging.basicConfig(level=logging.INFO, filename=logging_filename, filemode="w")
     console = logging.StreamHandler()
@@ -54,10 +59,7 @@ def main():
     console.setFormatter(formatter)
     logging.getLogger("").addHandler(console)
 
-    # =======================
-    # predefined parameters #
-    # =======================
-
+    # predefined parameters
     cv = args.cross_validation
     num_labels = 3
 
@@ -99,14 +101,9 @@ def main():
 
     false_clf_dict = {class_name1: {}, class_name2: {}}
 
-    # ================
-    # classification #
-    # ================
+    # classification
 
-    # =======================
-    # use GPU, if available #
-    # =======================
-
+    # use GPU, if available
     if torch.cuda.is_available():
         device = torch.device("cuda")
         logging.info(f"There are {torch.cuda.device_count()} GPU(s) available.")
@@ -117,14 +114,10 @@ def main():
 
     for i in range(1, cv + 1):
         if args.corpus_name == "poet":
-            train_data = utils.load_train(
-                "../corpora/train_epochpoet", cv, i, "epochpoet"
-            )
+            train_data = utils.load_train("../corpora/train_epochpoet", cv, i, "epochpoet")
             test_data = pd.read_csv(f"../corpora/train_epochpoet/epochpoet{i}.csv")
         elif args.corpus_name == "year":
-            train_data = utils.load_train(
-                "../corpora/train_epochyear", cv, i, "epochyear"
-            )
+            train_data = utils.load_train("../corpora/train_epochyear", cv, i, "epochyear")
             test_data = pd.read_csv(f"../corpora/train_epochyear/epochyear{i}.csv")
         elif args.corpus_name == "poeta":
             train_data = utils.load_train(
@@ -134,9 +127,7 @@ def main():
                 f"../corpora/train_epochpoetalternative/epochpoetalternative{i}.csv"
             )
         else:
-            logging.warning(
-                f"Couldn't find a corpus with the name '{args.corpus_name}'."
-            )
+            logging.warning(f"Couldn't find a corpus with the name '{args.corpus_name}'.")
 
         for class_name in [class_name1, class_name2]:
 
@@ -148,14 +139,9 @@ def main():
             encoder = LabelEncoder()
             labels = encoder.fit_transform(train_data[class_name].values)
 
-            encoder_mapping = dict(
-                zip(encoder.transform(encoder.classes_), encoder.classes_)
-            )
+            encoder_mapping = dict(zip(encoder.transform(encoder.classes_), encoder.classes_))
 
-            # ==============
-            # tokenization #
-            # ==============
-
+            # tokenization
             tokenizer = BertTokenizer.from_pretrained(model_name, do_lower_case=False)
 
             for sent in texts:
@@ -175,10 +161,7 @@ def main():
             attention_masks = torch.cat(attention_masks, dim=0)
             labels = torch.tensor(labels)
 
-            # =================
-            # train val split #
-            # =================
-
+            # train val split
             dataset = TensorDataset(input_ids, attention_masks, labels)
 
             train_size = int(0.9 * len(dataset))
@@ -186,10 +169,7 @@ def main():
 
             train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 
-            # ============
-            # DataLoader #
-            # ============
-
+            # DataLoader
             train_dataloader = DataLoader(
                 train_dataset,
                 sampler=RandomSampler(train_dataset),
@@ -202,9 +182,7 @@ def main():
                 batch_size=batch_size,
             )
 
-            # ======== #
-            # Training #
-            # ======== #
+            # Training
             model = BertForSequenceClassification.from_pretrained(
                 model_name,
                 num_labels=num_labels,
@@ -268,10 +246,7 @@ def main():
                 print("  Average training loss: {0:.2f}".format(avg_train_loss))
                 print("  Training epoch took: {:}".format(training_time))
 
-                # ========== #
-                # Validation #
-                # ========== #
-
+                # Validation
                 print("")
                 print("Now Validating.")
 
@@ -329,26 +304,18 @@ def main():
                 current_epoch = f"epoch{epoch_i + 1}"
                 validation_losses[current_epoch] = avg_val_loss
 
-                # ================
-                # Early Stopping #
-                # ================
-
+                # Early Stopping
                 if utils.early_stopping(validation_losses, patience=2):
                     logging.info(f"Stopping epoch run early (Epoch {epoch_i}).")
                     break
 
             logging.info(f"Training for {class_name} done.")
             logging.info(
-                "Training took {:} (h:mm:ss) \n".format(
-                    utils.format_time(time.time() - total_t0)
-                )
+                "Training took {:} (h:mm:ss) \n".format(utils.format_time(time.time() - total_t0))
             )
             print("--------------------------------\n")
 
-            # =========
-            # Testing #
-            # =========
-
+            # Testing
             test_input_ids = []
             test_attention_masks = []
 
@@ -373,9 +340,7 @@ def main():
             test_attention_masks = torch.cat(test_attention_masks, dim=0)
             labels = torch.tensor(y_test)
 
-            prediction_data = TensorDataset(
-                test_input_ids, test_attention_masks, labels
-            )
+            prediction_data = TensorDataset(test_input_ids, test_attention_masks, labels)
             prediction_sampler = SequentialSampler(prediction_data)
             prediction_dataloader = DataLoader(
                 prediction_data, sampler=prediction_sampler, batch_size=batch_size
@@ -393,9 +358,7 @@ def main():
                 b_input_ids, b_input_mask, b_labels = batch
 
                 with torch.no_grad():
-                    outputs = model(
-                        b_input_ids, token_type_ids=None, attention_mask=b_input_mask
-                    )
+                    outputs = model(b_input_ids, token_type_ids=None, attention_mask=b_input_mask)
 
                 logits = outputs[0]
 
@@ -422,9 +385,9 @@ def main():
 
                 for idx, (t, p) in enumerate(zip(flat_true_labels, flat_predictions)):
                     if t != p:
-                        false_classifications[encoder_mapping[t]][
-                            encoder_mapping[p]
-                        ].append(int(test_pid[idx]))
+                        false_classifications[encoder_mapping[t]][encoder_mapping[p]].append(
+                            int(test_pid[idx])
+                        )
 
                 false_clf_dict[class_name][i] = false_classifications
 
@@ -459,25 +422,18 @@ def main():
             logging.info(f"Testing for {class_name} done.")
             logging.info(f"CV Test F1-Score: {test_score} (run: {i}/{cv}).")
             logging.info(
-                "Testing took {:} (h:mm:ss) \n".format(
-                    utils.format_time(time.time() - total_t0)
-                )
+                "Testing took {:} (h:mm:ss) \n".format(utils.format_time(time.time() - total_t0))
             )
             print("--------------------------------\n")
 
         logging.info(f"Training for run {i}/{cv} completed.")
         logging.info(
-            "Training run took {:} (h:mm:ss)".format(
-                utils.format_time(time.time() - total_t0)
-            )
+            "Training run took {:} (h:mm:ss)".format(utils.format_time(time.time() - total_t0))
         )
         print("________________________________")
         print("________________________________\n")
 
-    # ================
-    # saving results #
-    # ================
-
+    # saving results
     result_path = "../results/bert/"
     logging.info(f"Writing results to '{result_path}'.")
 
@@ -508,85 +464,93 @@ def main():
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(prog="bertclf", description="Bert classifier.")
-    parser.add_argument(
-        "--batch_size", "-bs", type=int, default=8, help="Indicates batch size."
-    )
+    parser.add_argument("--batch_size", "-bs", type=int, default=8, help="Indicates batch size.")
     parser.add_argument(
         "--corpus_name",
         "-cn",
         type=str,
+        choices=["year", "poet", "poeta"],
         default="year",
-        help="Indicates the corpus. Default is 'year'. Other possible values are 'poet' or 'poeta'.",
+        help="Indicates the corpus (default %(default)s).",
     )
     parser.add_argument(
         "--cross_validation",
         "-cv",
         type=int,
         default=10,
-        help="Indicates the number of cross validations.",
+        help="Indicates the number of cross validations (default %(default)s).",
     )
     parser.add_argument(
         "--domain_adaption",
         "-da",
         action="store_true",
-        help="Indicates if a domain-adapted model should be used. '--domain_adapted_path' must be specified.",
+        help="Indicates if a domain-adapted model should be used. To use this, "
+        "`--domain_adapted_path` must be specified (default %(default)s).",
     )
     parser.add_argument(
         "--domain_adaption_alternative_path",
         "-daap",
         action="store_true",
-        help="Uses an alternative path if an pytorch model loading error occurs (e.g. git lfs is not installed).",
+        help="Uses an alternative path if an pytorch model loading error occurs "
+        "(e.g. git lfs is not installed) (default %(default)s).",
     )
     parser.add_argument(
-        "--epochs", "-e", type=int, default=10, help="Indicates number of epochs."
+        "--epochs",
+        "-e",
+        type=int,
+        default=10,
+        help="Indicates number of epochs (default %(default)s).",
     )
     parser.add_argument(
         "--learning_rate",
         "-lr",
         type=float,
         default=2e-5,
-        help="Set learning rate for optimizer.",
+        help="Set learning rate for optimizer (default %(default)s).",
     )
     parser.add_argument(
         "--max_length",
         "-ml",
         type=int,
         default=510,
-        help="Indicates the maximum document length.",
+        help="Indicates the maximum document length (default %(default)s).",
     )
     parser.add_argument(
         "--model",
         "-m",
         type=str,
+        choices=["german", "rede"],
         default="german",
-        help="Indicates the BERT model name. Default is 'german' (short for: bert-base-german-dbmdz-cased). Another option is 'rede' (short for: bert-base-historical-german-rw-cased).",
+        help="Indicates the BERT model name. Choices are 'german' "
+        "(short for: bert-base-german-dbmdz-cased) or 'rede' "
+        "(short for: bert-base-historical-german-rw-cased) (default %(default)s).",
     )
     parser.add_argument(
         "--patience",
         "-p",
         type=int,
         default=3,
-        help="Indicates patience for early stopping.",
+        help="Indicates patience for early stopping (default %(default)s).",
     )
     parser.add_argument(
         "--save_confusion_matrices",
         "-scm",
         action="store_true",
-        help="Indicates if confusion matrices should be saved.",
+        help="Indicates if confusion matrices should be saved (default %(default)s).",
     )
     parser.add_argument(
         "--save_date",
         "-sd",
         action="store_true",
-        help="Indicates if the creation date of the results should be saved.",
+        help="Indicates if the creation date of the results should be saved "
+        "(default %(default)s).",
     )
     parser.add_argument(
         "--save_misclassification",
         "-sm",
         action="store_true",
-        help="Indicates if pids of missclassifications should be saved.",
+        help="Indicates if pids of missclassifications should be saved (default %(default)s).",
     )
 
     args = parser.parse_args()

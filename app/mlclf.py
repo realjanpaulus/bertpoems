@@ -25,18 +25,11 @@ from sklearn.svm import LinearSVC
 
 
 def main():
-
-    # ================
-    # time managment #
-    # ================
-
+    # time managment
     program_st = time.time()
     clf_durations = defaultdict(list)
 
-    # =======================
-    # predefined parameters #
-    # =======================
-
+    # predefined parameters
     n_jobs = args.n_jobs
     cv = 10
     cv_dict = {}
@@ -44,9 +37,7 @@ def main():
         lowercase=args.lowercase, max_features=args.max_features, stop_words=None
     )
 
-    # ================================
-    # classification logging handler #
-    # ================================
+    # classification logging handler
     logging_filename = f"../logs/mlclf_{args.corpus_name}.log"
     logging.basicConfig(level=logging.DEBUG, filename=logging_filename, filemode="w")
     console = logging.StreamHandler()
@@ -55,10 +46,7 @@ def main():
     console.setFormatter(formatter)
     logging.getLogger("").addHandler(console)
 
-    # =================
-    # corpus loading  #
-    # =================
-
+    # corpus loading
     if args.corpus_name == "poet":
         corpus = pd.read_csv("../corpora/german_modern_poems_epochpoet.csv")
     elif args.corpus_name == "year":
@@ -78,14 +66,9 @@ def main():
         f"Read {args.corpus_name} corpus ({int((time.time() - program_st)/60)} minute(s))."
     )
 
-    # ================
-    # classification #
-    # ================
+    # classification
 
-    # ============
-    # Linear SVM #
-    # ============
-
+    # Linear SVM
     lsvm_st = time.time()
     lsvm_pipe = Pipeline(steps=[("vect", vectorizer), ("clf", LinearSVC())])
 
@@ -142,10 +125,7 @@ def main():
     clf_durations["LSVM"].append(lsvm_duration)
     logging.info(f"Run-time LSVM: {lsvm_duration} seconds")
 
-    # =====================
-    # Logistic Regression #
-    # =====================
-
+    # Logistic Regression
     lr_st = time.time()
 
     lr_pipe = Pipeline(steps=[("vect", vectorizer), ("clf", LogisticRegression())])
@@ -214,10 +194,7 @@ def main():
     clf_durations["LR"].append(lr_duration)
     logging.info(f"Run-time LR: {lr_duration} seconds")
 
-    # ===========================================
-    # Saving classification results & durations #
-    # ===========================================
-
+    # Saving classification results & durations
     cv_df = pd.DataFrame(cv_dict)
     cv_name = f"mlcv_{args.corpus_name}"
     if args.save_date:
@@ -235,7 +212,6 @@ def main():
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(
         prog="mlclf", description="Comparison of LSVM and LR classification."
     )
@@ -243,35 +219,36 @@ if __name__ == "__main__":
         "--corpus_name",
         "-cn",
         type=str,
+        choices=["poet", "year"],
         default="year",
-        help="Indicates the corpus. Default is 'year'. Another possible value is 'poet'.",
+        help="Indicates the corpus (default %(default)s).",
     )
     parser.add_argument(
         "--lowercase",
         "-l",
         type=bool,
         default=False,
-        help="Indicates if words should be lowercased.",
+        help="Indicates if words should be lowercased (default %(default)s).",
     )
     parser.add_argument(
         "--max_features",
         "-mf",
         type=int,
         default=60000,
-        help="Indicates the number of most frequent words.",
+        help="Indicates the number of most frequent words (default %(default)s).",
     )
     parser.add_argument(
         "--n_jobs",
         "-nj",
         type=int,
         default=1,
-        help="Indicates the number of processors used for computation.",
+        help="Indicates the number of processors used for computation (default %(default)s).",
     )
     parser.add_argument(
         "--save_date",
         "-sd",
         action="store_true",
-        help="Indicates if the creation date of the results should be saved.",
+        help="Indicates if the creation date of the results should be saved (default %(default)s).",
     )
 
     args = parser.parse_args()
